@@ -1,0 +1,61 @@
+\doxysection{com.\+example.\+JO2024.\+Service.\+Refresh\+Token\+Service\+Test Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1RefreshTokenServiceTest}{}\label{classcom_1_1example_1_1JO2024_1_1Service_1_1RefreshTokenServiceTest}\index{com.example.JO2024.Service.RefreshTokenServiceTest@{com.example.JO2024.Service.RefreshTokenServiceTest}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1RefreshTokenServiceTest_a17f3989a7dd17303d880758b6eae97fa}{test\+\_\+refresh\+Token\+Service\+\_\+get\+\_\+refresh\+\_\+token\+\_\+by\+\_\+customer\+\_\+id}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1RefreshTokenServiceTest_aee654524a4ce14151460f031161ffc5b}{test\+\_\+refresh\+\_\+token\+\_\+service\+\_\+get\+\_\+refresh\+\_\+token\+\_\+by\+\_\+id}} ()  throws Exception 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1RefreshTokenServiceTest_aee654524a4ce14151460f031161ffc5b}\index{com.example.JO2024.Service.RefreshTokenServiceTest@{com.example.JO2024.Service.RefreshTokenServiceTest}!test\_refresh\_token\_service\_get\_refresh\_token\_by\_id@{test\_refresh\_token\_service\_get\_refresh\_token\_by\_id}}
+\index{test\_refresh\_token\_service\_get\_refresh\_token\_by\_id@{test\_refresh\_token\_service\_get\_refresh\_token\_by\_id}!com.example.JO2024.Service.RefreshTokenServiceTest@{com.example.JO2024.Service.RefreshTokenServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_refresh\_token\_service\_get\_refresh\_token\_by\_id()}{test\_refresh\_token\_service\_get\_refresh\_token\_by\_id()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1RefreshTokenServiceTest_aee654524a4ce14151460f031161ffc5b} 
+void com.\+example.\+JO2024.\+Service.\+Refresh\+Token\+Service\+Test.\+test\+\_\+refresh\+\_\+token\+\_\+service\+\_\+get\+\_\+refresh\+\_\+token\+\_\+by\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test method to verify the functionality of getting a refresh token by its id in Refresh\+Token\+Service.
+
+Steps\+:
+\begin{DoxyEnumerate}
+\item Retrieve a customer by email address "{}lisadoe@test.\+test"{}.
+\item Create a new Refresh\+Token object and set its customer, expiration time, and token.
+\item Add the created Refresh\+Token to the database using refresh\+Token\+Service.
+\item Retrieve the refresh token by its id using refresh\+Token\+Service.
+\item Assert that the retrieved refresh token\textquotesingle{}s id matches the original refresh token\textquotesingle{}s id.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if an error occurs during the test execution \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1RefreshTokenServiceTest_a17f3989a7dd17303d880758b6eae97fa}\index{com.example.JO2024.Service.RefreshTokenServiceTest@{com.example.JO2024.Service.RefreshTokenServiceTest}!test\_refreshTokenService\_get\_refresh\_token\_by\_customer\_id@{test\_refreshTokenService\_get\_refresh\_token\_by\_customer\_id}}
+\index{test\_refreshTokenService\_get\_refresh\_token\_by\_customer\_id@{test\_refreshTokenService\_get\_refresh\_token\_by\_customer\_id}!com.example.JO2024.Service.RefreshTokenServiceTest@{com.example.JO2024.Service.RefreshTokenServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_refreshTokenService\_get\_refresh\_token\_by\_customer\_id()}{test\_refreshTokenService\_get\_refresh\_token\_by\_customer\_id()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1RefreshTokenServiceTest_a17f3989a7dd17303d880758b6eae97fa} 
+void com.\+example.\+JO2024.\+Service.\+Refresh\+Token\+Service\+Test.\+test\+\_\+refresh\+Token\+Service\+\_\+get\+\_\+refresh\+\_\+token\+\_\+by\+\_\+customer\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test method to verify the functionality of getting a refresh token by customer id in Refresh\+Token\+Service.
+
+Steps\+:
+\begin{DoxyEnumerate}
+\item Retrieve a customer by email address "{}johndoe@test.\+test"{}.
+\item Create a new Refresh\+Token object and set its customer, expiration time, and token.
+\item Add the created Refresh\+Token to the database using refresh\+Token\+Service.
+\item Retrieve the refresh token by customer id using refresh\+Token\+Service.
+\item Assert that the retrieved refresh token\textquotesingle{}s id matches the original refresh token\textquotesingle{}s id.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if an error occurs during the test execution \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/test/java/com/example/\+JO2024/\+Service/Refresh\+Token\+Service\+Test.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\doxysection{com.\+example.\+JO2024.\+controllers.\+Code\+Controller Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController}{}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController}\index{com.example.JO2024.controllers.CodeController@{com.example.JO2024.controllers.CodeController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController_aa250c56bdf476686239f4143b0adbebb}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController_aa250c56bdf476686239f4143b0adbebb} 
+{\bfseries Code\+Controller} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService}{Code\+Service}} code\+Service, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService}{Customer\+Service}} customer\+Service, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService}{Email\+Sender\+Service}} email\+Sender\+Service, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService}{Auth\+Service}} auth\+Service)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController_af021c8784551743a34871cfbd62ab649}{validate\+Email}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ValidateCodeDTO}{Validate\+Code\+DTO}} validate\+Code\+DTO, Http\+Servlet\+Request request, Http\+Servlet\+Response response)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController_ae0aa8e8a59aa564504bfdf95d4d9bf9a}{claim\+New\+Code}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ClaimCodeDTO}{Claim\+Code\+DTO}} claim\+Code\+DTO)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for handle the endpoint API related to de the validation code.
+
+\begin{DoxyAuthor}{Author}
+Adrien Podsiadly 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController_ae0aa8e8a59aa564504bfdf95d4d9bf9a}\index{com.example.JO2024.controllers.CodeController@{com.example.JO2024.controllers.CodeController}!claimNewCode@{claimNewCode}}
+\index{claimNewCode@{claimNewCode}!com.example.JO2024.controllers.CodeController@{com.example.JO2024.controllers.CodeController}}
+\doxysubsubsection{\texorpdfstring{claimNewCode()}{claimNewCode()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController_ae0aa8e8a59aa564504bfdf95d4d9bf9a} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Code\+Controller.\+claim\+New\+Code (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ClaimCodeDTO}{Claim\+Code\+DTO}}}]{claim\+Code\+DTO}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Claims a new code for the given customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em claim\+Code\+DTO} & The Claim\+Code\+DTO object containing the email of the customer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with HTTP status OK if the code is claimed successfully. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Username\+Not\+Found\+Exception} & If the customer with the given email is not found. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController_af021c8784551743a34871cfbd62ab649}\index{com.example.JO2024.controllers.CodeController@{com.example.JO2024.controllers.CodeController}!validateEmail@{validateEmail}}
+\index{validateEmail@{validateEmail}!com.example.JO2024.controllers.CodeController@{com.example.JO2024.controllers.CodeController}}
+\doxysubsubsection{\texorpdfstring{validateEmail()}{validateEmail()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1CodeController_af021c8784551743a34871cfbd62ab649} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Code\+Controller.\+validate\+Email (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ValidateCodeDTO}{Validate\+Code\+DTO}}}]{validate\+Code\+DTO}{, }\item[{Http\+Servlet\+Request}]{request}{, }\item[{Http\+Servlet\+Response}]{response}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the validation send by the user and check his validity. If the code is valid change the state of the user to verified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em validate\+Code\+DTO} & Data Transfer Object that represant a code validation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity return HTTP statut OK if the code is valid else HTTP status UNAUTHORIZED. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/controllers/Code\+Controller.\+java\end{DoxyCompactItemize}

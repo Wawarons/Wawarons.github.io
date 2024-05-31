@@ -1,0 +1,100 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Cart\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CartService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1CartService}\index{com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a5c34a7327016c9370733ed0eec1542b4}{create\+New\+Cart}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}} cart)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a281e4e848a09af9f80a474448973e7c0}{delete\+Cart}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}} cart)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_ad396aa36b41953ddffd09755578176c8}{get\+Cart\+By\+Id}} (long id)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a408bac45a643021e3fe4624cc2067899}{get\+Cart\+By\+Customer\+Id}} (long id)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a07567e3b7c27642f198140968938a285}{create\+Cart\+For\+Customer}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_af843a648477ca7c7f895d7574bd8b1eb}\label{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_af843a648477ca7c7f895d7574bd8b1eb} 
+\mbox{\hyperlink{interfacecom_1_1example_1_1JO2024_1_1repositories_1_1CartRepository}{Cart\+Repository}} {\bfseries cart\+Repository}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a07567e3b7c27642f198140968938a285}\index{com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}!createCartForCustomer@{createCartForCustomer}}
+\index{createCartForCustomer@{createCartForCustomer}!com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}}
+\doxysubsubsection{\texorpdfstring{createCartForCustomer()}{createCartForCustomer()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a07567e3b7c27642f198140968938a285} 
+void com.\+example.\+JO2024.\+services.\+Cart\+Service.\+create\+Cart\+For\+Customer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new cart for the specified customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & the customer for whom the cart is created \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a5c34a7327016c9370733ed0eec1542b4}\index{com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}!createNewCart@{createNewCart}}
+\index{createNewCart@{createNewCart}!com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}}
+\doxysubsubsection{\texorpdfstring{createNewCart()}{createNewCart()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a5c34a7327016c9370733ed0eec1542b4} 
+void com.\+example.\+JO2024.\+services.\+Cart\+Service.\+create\+New\+Cart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}}}]{cart}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves the specified cart to the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cart} & the cart to be saved \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a281e4e848a09af9f80a474448973e7c0}\index{com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}!deleteCart@{deleteCart}}
+\index{deleteCart@{deleteCart}!com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}}
+\doxysubsubsection{\texorpdfstring{deleteCart()}{deleteCart()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a281e4e848a09af9f80a474448973e7c0} 
+void com.\+example.\+JO2024.\+services.\+Cart\+Service.\+delete\+Cart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}}}]{cart}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deletes the specified cart.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cart} & the cart to be deleted \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a408bac45a643021e3fe4624cc2067899}\index{com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}!getCartByCustomerId@{getCartByCustomerId}}
+\index{getCartByCustomerId@{getCartByCustomerId}!com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}}
+\doxysubsubsection{\texorpdfstring{getCartByCustomerId()}{getCartByCustomerId()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_a408bac45a643021e3fe4624cc2067899} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}} $>$ com.\+example.\+JO2024.\+services.\+Cart\+Service.\+get\+Cart\+By\+Customer\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a cart by the customer ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the customer ID to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Optional containing the cart associated with the given customer ID, or empty if not found 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_ad396aa36b41953ddffd09755578176c8}\index{com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}!getCartById@{getCartById}}
+\index{getCartById@{getCartById}!com.example.JO2024.services.CartService@{com.example.JO2024.services.CartService}}
+\doxysubsubsection{\texorpdfstring{getCartById()}{getCartById()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CartService_ad396aa36b41953ddffd09755578176c8} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}} $>$ com.\+example.\+JO2024.\+services.\+Cart\+Service.\+get\+Cart\+By\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a cart by the ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the cart to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Optional containing the cart with the given ID, or empty if not found 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Cart\+Service.\+java\end{DoxyCompactItemize}

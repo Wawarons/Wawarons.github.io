@@ -1,0 +1,63 @@
+\doxysection{com.\+example.\+JO2024.\+Service.\+Cart\+Service\+Test Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest}{}\label{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest}\index{com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a242bf4ef5e7224e0d9d4a36b30246e1a}{test\+\_\+valid\+\_\+cart\+\_\+saved\+\_\+successfully}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a91e99e8a4151086a37ff0808bea87ac1}{test\+\_\+deletes\+\_\+existing\+\_\+cart}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a59899981c100a8503c2efc51617685f8}{returns\+\_\+non\+\_\+empty\+\_\+optional\+\_\+for\+\_\+existing\+\_\+id}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a8c76bf3ce4bbdae98b8448bc436856f3}{returns\+\_\+non\+\_\+empty\+\_\+optional\+\_\+for\+\_\+existing\+\_\+customer}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a11310a8ad256cd28d6a7e232090a508d}{create\+\_\+cart\+\_\+for\+\_\+existing\+\_\+customer}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a11310a8ad256cd28d6a7e232090a508d}\index{com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}!create\_cart\_for\_existing\_customer@{create\_cart\_for\_existing\_customer}}
+\index{create\_cart\_for\_existing\_customer@{create\_cart\_for\_existing\_customer}!com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}}
+\doxysubsubsection{\texorpdfstring{create\_cart\_for\_existing\_customer()}{create\_cart\_for\_existing\_customer()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a11310a8ad256cd28d6a7e232090a508d} 
+void com.\+example.\+JO2024.\+Service.\+Cart\+Service\+Test.\+create\+\_\+cart\+\_\+for\+\_\+existing\+\_\+customer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that a new cart is created successfully for an existing customer.
+
+This test method creates a new Customer object with ID 1 and a Cart\+Service instance. It then creates a mock Cart\+Repository and sets it to the Cart\+Service. The create\+Cart\+For\+Customer method of the Cart\+Service is called with the created Customer object. Finally, it verifies that the save method of the mock Cart\+Repository is called with any Cart object. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a8c76bf3ce4bbdae98b8448bc436856f3}\index{com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}!returns\_non\_empty\_optional\_for\_existing\_customer@{returns\_non\_empty\_optional\_for\_existing\_customer}}
+\index{returns\_non\_empty\_optional\_for\_existing\_customer@{returns\_non\_empty\_optional\_for\_existing\_customer}!com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}}
+\doxysubsubsection{\texorpdfstring{returns\_non\_empty\_optional\_for\_existing\_customer()}{returns\_non\_empty\_optional\_for\_existing\_customer()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a8c76bf3ce4bbdae98b8448bc436856f3} 
+void com.\+example.\+JO2024.\+Service.\+Cart\+Service\+Test.\+returns\+\_\+non\+\_\+empty\+\_\+optional\+\_\+for\+\_\+existing\+\_\+customer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that a non-\/empty Optional is returned when a Cart exists for the given customer ID.
+
+This test method creates a mock Cart\+Repository and a Cart\+Service. It sets the mock Cart\+Repository to the Cart\+Service using Reflection\+Test\+Utils. Then, it creates a new Cart object and sets its ID. The mock Cart\+Repository is configured to return an Optional containing the expected Cart when find\+By\+Customer\+Id is called with the specified customer ID. The get\+Cart\+By\+Customer\+Id method of the Cart\+Service is then called with the same customer ID. Finally, it asserts that the returned Optional is present and contains the expected Cart. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a59899981c100a8503c2efc51617685f8}\index{com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}!returns\_non\_empty\_optional\_for\_existing\_id@{returns\_non\_empty\_optional\_for\_existing\_id}}
+\index{returns\_non\_empty\_optional\_for\_existing\_id@{returns\_non\_empty\_optional\_for\_existing\_id}!com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}}
+\doxysubsubsection{\texorpdfstring{returns\_non\_empty\_optional\_for\_existing\_id()}{returns\_non\_empty\_optional\_for\_existing\_id()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a59899981c100a8503c2efc51617685f8} 
+void com.\+example.\+JO2024.\+Service.\+Cart\+Service\+Test.\+returns\+\_\+non\+\_\+empty\+\_\+optional\+\_\+for\+\_\+existing\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that a non-\/empty Optional is returned when a Cart exists for the given ID.
+
+This test method creates a mock Cart\+Repository and a Cart\+Service. It sets the mock Cart\+Repository to the Cart\+Service using Reflection\+Test\+Utils. Then, it creates a new Cart object and sets its ID. The mock Cart\+Repository is configured to return an Optional containing the expected Cart when find\+By\+Id is called with the specified ID. The get\+Cart\+By\+Id method of the Cart\+Service is then called with the same ID. Finally, it asserts that the returned Optional is present and contains the expected Cart. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a91e99e8a4151086a37ff0808bea87ac1}\index{com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}!test\_deletes\_existing\_cart@{test\_deletes\_existing\_cart}}
+\index{test\_deletes\_existing\_cart@{test\_deletes\_existing\_cart}!com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_deletes\_existing\_cart()}{test\_deletes\_existing\_cart()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a91e99e8a4151086a37ff0808bea87ac1} 
+void com.\+example.\+JO2024.\+Service.\+Cart\+Service\+Test.\+test\+\_\+deletes\+\_\+existing\+\_\+cart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that an existing cart is deleted successfully.
+
+This test method creates a new Cart object and sets its ID to 1L. It then creates a mock Cart\+Repository and a Cart\+Service. The mock Cart\+Repository is set to the Cart\+Service using Reflection\+Test\+Utils. The delete\+Cart method of the Cart\+Service is called with the created Cart object. Finally, it verifies that the delete method of the mock Cart\+Repository is called with the created Cart object. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a242bf4ef5e7224e0d9d4a36b30246e1a}\index{com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}!test\_valid\_cart\_saved\_successfully@{test\_valid\_cart\_saved\_successfully}}
+\index{test\_valid\_cart\_saved\_successfully@{test\_valid\_cart\_saved\_successfully}!com.example.JO2024.Service.CartServiceTest@{com.example.JO2024.Service.CartServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_valid\_cart\_saved\_successfully()}{test\_valid\_cart\_saved\_successfully()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1CartServiceTest_a242bf4ef5e7224e0d9d4a36b30246e1a} 
+void com.\+example.\+JO2024.\+Service.\+Cart\+Service\+Test.\+test\+\_\+valid\+\_\+cart\+\_\+saved\+\_\+successfully (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that a valid cart is saved successfully.
+
+This test method creates a mock Cart\+Repository and a Cart\+Service. It sets the mock Cart\+Repository to the Cart\+Service using Reflection\+Test\+Utils. Then, it creates a new Cart object and calls the create\+New\+Cart method of the Cart\+Service with this Cart object. Finally, it verifies that the save method of the mock Cart\+Repository is called with the created Cart object. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/test/java/com/example/\+JO2024/\+Service/Cart\+Service\+Test.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,33 @@
+\doxysection{com.\+example.\+JO2024.\+Jwt\+Authentication\+Filter\+Test Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1JwtAuthenticationFilterTest}{}\label{classcom_1_1example_1_1JO2024_1_1JwtAuthenticationFilterTest}\index{com.example.JO2024.JwtAuthenticationFilterTest@{com.example.JO2024.JwtAuthenticationFilterTest}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1JwtAuthenticationFilterTest_aad3594b4420d1c485d99feee52c15ed7}\label{classcom_1_1example_1_1JO2024_1_1JwtAuthenticationFilterTest_aad3594b4420d1c485d99feee52c15ed7} 
+void {\bfseries setup} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1JwtAuthenticationFilterTest_a0669fb384f86f8a22dad712b457ca9de}{test\+\_\+valid\+\_\+refresh\+\_\+token\+\_\+generates\+\_\+new\+\_\+jwt}} ()  throws IOException 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1JwtAuthenticationFilterTest_a0669fb384f86f8a22dad712b457ca9de}\index{com.example.JO2024.JwtAuthenticationFilterTest@{com.example.JO2024.JwtAuthenticationFilterTest}!test\_valid\_refresh\_token\_generates\_new\_jwt@{test\_valid\_refresh\_token\_generates\_new\_jwt}}
+\index{test\_valid\_refresh\_token\_generates\_new\_jwt@{test\_valid\_refresh\_token\_generates\_new\_jwt}!com.example.JO2024.JwtAuthenticationFilterTest@{com.example.JO2024.JwtAuthenticationFilterTest}}
+\doxysubsubsection{\texorpdfstring{test\_valid\_refresh\_token\_generates\_new\_jwt()}{test\_valid\_refresh\_token\_generates\_new\_jwt()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1JwtAuthenticationFilterTest_a0669fb384f86f8a22dad712b457ca9de} 
+void com.\+example.\+JO2024.\+Jwt\+Authentication\+Filter\+Test.\+test\+\_\+valid\+\_\+refresh\+\_\+token\+\_\+generates\+\_\+new\+\_\+jwt (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws IOException\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test case to verify that a valid refresh token generates a new JWT token.
+
+This method sets up the necessary mocks and data to simulate a valid refresh token scenario. It mocks the necessary dependencies such as Claims, Http\+Servlet\+Response, User\+Details, and Refresh\+Token. The method then verifies that a new JWT token is generated when a valid refresh token is provided. It uses Reflection\+Test\+Utils to inject the necessary mocks into the Jwt\+Authentication\+Filter. Finally, it asserts that the generated cookie contains the expected token name and value.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & if an I/O error occurs during the test \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/test/java/com/example/\+JO2024/Jwt\+Authentication\+Filter\+Test.\+java\end{DoxyCompactItemize}

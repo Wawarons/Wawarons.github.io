@@ -1,0 +1,212 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ac3c8c6a9be77cd80713f920f973399cc}{create}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} bundle\+Cart)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a1833adbb9e0842922b5e377c26fddc41}{get\+Bundle\+Cart\+By\+Id}} (long id)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a5b1eff410a6b8f7034c33537c1021d51}{delete}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} bundle\+Cart)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ab3788673138f59bcf3ab2bd04181e567}{get\+Bundles\+By\+Cart\+Id}} (long id)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_afd14f6ba63bcfafa6ab2bb1bb310ef83}{get\+Bundles\+By\+Created\+At\+Desc}} ()
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a3ad3bc46e689e1aa10795e9d8396d2bf}{get\+Bundles\+By\+Created\+At\+Asc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a6045a95c1cd40253c580795b39621c18}{add\+Bundle\+To\+Cart}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} bundle, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}} cart, int quantity)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a94b13ea9f383ab4520bf4c38ec238731}{add\+Bundle\+To\+Cart}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} bundle, long id, int quantity)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ac2ad533be93b6d9db0204a9dc366d30f}{remove\+Bundle\+To\+Cart}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} bundle, long cart\+Id)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a8653528ac7beb6b735bbad518985e723}{remove\+All\+Bundle\+To\+Cart\+Id}} (long cart\+Id)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ac4645b925ae456304f36e360facba21f}{get\+Bundle\+Cart\+By\+Bundle\+Id\+Cart\+Id}} (long bundle\+Id, long cart\+Id)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a454c9ad383199215ccbb63fb0b8d747e}{update}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} bundle\+Cart)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a3bf53ffa4d65d376646c033b76d2fb7e}\label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a3bf53ffa4d65d376646c033b76d2fb7e} 
+void {\bfseries delete\+All} (List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} $>$ bundles\+Cart)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service class for managing Bundle\+Cart entities. Provides methods to create, delete, retrieve, and update Bundle\+Cart records. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a6045a95c1cd40253c580795b39621c18}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!addBundleToCart@{addBundleToCart}}
+\index{addBundleToCart@{addBundleToCart}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{addBundleToCart()}{addBundleToCart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a6045a95c1cd40253c580795b39621c18} 
+void com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+add\+Bundle\+To\+Cart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}}}]{bundle}{, }\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Cart}{Cart}}}]{cart}{, }\item[{int}]{quantity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a bundle to the specified cart.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle} & the bundle to be added \\
+\hline
+{\em cart} & the cart to which the bundle will be added \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a94b13ea9f383ab4520bf4c38ec238731}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!addBundleToCart@{addBundleToCart}}
+\index{addBundleToCart@{addBundleToCart}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{addBundleToCart()}{addBundleToCart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a94b13ea9f383ab4520bf4c38ec238731} 
+void com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+add\+Bundle\+To\+Cart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}}}]{bundle}{, }\item[{long}]{id}{, }\item[{int}]{quantity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a bundle to the cart with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle} & the bundle to be added \\
+\hline
+{\em id} & the ID of the cart to which the bundle will be added \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ac3c8c6a9be77cd80713f920f973399cc}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!create@{create}}
+\index{create@{create}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ac3c8c6a9be77cd80713f920f973399cc} 
+void com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}}}]{bundle\+Cart}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves a new Bundle\+Cart entity to the repository.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle\+Cart} & the Bundle\+Cart entity to be saved \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a5b1eff410a6b8f7034c33537c1021d51}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!delete@{delete}}
+\index{delete@{delete}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a5b1eff410a6b8f7034c33537c1021d51} 
+void com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}}}]{bundle\+Cart}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deletes a Bundle\+Cart entity from the repository.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle\+Cart} & the Bundle\+Cart entity to be deleted \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ac4645b925ae456304f36e360facba21f}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!getBundleCartByBundleIdCartId@{getBundleCartByBundleIdCartId}}
+\index{getBundleCartByBundleIdCartId@{getBundleCartByBundleIdCartId}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{getBundleCartByBundleIdCartId()}{getBundleCartByBundleIdCartId()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ac4645b925ae456304f36e360facba21f} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} $>$ com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+get\+Bundle\+Cart\+By\+Bundle\+Id\+Cart\+Id (\begin{DoxyParamCaption}\item[{long}]{bundle\+Id}{, }\item[{long}]{cart\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a Bundle\+Cart entity by bundle ID and cart ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle\+Id} & the ID of the bundle \\
+\hline
+{\em cart\+Id} & the ID of the cart \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Optional containing the Bundle\+Cart entity, if found 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a1833adbb9e0842922b5e377c26fddc41}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!getBundleCartById@{getBundleCartById}}
+\index{getBundleCartById@{getBundleCartById}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{getBundleCartById()}{getBundleCartById()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a1833adbb9e0842922b5e377c26fddc41} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} $>$ com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+get\+Bundle\+Cart\+By\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a Bundle\+Cart entity by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the Bundle\+Cart entity to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Optional containing the Bundle\+Cart entity, if found 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ab3788673138f59bcf3ab2bd04181e567}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!getBundlesByCartId@{getBundlesByCartId}}
+\index{getBundlesByCartId@{getBundlesByCartId}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{getBundlesByCartId()}{getBundlesByCartId()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ab3788673138f59bcf3ab2bd04181e567} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$ com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+get\+Bundles\+By\+Cart\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a list of Item\+Cart\+DTO objects by the specified cart ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the cart \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of Item\+Cart\+DTO objects 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a3ad3bc46e689e1aa10795e9d8396d2bf}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!getBundlesByCreatedAtAsc@{getBundlesByCreatedAtAsc}}
+\index{getBundlesByCreatedAtAsc@{getBundlesByCreatedAtAsc}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{getBundlesByCreatedAtAsc()}{getBundlesByCreatedAtAsc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a3ad3bc46e689e1aa10795e9d8396d2bf} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} $>$ com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+get\+Bundles\+By\+Created\+At\+Asc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a list of Bundle\+Cart entities ordered by creation date in ascending order.
+
+\begin{DoxyReturn}{Returns}
+a list of Bundle\+Cart entities 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_afd14f6ba63bcfafa6ab2bb1bb310ef83}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!getBundlesByCreatedAtDesc@{getBundlesByCreatedAtDesc}}
+\index{getBundlesByCreatedAtDesc@{getBundlesByCreatedAtDesc}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{getBundlesByCreatedAtDesc()}{getBundlesByCreatedAtDesc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_afd14f6ba63bcfafa6ab2bb1bb310ef83} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}} $>$ com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+get\+Bundles\+By\+Created\+At\+Desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a list of Bundle\+Cart entities ordered by creation date in descending order.
+
+\begin{DoxyReturn}{Returns}
+a list of Bundle\+Cart entities 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a8653528ac7beb6b735bbad518985e723}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!removeAllBundleToCartId@{removeAllBundleToCartId}}
+\index{removeAllBundleToCartId@{removeAllBundleToCartId}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{removeAllBundleToCartId()}{removeAllBundleToCartId()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a8653528ac7beb6b735bbad518985e723} 
+void com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+remove\+All\+Bundle\+To\+Cart\+Id (\begin{DoxyParamCaption}\item[{long}]{cart\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes all bundles from the cart with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cart\+Id} & the ID of the cart from which all bundles will be removed \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ac2ad533be93b6d9db0204a9dc366d30f}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!removeBundleToCart@{removeBundleToCart}}
+\index{removeBundleToCart@{removeBundleToCart}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{removeBundleToCart()}{removeBundleToCart()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_ac2ad533be93b6d9db0204a9dc366d30f} 
+void com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+remove\+Bundle\+To\+Cart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}}}]{bundle}{, }\item[{long}]{cart\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes a bundle from the cart with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle} & the bundle to be removed \\
+\hline
+{\em cart\+Id} & the ID of the cart from which the bundle will be removed \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a454c9ad383199215ccbb63fb0b8d747e}\index{com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}!update@{update}}
+\index{update@{update}!com.example.JO2024.services.BundleCartService@{com.example.JO2024.services.BundleCartService}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleCartService_a454c9ad383199215ccbb63fb0b8d747e} 
+void com.\+example.\+JO2024.\+services.\+Bundle\+Cart\+Service.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1BundleCart}{Bundle\+Cart}}}]{bundle\+Cart}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Updates an existing Bundle\+Cart entity in the repository.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle\+Cart} & the Bundle\+Cart entity to be updated \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Bundle\+Cart\+Service.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,39 @@
+\doxysection{com.\+example.\+JO2024.\+controllers.\+Paiment\+Controller Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1PaimentController}{}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1PaimentController}\index{com.example.JO2024.controllers.PaimentController@{com.example.JO2024.controllers.PaimentController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1PaimentController_a037fa8992c1385208eda4906e1f20716}{process\+Payment}} (Http\+Servlet\+Request request)  throws \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidPaiementException}{Invalid\+Paiement\+Exception}} 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a REST controller for handling payment processing requests. It maps HTTP POST requests to the "{}/paiement"{} endpoint. The controller uses an instance of the Paiement\+Service to process payment requests. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1PaimentController_a037fa8992c1385208eda4906e1f20716}\index{com.example.JO2024.controllers.PaimentController@{com.example.JO2024.controllers.PaimentController}!processPayment@{processPayment}}
+\index{processPayment@{processPayment}!com.example.JO2024.controllers.PaimentController@{com.example.JO2024.controllers.PaimentController}}
+\doxysubsubsection{\texorpdfstring{processPayment()}{processPayment()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1PaimentController_a037fa8992c1385208eda4906e1f20716} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Paiment\+Controller.\+process\+Payment (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidPaiementException}{Invalid\+Paiement\+Exception}}\hspace{0.3cm}{\ttfamily [inline]}}
+
+Process a payment request using the provided Http\+Servlet\+Request.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & the Http\+Servlet\+Request containing payment information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Response\+Entity$<$\+String$>$ with the result of the payment processing 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Paiement\+Exception} & if the payment processing encounters an error \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/controllers/Paiment\+Controller.\+java\end{DoxyCompactItemize}

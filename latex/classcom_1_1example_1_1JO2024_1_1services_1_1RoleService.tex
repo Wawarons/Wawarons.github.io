@@ -1,0 +1,85 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Role\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService}\index{com.example.JO2024.services.RoleService@{com.example.JO2024.services.RoleService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_aa90b15d46746fe1847d52438d32b75fb}{create}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Role}{Role}} role)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Role}{Role}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_ab42805fbcd9a7736c7bf76a550c4efbd}{get\+Roles}} ()
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Role}{Role}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_a112bb7cd3f70ae4e633b81e8634f2521}{get\+Role\+By\+Id}} (long id)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Role}{Role}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_a929151eb4d2ac6cc2ce9719bf5479dca}{get\+Role\+By\+Role}} (\mbox{\hyperlink{enumcom_1_1example_1_1JO2024_1_1Enum_1_1RoleEnum}{Role\+Enum}} role)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService}{Role\+Service} class is responsible for managing roles in the application. It provides methods to create a new role, retrieve all roles, and retrieve a role by its ID or role enum. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_aa90b15d46746fe1847d52438d32b75fb}\index{com.example.JO2024.services.RoleService@{com.example.JO2024.services.RoleService}!create@{create}}
+\index{create@{create}!com.example.JO2024.services.RoleService@{com.example.JO2024.services.RoleService}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_aa90b15d46746fe1847d52438d32b75fb} 
+void com.\+example.\+JO2024.\+services.\+Role\+Service.\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Role}{Role}}}]{role}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new role.
+
+
+\begin{DoxyParams}{Parameters}
+{\em role} & The role to create. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & if role is null. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_a112bb7cd3f70ae4e633b81e8634f2521}\index{com.example.JO2024.services.RoleService@{com.example.JO2024.services.RoleService}!getRoleById@{getRoleById}}
+\index{getRoleById@{getRoleById}!com.example.JO2024.services.RoleService@{com.example.JO2024.services.RoleService}}
+\doxysubsubsection{\texorpdfstring{getRoleById()}{getRoleById()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_a112bb7cd3f70ae4e633b81e8634f2521} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Role}{Role}} $>$ com.\+example.\+JO2024.\+services.\+Role\+Service.\+get\+Role\+By\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a role by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the role to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The role corresponding to the specified ID, if it exists. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_a929151eb4d2ac6cc2ce9719bf5479dca}\index{com.example.JO2024.services.RoleService@{com.example.JO2024.services.RoleService}!getRoleByRole@{getRoleByRole}}
+\index{getRoleByRole@{getRoleByRole}!com.example.JO2024.services.RoleService@{com.example.JO2024.services.RoleService}}
+\doxysubsubsection{\texorpdfstring{getRoleByRole()}{getRoleByRole()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_a929151eb4d2ac6cc2ce9719bf5479dca} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Role}{Role}} $>$ com.\+example.\+JO2024.\+services.\+Role\+Service.\+get\+Role\+By\+Role (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumcom_1_1example_1_1JO2024_1_1Enum_1_1RoleEnum}{Role\+Enum}}}]{role}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a role by its role enum.
+
+
+\begin{DoxyParams}{Parameters}
+{\em role} & The role enum to retrieve the role. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The role corresponding to the specified role enum, if it exists. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_ab42805fbcd9a7736c7bf76a550c4efbd}\index{com.example.JO2024.services.RoleService@{com.example.JO2024.services.RoleService}!getRoles@{getRoles}}
+\index{getRoles@{getRoles}!com.example.JO2024.services.RoleService@{com.example.JO2024.services.RoleService}}
+\doxysubsubsection{\texorpdfstring{getRoles()}{getRoles()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService_ab42805fbcd9a7736c7bf76a550c4efbd} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Role}{Role}} $>$ com.\+example.\+JO2024.\+services.\+Role\+Service.\+get\+Roles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all roles.
+
+\begin{DoxyReturn}{Returns}
+The list of all roles. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Role\+Service.\+java\end{DoxyCompactItemize}

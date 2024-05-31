@@ -1,0 +1,135 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Email\+Sender\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService}\index{com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a3f576097af5de4b3dd5aaed4cc937d56}{send\+Email}} (String email, String subject, String body)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a77bd07a326ed0e5f1281221baa14f5a2}{send\+Validation\+Code}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}} code)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a68c0186f06c455dd8a0509dfe0d1b48e}{send\+Confirmation\+Email}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a9765b39a60d5abe86e15bbd505d96d19}\label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a9765b39a60d5abe86e15bbd505d96d19} 
+void {\bfseries send\+Reset\+Password\+Link} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer, String token)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_afd38f354fd023bb1bd006837eca45a93}{send\+Reset\+Password\+Link\+Confirmation}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_aa490b8a0407654f88c4cae6c554e9449}\label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_aa490b8a0407654f88c4cae6c554e9449} 
+void {\bfseries send\+Email\+With\+Attachment} (String to\+Email, String subject, String body, byte\mbox{[}$\,$\mbox{]} attachment\+Bytes, String attachment\+Name)  throws Messaging\+Exception 
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a3a51eb917d0f4725c7d79e8653e95e4c}\label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a3a51eb917d0f4725c7d79e8653e95e4c} 
+void {\bfseries send\+Email\+With\+Attachments} (String to\+Email, String subject, String body, List$<$ Map.\+Entry$<$ String, byte\mbox{[}$\,$\mbox{]}$>$ $>$ attachments)  throws Messaging\+Exception 
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a405d83c85813c8cee4612eef00c528e0}\label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a405d83c85813c8cee4612eef00c528e0} 
+void {\bfseries send\+Email\+Ticket} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer, String content, String subject, String body)  throws Exception 
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a855cf10aefd46381f13b48660c5cd71f}{generate\+Reset\+Password\+Email}} (String user\+Name, String reset\+Password\+Link, String token)
+\item 
+static String \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a27fc6f50b82edc032d80d92c7836439c}{generate\+Confirmation\+Reset\+Password\+Email}} (String user\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible for sending emails to customers. It utilizes the Java\+Mail\+Sender to send emails using the configured email username. The class provides methods to generate a random six-\/digit code, send an email with a specified subject and body, send a validation code to a customer via email, and send a confirmation email to a customer upon successful registration. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a27fc6f50b82edc032d80d92c7836439c}\index{com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}!generateConfirmationResetPasswordEmail@{generateConfirmationResetPasswordEmail}}
+\index{generateConfirmationResetPasswordEmail@{generateConfirmationResetPasswordEmail}!com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}}
+\doxysubsubsection{\texorpdfstring{generateConfirmationResetPasswordEmail()}{generateConfirmationResetPasswordEmail()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a27fc6f50b82edc032d80d92c7836439c} 
+static String com.\+example.\+JO2024.\+services.\+Email\+Sender\+Service.\+generate\+Confirmation\+Reset\+Password\+Email (\begin{DoxyParamCaption}\item[{String}]{user\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Generates a confirmation email for a password reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user whose password has been reset. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A formatted confirmation email message containing the user\textquotesingle{}s name, information about the password reset, and instructions on how to proceed if the reset was not requested. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a855cf10aefd46381f13b48660c5cd71f}\index{com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}!generateResetPasswordEmail@{generateResetPasswordEmail}}
+\index{generateResetPasswordEmail@{generateResetPasswordEmail}!com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}}
+\doxysubsubsection{\texorpdfstring{generateResetPasswordEmail()}{generateResetPasswordEmail()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a855cf10aefd46381f13b48660c5cd71f} 
+static String com.\+example.\+JO2024.\+services.\+Email\+Sender\+Service.\+generate\+Reset\+Password\+Email (\begin{DoxyParamCaption}\item[{String}]{user\+Name}{, }\item[{String}]{reset\+Password\+Link}{, }\item[{String}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Generates an email message for resetting a user\textquotesingle{}s password.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The name of the user requesting the password reset. \\
+\hline
+{\em reset\+Password\+Link} & The link to reset the password. \\
+\hline
+{\em token} & The token for resetting the password. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A formatted email message containing instructions and a link to reset the password. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a68c0186f06c455dd8a0509dfe0d1b48e}\index{com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}!sendConfirmationEmail@{sendConfirmationEmail}}
+\index{sendConfirmationEmail@{sendConfirmationEmail}!com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}}
+\doxysubsubsection{\texorpdfstring{sendConfirmationEmail()}{sendConfirmationEmail()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a68c0186f06c455dd8a0509dfe0d1b48e} 
+void com.\+example.\+JO2024.\+services.\+Email\+Sender\+Service.\+send\+Confirmation\+Email (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sends a confirmation email to a customer upon successful registration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The customer who has successfully registered. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a3f576097af5de4b3dd5aaed4cc937d56}\index{com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}!sendEmail@{sendEmail}}
+\index{sendEmail@{sendEmail}!com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}}
+\doxysubsubsection{\texorpdfstring{sendEmail()}{sendEmail()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a3f576097af5de4b3dd5aaed4cc937d56} 
+void com.\+example.\+JO2024.\+services.\+Email\+Sender\+Service.\+send\+Email (\begin{DoxyParamCaption}\item[{String}]{email}{, }\item[{String}]{subject}{, }\item[{String}]{body}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sends an email to the specified address with the given subject and body.
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The recipient\textquotesingle{}s email address. \\
+\hline
+{\em subject} & The subject of the email. \\
+\hline
+{\em body} & The body of the email. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_afd38f354fd023bb1bd006837eca45a93}\index{com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}!sendResetPasswordLinkConfirmation@{sendResetPasswordLinkConfirmation}}
+\index{sendResetPasswordLinkConfirmation@{sendResetPasswordLinkConfirmation}!com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}}
+\doxysubsubsection{\texorpdfstring{sendResetPasswordLinkConfirmation()}{sendResetPasswordLinkConfirmation()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_afd38f354fd023bb1bd006837eca45a93} 
+void com.\+example.\+JO2024.\+services.\+Email\+Sender\+Service.\+send\+Reset\+Password\+Link\+Confirmation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sends a reset password confirmation email to the specified customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The customer who requested the password reset. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a77bd07a326ed0e5f1281221baa14f5a2}\index{com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}!sendValidationCode@{sendValidationCode}}
+\index{sendValidationCode@{sendValidationCode}!com.example.JO2024.services.EmailSenderService@{com.example.JO2024.services.EmailSenderService}}
+\doxysubsubsection{\texorpdfstring{sendValidationCode()}{sendValidationCode()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService_a77bd07a326ed0e5f1281221baa14f5a2} 
+void com.\+example.\+JO2024.\+services.\+Email\+Sender\+Service.\+send\+Validation\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{, }\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}}}]{code}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sends a validation code to a customer via email.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The customer to whom the validation code will be sent. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Email\+Sender\+Service.\+java\end{DoxyCompactItemize}

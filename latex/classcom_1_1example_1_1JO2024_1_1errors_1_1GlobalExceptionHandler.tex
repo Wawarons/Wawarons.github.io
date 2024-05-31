@@ -1,0 +1,142 @@
+\doxysection{com.\+example.\+JO2024.\+errors.\+Global\+Exception\+Handler Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler}{}\label{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler}\index{com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a34d97d8bd93ec74423e29aa65dc90a19}{handle\+Authentication\+Exception}} (Authentication\+Exception e)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a1596d2b261af2a7a2e5d89d8a5b98ca4}{handle\+No\+Such\+Element\+Exception}} (No\+Such\+Element\+Exception e)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a44779138be84436ee230712d940abebd}{handle\+Http\+Message\+Not\+Readable\+Exception}} (Http\+Message\+Not\+Readable\+Exception e)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a9f8ff5abb6a71e432e0e4a4950a782af}{handle\+Constraint\+Violation\+Exception}} (Constraint\+Violation\+Exception e)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a26c7e4dec33c839f904cf21925817531}{handle\+Method\+Argument\+Not\+Valid\+Excepton}} (Method\+Argument\+Not\+Valid\+Exception e)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a49be665387c6e586b1958dd79a1113e1}{handle\+Invalid\+Token\+Exception}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidTokenException}{Invalid\+Token\+Exception}} e)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a324a651de863486e4df76a0960001449}{handle\+General\+Exception}} (Exception e)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler}{Global\+Exception\+Handler} class handles global exceptions in the application. It ensures that appropriate error responses are returned to the client in a consistent format. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a34d97d8bd93ec74423e29aa65dc90a19}\index{com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}!handleAuthenticationException@{handleAuthenticationException}}
+\index{handleAuthenticationException@{handleAuthenticationException}!com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}}
+\doxysubsubsection{\texorpdfstring{handleAuthenticationException()}{handleAuthenticationException()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a34d97d8bd93ec74423e29aa65dc90a19} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+errors.\+Global\+Exception\+Handler.\+handle\+Authentication\+Exception (\begin{DoxyParamCaption}\item[{Authentication\+Exception}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Handles the Authentication\+Exception and returns an appropriate error response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The Authentication\+Exception that occurred \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a JSON body containing the error response 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a9f8ff5abb6a71e432e0e4a4950a782af}\index{com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}!handleConstraintViolationException@{handleConstraintViolationException}}
+\index{handleConstraintViolationException@{handleConstraintViolationException}!com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}}
+\doxysubsubsection{\texorpdfstring{handleConstraintViolationException()}{handleConstraintViolationException()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a9f8ff5abb6a71e432e0e4a4950a782af} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+errors.\+Global\+Exception\+Handler.\+handle\+Constraint\+Violation\+Exception (\begin{DoxyParamCaption}\item[{Constraint\+Violation\+Exception}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Handles the Constraint\+Violation\+Exception and returns an appropriate error response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The Constraint\+Violation\+Exception that occurred \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a JSON body containing the error response 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a324a651de863486e4df76a0960001449}\index{com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}!handleGeneralException@{handleGeneralException}}
+\index{handleGeneralException@{handleGeneralException}!com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}}
+\doxysubsubsection{\texorpdfstring{handleGeneralException()}{handleGeneralException()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a324a651de863486e4df76a0960001449} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+errors.\+Global\+Exception\+Handler.\+handle\+General\+Exception (\begin{DoxyParamCaption}\item[{Exception}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Handles general exceptions and returns an appropriate error response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The Exception that occurred \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a JSON body containing the error response 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a44779138be84436ee230712d940abebd}\index{com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}!handleHttpMessageNotReadableException@{handleHttpMessageNotReadableException}}
+\index{handleHttpMessageNotReadableException@{handleHttpMessageNotReadableException}!com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}}
+\doxysubsubsection{\texorpdfstring{handleHttpMessageNotReadableException()}{handleHttpMessageNotReadableException()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a44779138be84436ee230712d940abebd} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+errors.\+Global\+Exception\+Handler.\+handle\+Http\+Message\+Not\+Readable\+Exception (\begin{DoxyParamCaption}\item[{Http\+Message\+Not\+Readable\+Exception}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Handles the Http\+Message\+Not\+Readable\+Exception and returns an appropriate error response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The Http\+Message\+Not\+Readable\+Exception that occurred \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a JSON body containing the error response 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a49be665387c6e586b1958dd79a1113e1}\index{com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}!handleInvalidTokenException@{handleInvalidTokenException}}
+\index{handleInvalidTokenException@{handleInvalidTokenException}!com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}}
+\doxysubsubsection{\texorpdfstring{handleInvalidTokenException()}{handleInvalidTokenException()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a49be665387c6e586b1958dd79a1113e1} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+errors.\+Global\+Exception\+Handler.\+handle\+Invalid\+Token\+Exception (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidTokenException}{Invalid\+Token\+Exception}}}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Handles the \doxylink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidTokenException}{Invalid\+Token\+Exception} and returns an appropriate error response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The \doxylink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidTokenException}{Invalid\+Token\+Exception} that occurred \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a JSON body containing the error response 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a26c7e4dec33c839f904cf21925817531}\index{com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}!handleMethodArgumentNotValidExcepton@{handleMethodArgumentNotValidExcepton}}
+\index{handleMethodArgumentNotValidExcepton@{handleMethodArgumentNotValidExcepton}!com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}}
+\doxysubsubsection{\texorpdfstring{handleMethodArgumentNotValidExcepton()}{handleMethodArgumentNotValidExcepton()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a26c7e4dec33c839f904cf21925817531} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+errors.\+Global\+Exception\+Handler.\+handle\+Method\+Argument\+Not\+Valid\+Excepton (\begin{DoxyParamCaption}\item[{Method\+Argument\+Not\+Valid\+Exception}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Handles the Method\+Argument\+Not\+Valid\+Exception and returns an appropriate error response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The Method\+Argument\+Not\+Valid\+Exception that occurred \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a JSON body containing the error response 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a1596d2b261af2a7a2e5d89d8a5b98ca4}\index{com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}!handleNoSuchElementException@{handleNoSuchElementException}}
+\index{handleNoSuchElementException@{handleNoSuchElementException}!com.example.JO2024.errors.GlobalExceptionHandler@{com.example.JO2024.errors.GlobalExceptionHandler}}
+\doxysubsubsection{\texorpdfstring{handleNoSuchElementException()}{handleNoSuchElementException()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1errors_1_1GlobalExceptionHandler_a1596d2b261af2a7a2e5d89d8a5b98ca4} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+errors.\+Global\+Exception\+Handler.\+handle\+No\+Such\+Element\+Exception (\begin{DoxyParamCaption}\item[{No\+Such\+Element\+Exception}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Handles the No\+Such\+Element\+Exception and returns an appropriate error response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The No\+Such\+Element\+Exception that occurred \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a JSON body containing the error response 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/errors/Global\+Exception\+Handler.\+java\end{DoxyCompactItemize}

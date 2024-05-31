@@ -1,0 +1,93 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Invoice\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService}\index{com.example.JO2024.services.InvoiceService@{com.example.JO2024.services.InvoiceService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a57da0965be382c6a2b07a77701c92341}{generate\+Invoice}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer, List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$ items, Big\+Decimal amount)  throws Exception 
+\item 
+int \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a03058b2c3610ce1223a563e84f97cfd9}{get\+Amount\+Of\+Ticket}} (List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$ items)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1InvoiceItem}{Invoice\+Item}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a12869be3c1bd0d08d16e8441f28fc50b}{create\+Invoice\+Items}} (List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$ items, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Invoice}{Invoice}} invoice)
+\item 
+Big\+Decimal \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a11aec78b0e4fae4ad8c4c30dd9d0ec5a}{get\+Amount\+Paiement}} (List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$ items)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a12869be3c1bd0d08d16e8441f28fc50b}\index{com.example.JO2024.services.InvoiceService@{com.example.JO2024.services.InvoiceService}!createInvoiceItems@{createInvoiceItems}}
+\index{createInvoiceItems@{createInvoiceItems}!com.example.JO2024.services.InvoiceService@{com.example.JO2024.services.InvoiceService}}
+\doxysubsubsection{\texorpdfstring{createInvoiceItems()}{createInvoiceItems()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a12869be3c1bd0d08d16e8441f28fc50b} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1InvoiceItem}{Invoice\+Item}} $>$ com.\+example.\+JO2024.\+services.\+Invoice\+Service.\+create\+Invoice\+Items (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$}]{items}{, }\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Invoice}{Invoice}}}]{invoice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a list of Invoice\+Item objects based on the provided list of items and associates them with the given Invoice.
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & the list of items to create Invoice\+Item objects from \\
+\hline
+{\em invoice} & the Invoice object to associate the created Invoice\+Item objects with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of created Invoice\+Item objects 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a57da0965be382c6a2b07a77701c92341}\index{com.example.JO2024.services.InvoiceService@{com.example.JO2024.services.InvoiceService}!generateInvoice@{generateInvoice}}
+\index{generateInvoice@{generateInvoice}!com.example.JO2024.services.InvoiceService@{com.example.JO2024.services.InvoiceService}}
+\doxysubsubsection{\texorpdfstring{generateInvoice()}{generateInvoice()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a57da0965be382c6a2b07a77701c92341} 
+void com.\+example.\+JO2024.\+services.\+Invoice\+Service.\+generate\+Invoice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{, }\item[{List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$}]{items}{, }\item[{Big\+Decimal}]{amount}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates an invoice for a customer based on the provided items and amount.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & the customer for whom the invoice is being generated \\
+\hline
+{\em items} & the list of items in the customer\textquotesingle{}s cart \\
+\hline
+{\em amount} & the total amount to be paid for the items \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a03058b2c3610ce1223a563e84f97cfd9}\index{com.example.JO2024.services.InvoiceService@{com.example.JO2024.services.InvoiceService}!getAmountOfTicket@{getAmountOfTicket}}
+\index{getAmountOfTicket@{getAmountOfTicket}!com.example.JO2024.services.InvoiceService@{com.example.JO2024.services.InvoiceService}}
+\doxysubsubsection{\texorpdfstring{getAmountOfTicket()}{getAmountOfTicket()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a03058b2c3610ce1223a563e84f97cfd9} 
+int com.\+example.\+JO2024.\+services.\+Invoice\+Service.\+get\+Amount\+Of\+Ticket (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$}]{items}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates the total number of tickets to be generated based on the list of items in the customer\textquotesingle{}s cart.
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & the list of items in the customer\textquotesingle{}s cart \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the total number of tickets to be generated 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a11aec78b0e4fae4ad8c4c30dd9d0ec5a}\index{com.example.JO2024.services.InvoiceService@{com.example.JO2024.services.InvoiceService}!getAmountPaiement@{getAmountPaiement}}
+\index{getAmountPaiement@{getAmountPaiement}!com.example.JO2024.services.InvoiceService@{com.example.JO2024.services.InvoiceService}}
+\doxysubsubsection{\texorpdfstring{getAmountPaiement()}{getAmountPaiement()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1InvoiceService_a11aec78b0e4fae4ad8c4c30dd9d0ec5a} 
+Big\+Decimal com.\+example.\+JO2024.\+services.\+Invoice\+Service.\+get\+Amount\+Paiement (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$}]{items}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates the total amount to be paid for a list of items in the customer\textquotesingle{}s cart.
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & the list of items in the customer\textquotesingle{}s cart \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the total amount to be paid for the items 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Invoice\+Service.\+java\end{DoxyCompactItemize}

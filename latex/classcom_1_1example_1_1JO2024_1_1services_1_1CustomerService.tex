@@ -1,0 +1,152 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Customer\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService}\index{com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}}
+Inheritance diagram for com.\+example.\+JO2024.\+services.\+Customer\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_af299a7e80b1ca5a22a46854b874653e4}{get\+Customers}} ()
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_ae36e53a3bf1b1d0e65a8edf715081dc1}{get\+Customer\+By\+Id}} (long id)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a61ab267473cec19b8c6c826d3bd1050f}{get\+Customer\+By\+Email}} (String email)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_aca575709ea805f97e7fbf3517dc2e36a}{update}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a18dd422c32b1ecd8ac32db6b89e2df0c}{create}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a4047fd21162ca32b4f9138786f89e7ba}\label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a4047fd21162ca32b4f9138786f89e7ba} 
+void {\bfseries reset\+Password\+Send\+Link} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer, String token)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a5011aa995473b727b259a83116975555}\label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a5011aa995473b727b259a83116975555} 
+User\+Details {\bfseries load\+User\+By\+Username} (String username)  throws Username\+Not\+Found\+Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_ad0c554f549742b91ba104f9978df4f16}{reset\+Password}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1ResetPasswordToken}{Reset\+Password\+Token}} reset\+Password\+Token, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a6a1e02b3d44d90454c50a3462a6b85a7}{delete\+Customer}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service containing functionalities related to user management. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a18dd422c32b1ecd8ac32db6b89e2df0c}\index{com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}!create@{create}}
+\index{create@{create}!com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a18dd422c32b1ecd8ac32db6b89e2df0c} 
+void com.\+example.\+JO2024.\+services.\+Customer\+Service.\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The customer to create.
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+Argument\+Exception} & if customer is null. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a6a1e02b3d44d90454c50a3462a6b85a7}\index{com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}!deleteCustomer@{deleteCustomer}}
+\index{deleteCustomer@{deleteCustomer}!com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}}
+\doxysubsubsection{\texorpdfstring{deleteCustomer()}{deleteCustomer()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a6a1e02b3d44d90454c50a3462a6b85a7} 
+void com.\+example.\+JO2024.\+services.\+Customer\+Service.\+delete\+Customer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deletes a customer by removing all roles associated with the customer, saving the updated customer information, and then deleting the customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The customer to be deleted. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a61ab267473cec19b8c6c826d3bd1050f}\index{com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}!getCustomerByEmail@{getCustomerByEmail}}
+\index{getCustomerByEmail@{getCustomerByEmail}!com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}}
+\doxysubsubsection{\texorpdfstring{getCustomerByEmail()}{getCustomerByEmail()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_a61ab267473cec19b8c6c826d3bd1050f} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} $>$ com.\+example.\+JO2024.\+services.\+Customer\+Service.\+get\+Customer\+By\+Email (\begin{DoxyParamCaption}\item[{String}]{email}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a customer by their email address.
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email address of the customer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The customer with the specified email address. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Username\+Not\+Found\+Exception} & if the customer is not found. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_ae36e53a3bf1b1d0e65a8edf715081dc1}\index{com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}!getCustomerById@{getCustomerById}}
+\index{getCustomerById@{getCustomerById}!com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}}
+\doxysubsubsection{\texorpdfstring{getCustomerById()}{getCustomerById()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_ae36e53a3bf1b1d0e65a8edf715081dc1} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} $>$ com.\+example.\+JO2024.\+services.\+Customer\+Service.\+get\+Customer\+By\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a customer by their ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the customer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An optional containing the customer if found, otherwise empty. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_af299a7e80b1ca5a22a46854b874653e4}\index{com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}!getCustomers@{getCustomers}}
+\index{getCustomers@{getCustomers}!com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}}
+\doxysubsubsection{\texorpdfstring{getCustomers()}{getCustomers()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_af299a7e80b1ca5a22a46854b874653e4} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} $>$ com.\+example.\+JO2024.\+services.\+Customer\+Service.\+get\+Customers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves the list of all customers.
+
+\begin{DoxyReturn}{Returns}
+A list of all customers. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_ad0c554f549742b91ba104f9978df4f16}\index{com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}!resetPassword@{resetPassword}}
+\index{resetPassword@{resetPassword}!com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}}
+\doxysubsubsection{\texorpdfstring{resetPassword()}{resetPassword()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_ad0c554f549742b91ba104f9978df4f16} 
+void com.\+example.\+JO2024.\+services.\+Customer\+Service.\+reset\+Password (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1ResetPasswordToken}{Reset\+Password\+Token}}}]{reset\+Password\+Token}{, }\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Resets the password for a customer by updating the reset password token and the customer\textquotesingle{}s information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reset\+Password\+Token} & The reset password token associated with the password reset request. \\
+\hline
+{\em customer} & The customer whose password is being reset. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_aca575709ea805f97e7fbf3517dc2e36a}\index{com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}!update@{update}}
+\index{update@{update}!com.example.JO2024.services.CustomerService@{com.example.JO2024.services.CustomerService}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService_aca575709ea805f97e7fbf3517dc2e36a} 
+void com.\+example.\+JO2024.\+services.\+Customer\+Service.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Updates a customer\textquotesingle{}s information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The customer to update. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Customer\+Service.\+java\end{DoxyCompactItemize}

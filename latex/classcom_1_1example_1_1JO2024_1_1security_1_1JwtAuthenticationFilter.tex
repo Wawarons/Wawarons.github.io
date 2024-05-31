@@ -1,0 +1,31 @@
+\doxysection{com.\+example.\+JO2024.\+security.\+Jwt\+Authentication\+Filter Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}{}\label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}\index{com.example.JO2024.security.JwtAuthenticationFilter@{com.example.JO2024.security.JwtAuthenticationFilter}}
+Inheritance diagram for com.\+example.\+JO2024.\+security.\+Jwt\+Authentication\+Filter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter_ad4320b00fad00e09dfa2f6ffad880480}\label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter_ad4320b00fad00e09dfa2f6ffad880480} 
+void {\bfseries handle\+Expired\+Token} (Claims claims, Http\+Servlet\+Response response)  throws IOException 
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter_aa350d39982998b4fd4c58edee9c5763e}\label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter_aa350d39982998b4fd4c58edee9c5763e} 
+void {\bfseries do\+Filter\+Internal} (@Non\+Null Http\+Servlet\+Request request, @Non\+Null Http\+Servlet\+Response response, @Non\+Null Filter\+Chain filter\+Chain)  throws Servlet\+Exception, IOException 
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter_a08e41e9ad09c4b779040b801617c7520}\label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter_a08e41e9ad09c4b779040b801617c7520} 
+boolean {\bfseries should\+Not\+Filter} (@Non\+Null Http\+Servlet\+Request request)  throws Servlet\+Exception 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}{Jwt\+Authentication\+Filter} is a class that extends Once\+Per\+Request\+Filter and is responsible for filtering and authenticating requests based on JWT tokens. It retrieves the JWT token from a cookie and validates it using the \doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator}{Jwt\+Generator}. If the token is valid, it retrieves the user details from the \doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1CustomUserDetailsService}{Custom\+User\+Details\+Service} and sets the authentication in the Security\+Context\+Holder. If the token is not valid or not present, it allows the request to proceed without authentication. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/security/Jwt\+Authentication\+Filter.\+java\end{DoxyCompactItemize}

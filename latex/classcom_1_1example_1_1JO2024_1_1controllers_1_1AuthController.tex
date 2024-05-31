@@ -1,0 +1,121 @@
+\doxysection{com.\+example.\+JO2024.\+controllers.\+Auth\+Controller Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController}{}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController}\index{com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_abcb3ed7864eb3e8ad00c809b276f23eb}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_abcb3ed7864eb3e8ad00c809b276f23eb} 
+{\bfseries Auth\+Controller} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService}{Customer\+Service}} customer\+Service, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService}{Code\+Service}} code\+Service, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator}{Jwt\+Generator}} jwt\+Generator, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService}{Auth\+Service}} auth\+Service, Authentication\+Manager authentication\+Manager)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_a885d40d78e1f6f4ef96af2c020580945}{signup}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1SignupCustomerDTO}{Signup\+Customer\+DTO}} new\+Customer)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_a497c51a7f4c8eaeb2276707142083a59}{login}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1LoginDTO}{Login\+DTO}} login\+DTO, Http\+Servlet\+Response response)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_ad2345fa7f90753e09f0c271725350dca}{logout}} (Http\+Servlet\+Request request, Http\+Servlet\+Response response)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_af1dd50991b83cda3c6fe9b11850ca95f}{reset\+Password}} (@Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1EmailDTO}{Email\+DTO}} email\+DTO)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_ae6a89cff9dcb2d0cd1a61724d1cc1745}{is\+Auth}} (Http\+Servlet\+Request request)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController}{Auth\+Controller} represents the endpoint of the API for the users authentification.
+
+\begin{DoxyAuthor}{Author}
+Adrien Podsiadly 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_ae6a89cff9dcb2d0cd1a61724d1cc1745}\index{com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}!isAuth@{isAuth}}
+\index{isAuth@{isAuth}!com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{isAuth()}{isAuth()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_ae6a89cff9dcb2d0cd1a61724d1cc1745} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Auth\+Controller.\+is\+Auth (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if the request is authenticated by verifying the presence of a valid token in the cookies.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The Http\+Servlet\+Request object representing the request made by the customer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with a success message and HTTP status code 200 (OK) if the request is authenticated. If the token is not valid or missing, returns an unauthorized response with an error message and HTTP status code 401 (UNAUTHORIZED). 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_a497c51a7f4c8eaeb2276707142083a59}\index{com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}!login@{login}}
+\index{login@{login}!com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_a497c51a7f4c8eaeb2276707142083a59} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Auth\+Controller.\+login (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1LoginDTO}{Login\+DTO}}}]{login\+DTO}{, }\item[{Http\+Servlet\+Response}]{response}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Handle the login process. Get the customer request and threat the data fsend for connect the customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em login\+DTO} & Data Transfer Object represanting the login data needed for the customer connection. \\
+\hline
+{\em response} & Http\+Servlet\+Response Object Http\+Servlet\+Response Objet Http\+Servlet\+Response to which we send the response. Used to add the JWT token if authentication is successful. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity Object Response\+Entity with HTTP OK statut if the customer is authentified. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_ad2345fa7f90753e09f0c271725350dca}\index{com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}!logout@{logout}}
+\index{logout@{logout}!com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_ad2345fa7f90753e09f0c271725350dca} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Auth\+Controller.\+logout (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{, }\item[{Http\+Servlet\+Response}]{response}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Logs out the customer by invalidating the current session.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The Http\+Servlet\+Request object representing the request made by the customer. \\
+\hline
+{\em response} & The Http\+Servlet\+Response object representing the response to be sent back to the customer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with HTTP status code 200 (OK) upon successful logout. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_af1dd50991b83cda3c6fe9b11850ca95f}\index{com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}!resetPassword@{resetPassword}}
+\index{resetPassword@{resetPassword}!com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{resetPassword()}{resetPassword()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_af1dd50991b83cda3c6fe9b11850ca95f} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Auth\+Controller.\+reset\+Password (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1EmailDTO}{Email\+DTO}}}]{email\+DTO}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reset the password for a customer by sending a password reset link to the provided email address.
+
+
+\begin{DoxyParams}{Parameters}
+{\em email\+DTO} & The Email\+DTO object containing the email address of the customer for password reset. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with HTTP status code 200 (OK) upon successful password reset request. Throws a Username\+Not\+Found\+Exception if the customer with the provided email address is not found. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_a885d40d78e1f6f4ef96af2c020580945}\index{com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}!signup@{signup}}
+\index{signup@{signup}!com.example.JO2024.controllers.AuthController@{com.example.JO2024.controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{signup()}{signup()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AuthController_a885d40d78e1f6f4ef96af2c020580945} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Auth\+Controller.\+signup (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1SignupCustomerDTO}{Signup\+Customer\+DTO}}}]{new\+Customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Register a new customer by signing up with the provided customer details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Customer} & The Signup\+Customer\+DTO object containing the details of the new customer to be registered. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with a success message and HTTP status code 201 (CREATED) upon successful registration. If the email provided already exists, returns a bad request response with an error message and HTTP status code 400 (BAD\+\_\+\+REQUEST). If an unexpected error occurs during the registration process, returns an error response with an error message and HTTP status code 500 (INTERNAL\+\_\+\+SERVER\+\_\+\+ERROR). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/controllers/Auth\+Controller.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,61 @@
+\doxysection{com.\+example.\+JO2024.\+Qr\+Code\+Generator Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1QrCodeGenerator}{}\label{classcom_1_1example_1_1JO2024_1_1QrCodeGenerator}\index{com.example.JO2024.QrCodeGenerator@{com.example.JO2024.QrCodeGenerator}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Buffered\+Image \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1QrCodeGenerator_a70c373c898887027285c0e85e8278c4b}{generate\+QRCode\+Image}} (String barcode\+Text)  throws Exception 
+\item 
+static byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1QrCodeGenerator_a29e4f18de5f077ab5b27765bd48f7221}{to\+Byte\+Array}} (Buffered\+Image image, String format)  throws IOException 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1QrCodeGenerator_a70c373c898887027285c0e85e8278c4b}\index{com.example.JO2024.QrCodeGenerator@{com.example.JO2024.QrCodeGenerator}!generateQRCodeImage@{generateQRCodeImage}}
+\index{generateQRCodeImage@{generateQRCodeImage}!com.example.JO2024.QrCodeGenerator@{com.example.JO2024.QrCodeGenerator}}
+\doxysubsubsection{\texorpdfstring{generateQRCodeImage()}{generateQRCodeImage()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1QrCodeGenerator_a70c373c898887027285c0e85e8278c4b} 
+static Buffered\+Image com.\+example.\+JO2024.\+Qr\+Code\+Generator.\+generate\+QRCode\+Image (\begin{DoxyParamCaption}\item[{String}]{barcode\+Text}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Generates a QR code image for the given barcode text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em barcode\+Text} & the text to be encoded in the QR code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Buffered\+Image representation of the generated QR code image 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if there is an error during the QR code generation process \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1QrCodeGenerator_a29e4f18de5f077ab5b27765bd48f7221}\index{com.example.JO2024.QrCodeGenerator@{com.example.JO2024.QrCodeGenerator}!toByteArray@{toByteArray}}
+\index{toByteArray@{toByteArray}!com.example.JO2024.QrCodeGenerator@{com.example.JO2024.QrCodeGenerator}}
+\doxysubsubsection{\texorpdfstring{toByteArray()}{toByteArray()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1QrCodeGenerator_a29e4f18de5f077ab5b27765bd48f7221} 
+static byte\mbox{[}$\,$\mbox{]} com.\+example.\+JO2024.\+Qr\+Code\+Generator.\+to\+Byte\+Array (\begin{DoxyParamCaption}\item[{Buffered\+Image}]{image}{, }\item[{String}]{format}{}\end{DoxyParamCaption}) throws IOException\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Converts the given Buffered\+Image to a byte array in the specified format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & the Buffered\+Image to be converted to a byte array \\
+\hline
+{\em format} & the format in which the image should be written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a byte array representing the image in the specified format 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & if there is an error during the conversion process \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/Qr\+Code\+Generator.\+java\end{DoxyCompactItemize}

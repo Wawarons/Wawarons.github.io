@@ -1,0 +1,54 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Paiement\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1PaiementService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1PaiementService}\index{com.example.JO2024.services.PaiementService@{com.example.JO2024.services.PaiementService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1PaiementService_ae952fa00c9db22968a324dc989c11ecd}{process\+Payment}} (Http\+Servlet\+Request request)  throws \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidPaiementException}{Invalid\+Paiement\+Exception}} 
+\item 
+Big\+Decimal \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1PaiementService_a5fa6eff691832f80f9fe8dfed2641cf3}{get\+Amount\+Paiement}} (List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$ items)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1PaiementService_a5fa6eff691832f80f9fe8dfed2641cf3}\index{com.example.JO2024.services.PaiementService@{com.example.JO2024.services.PaiementService}!getAmountPaiement@{getAmountPaiement}}
+\index{getAmountPaiement@{getAmountPaiement}!com.example.JO2024.services.PaiementService@{com.example.JO2024.services.PaiementService}}
+\doxysubsubsection{\texorpdfstring{getAmountPaiement()}{getAmountPaiement()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1PaiementService_a5fa6eff691832f80f9fe8dfed2641cf3} 
+Big\+Decimal com.\+example.\+JO2024.\+services.\+Paiement\+Service.\+get\+Amount\+Paiement (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ItemCartDTO}{Item\+Cart\+DTO}} $>$}]{items}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculates the total amount of payment based on the list of items in the cart.
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & The list of items in the cart represented as Item\+Cart\+DTO objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total amount of payment as a Big\+Decimal 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1PaiementService_ae952fa00c9db22968a324dc989c11ecd}\index{com.example.JO2024.services.PaiementService@{com.example.JO2024.services.PaiementService}!processPayment@{processPayment}}
+\index{processPayment@{processPayment}!com.example.JO2024.services.PaiementService@{com.example.JO2024.services.PaiementService}}
+\doxysubsubsection{\texorpdfstring{processPayment()}{processPayment()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1PaiementService_ae952fa00c9db22968a324dc989c11ecd} 
+String com.\+example.\+JO2024.\+services.\+Paiement\+Service.\+process\+Payment (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidPaiementException}{Invalid\+Paiement\+Exception}}\hspace{0.3cm}{\ttfamily [inline]}}
+
+Process the payment for a customer based on the provided Http\+Servlet\+Request.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The Http\+Servlet\+Request containing the necessary information for processing the payment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A message indicating the success of the payment along with the amount paid 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Paiement\+Exception} & If an error occurs during the payment process \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Paiement\+Service.\+java\end{DoxyCompactItemize}

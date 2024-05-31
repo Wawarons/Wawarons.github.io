@@ -1,0 +1,123 @@
+\doxysection{com.\+example.\+JO2024.\+controllers.\+Ticket\+Controller Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController}{}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController}\index{com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a6e14106e475f34d065e04cfb21fc3ea1}{get\+Tickets}} ()  throws Exception 
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a8a5ea88d1010027f77062667b2bcf028}{get\+Ticket\+By\+Id}} (@Path\+Variable("{}id"{}) long id)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a7f68490ef008eca46d124f94db33b2c6}{create\+New\+Ticket}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1TicketDTO}{Ticket\+DTO}} ticket\+DTO)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_ae2c82729be72202688f22790cdf430d1}{update\+Ticket}} (@Path\+Variable("{}id"{}) long id, @Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1TicketDTO}{Ticket\+DTO}} ticket\+DTO)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a9ac78e552acc99e0d2634a457c79a2a1}{delete\+Ticket}} (@Path\+Variable("{}id"{}) long id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a controller for handling ticket-\/related operations. It includes methods for retrieving all tickets, getting a ticket by its ID, creating a new ticket, updating an existing ticket, and deleting a ticket. The controller interacts with the Ticket\+Service to perform these operations. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a7f68490ef008eca46d124f94db33b2c6}\index{com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}!createNewTicket@{createNewTicket}}
+\index{createNewTicket@{createNewTicket}!com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}}
+\doxysubsubsection{\texorpdfstring{createNewTicket()}{createNewTicket()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a7f68490ef008eca46d124f94db33b2c6} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Ticket\+Controller.\+create\+New\+Ticket (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1TicketDTO}{Ticket\+DTO}}}]{ticket\+DTO}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new ticket based on the provided Ticket\+DTO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticket\+DTO} & The Ticket\+DTO object containing the details of the new ticket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing a Response\+DTO with the HTTP status code and message 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a9ac78e552acc99e0d2634a457c79a2a1}\index{com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}!deleteTicket@{deleteTicket}}
+\index{deleteTicket@{deleteTicket}!com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}}
+\doxysubsubsection{\texorpdfstring{deleteTicket()}{deleteTicket()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a9ac78e552acc99e0d2634a457c79a2a1} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Ticket\+Controller.\+delete\+Ticket (\begin{DoxyParamCaption}\item[{@Path\+Variable("{}id"{}) long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deletes a ticket with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the ticket to be deleted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing a Response\+DTO with the HTTP status code and message 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Element\+Exception} & if the ticket with the given ID is not found \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a8a5ea88d1010027f77062667b2bcf028}\index{com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}!getTicketById@{getTicketById}}
+\index{getTicketById@{getTicketById}!com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}}
+\doxysubsubsection{\texorpdfstring{getTicketById()}{getTicketById()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a8a5ea88d1010027f77062667b2bcf028} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Ticket\+Controller.\+get\+Ticket\+By\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable("{}id"{}) long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a ticket by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the ticket to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing a JSON representation of the Ticket object 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Element\+Exception} & if the ticket with the given ID is not found \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a6e14106e475f34d065e04cfb21fc3ea1}\index{com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}!getTickets@{getTickets}}
+\index{getTickets@{getTickets}!com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}}
+\doxysubsubsection{\texorpdfstring{getTickets()}{getTickets()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_a6e14106e475f34d065e04cfb21fc3ea1} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Ticket\+Controller.\+get\+Tickets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all tickets from the system.
+
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing a JSON representation of the list of Ticket\+DTO objects 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_ae2c82729be72202688f22790cdf430d1}\index{com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}!updateTicket@{updateTicket}}
+\index{updateTicket@{updateTicket}!com.example.JO2024.controllers.TicketController@{com.example.JO2024.controllers.TicketController}}
+\doxysubsubsection{\texorpdfstring{updateTicket()}{updateTicket()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TicketController_ae2c82729be72202688f22790cdf430d1} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Ticket\+Controller.\+update\+Ticket (\begin{DoxyParamCaption}\item[{@Path\+Variable("{}id"{}) long}]{id}{, }\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1TicketDTO}{Ticket\+DTO}}}]{ticket\+DTO}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Updates an existing ticket with the provided ID using the details from the given Ticket\+DTO object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the ticket to update \\
+\hline
+{\em ticket\+DTO} & The Ticket\+DTO object containing the updated details \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity containing a Response\+DTO with the HTTP status code and message 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Element\+Exception} & if the ticket with the given ID is not found \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/controllers/Ticket\+Controller.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,64 @@
+\doxysection{com.\+example.\+JO2024.\+Controller.\+Customer\+Controller\+Test Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1Controller_1_1CustomerControllerTest}{}\label{classcom_1_1example_1_1JO2024_1_1Controller_1_1CustomerControllerTest}\index{com.example.JO2024.Controller.CustomerControllerTest@{com.example.JO2024.Controller.CustomerControllerTest}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Controller_1_1CustomerControllerTest_a7840107ca68406225d2e5c7ab466f006}{test\+\_\+reset\+\_\+password\+\_\+success}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Controller_1_1CustomerControllerTest_a04c962d8ca274254e444925ef60ea0cd}{test\+\_\+reset\+\_\+password\+\_\+no\+\_\+token\+\_\+in\+\_\+dB}} ()  throws Exception 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Controller_1_1CustomerControllerTest_a04c962d8ca274254e444925ef60ea0cd}\index{com.example.JO2024.Controller.CustomerControllerTest@{com.example.JO2024.Controller.CustomerControllerTest}!test\_reset\_password\_no\_token\_in\_dB@{test\_reset\_password\_no\_token\_in\_dB}}
+\index{test\_reset\_password\_no\_token\_in\_dB@{test\_reset\_password\_no\_token\_in\_dB}!com.example.JO2024.Controller.CustomerControllerTest@{com.example.JO2024.Controller.CustomerControllerTest}}
+\doxysubsubsection{\texorpdfstring{test\_reset\_password\_no\_token\_in\_dB()}{test\_reset\_password\_no\_token\_in\_dB()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Controller_1_1CustomerControllerTest_a04c962d8ca274254e444925ef60ea0cd} 
+void com.\+example.\+JO2024.\+Controller.\+Customer\+Controller\+Test.\+test\+\_\+reset\+\_\+password\+\_\+no\+\_\+token\+\_\+in\+\_\+dB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test case to verify the behavior when attempting to reset a password without a valid token in the database.
+
+Steps\+:
+\begin{DoxyEnumerate}
+\item Create a new Password\+DTO object with a valid password.
+\item Retrieve a customer by email address.
+\item Generate a reset password token using Jwt\+Generator.
+\item Mock the Http\+Servlet\+Request and set the Authorization header with the generated token.
+\item Assert that an Invalid\+Token\+Exception is thrown when attempting to reset the password.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if an error occurs during the test execution \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Controller_1_1CustomerControllerTest_a7840107ca68406225d2e5c7ab466f006}\index{com.example.JO2024.Controller.CustomerControllerTest@{com.example.JO2024.Controller.CustomerControllerTest}!test\_reset\_password\_success@{test\_reset\_password\_success}}
+\index{test\_reset\_password\_success@{test\_reset\_password\_success}!com.example.JO2024.Controller.CustomerControllerTest@{com.example.JO2024.Controller.CustomerControllerTest}}
+\doxysubsubsection{\texorpdfstring{test\_reset\_password\_success()}{test\_reset\_password\_success()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Controller_1_1CustomerControllerTest_a7840107ca68406225d2e5c7ab466f006} 
+void com.\+example.\+JO2024.\+Controller.\+Customer\+Controller\+Test.\+test\+\_\+reset\+\_\+password\+\_\+success (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test case to verify the successful reset of a customer\textquotesingle{}s password.
+
+Steps\+:
+\begin{DoxyEnumerate}
+\item Create a new Password\+DTO object with a valid password.
+\item Retrieve a customer by email address.
+\item Generate a reset password token using Jwt\+Generator.
+\item Create a new Reset\+Password\+Token object and set necessary attributes.
+\item Save the reset password token using Reset\+Password\+Token\+Service.
+\item Perform a POST request to reset the password using Mock\+Mvc.
+\item Verify that the response contains "{}\+Reset password successful"{}.
+\item Retrieve the updated customer and assert that the password has been updated successfully.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if an error occurs during the test execution \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/test/java/com/example/\+JO2024/\+Controller/Customer\+Controller\+Test.\+java\end{DoxyCompactItemize}

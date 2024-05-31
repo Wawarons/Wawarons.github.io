@@ -1,0 +1,100 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Code\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService}\index{com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a6d4775fdfa49842738cfbb1cf7541626}{create}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}} code)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a55f6653d45a42e18d3a13344ed8294fc}{delete}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}} code)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a4b7a052c22fb24d1fc4c629f3e0101a9}\label{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a4b7a052c22fb24d1fc4c629f3e0101a9} 
+void {\bfseries update} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}} code)
+\item 
+Optional$<$ List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}} $>$ $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_aa2f3aae9c33028529e55d25ed5d50df3}{get\+All\+By\+Customer\+Id}} (long id)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a207e208e26d256b2d91dfde125d9d12b}{get\+Last\+Code\+By\+Customer\+Id}} (long id)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a9d0fb3566d4ba462c2c003a04fe881ba}{send\+New\+Code}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService}{Code\+Service} class is responsible for managing validation codes. It provides methods for creating, deleting, updating, and retrieving validation codes. Additionally, it allows sending new validation codes to customers. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a6d4775fdfa49842738cfbb1cf7541626}\index{com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}!create@{create}}
+\index{create@{create}!com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a6d4775fdfa49842738cfbb1cf7541626} 
+void com.\+example.\+JO2024.\+services.\+Code\+Service.\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}}}]{code}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a validation code.
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The validation code to create. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a55f6653d45a42e18d3a13344ed8294fc}\index{com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}!delete@{delete}}
+\index{delete@{delete}!com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a55f6653d45a42e18d3a13344ed8294fc} 
+void com.\+example.\+JO2024.\+services.\+Code\+Service.\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}}}]{code}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deletes a validation code.
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The validation code to delete. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_aa2f3aae9c33028529e55d25ed5d50df3}\index{com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}!getAllByCustomerId@{getAllByCustomerId}}
+\index{getAllByCustomerId@{getAllByCustomerId}!com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}}
+\doxysubsubsection{\texorpdfstring{getAllByCustomerId()}{getAllByCustomerId()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_aa2f3aae9c33028529e55d25ed5d50df3} 
+Optional$<$ List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}} $>$ $>$ com.\+example.\+JO2024.\+services.\+Code\+Service.\+get\+All\+By\+Customer\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a validation code associated with a customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the customer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The validation code associated with the customer. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a207e208e26d256b2d91dfde125d9d12b}\index{com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}!getLastCodeByCustomerId@{getLastCodeByCustomerId}}
+\index{getLastCodeByCustomerId@{getLastCodeByCustomerId}!com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}}
+\doxysubsubsection{\texorpdfstring{getLastCodeByCustomerId()}{getLastCodeByCustomerId()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a207e208e26d256b2d91dfde125d9d12b} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Code}{Code}} $>$ com.\+example.\+JO2024.\+services.\+Code\+Service.\+get\+Last\+Code\+By\+Customer\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves the last validation code associated with a customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the customer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The last validation code associated with the customer. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a9d0fb3566d4ba462c2c003a04fe881ba}\index{com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}!sendNewCode@{sendNewCode}}
+\index{sendNewCode@{sendNewCode}!com.example.JO2024.services.CodeService@{com.example.JO2024.services.CodeService}}
+\doxysubsubsection{\texorpdfstring{sendNewCode()}{sendNewCode()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1CodeService_a9d0fb3566d4ba462c2c003a04fe881ba} 
+void com.\+example.\+JO2024.\+services.\+Code\+Service.\+send\+New\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sends a new validation code to the specified customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The customer to send the validation code to. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Code\+Service.\+java\end{DoxyCompactItemize}

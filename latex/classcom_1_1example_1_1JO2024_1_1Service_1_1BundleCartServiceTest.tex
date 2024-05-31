@@ -1,0 +1,76 @@
+\doxysection{com.\+example.\+JO2024.\+Service.\+Bundle\+Cart\+Service\+Test Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest}{}\label{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest}\index{com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_ad30c975c7b96a53798115c91636f63e4}{test\+\_\+valid\+\_\+bundle\+\_\+cart\+\_\+saved\+\_\+successfully}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_ae94c9bba749fce03ce3fcd6cdd04cf46}{test\+\_\+deletes\+\_\+specified\+\_\+bundlecart}} ()
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_ae94383665c10a68bf0e3e92837c2134a}\label{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_ae94383665c10a68bf0e3e92837c2134a} 
+void {\bfseries test\+\_\+returns\+\_\+bundle\+\_\+cart\+\_\+if\+\_\+found} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_a2213ad8040803ab30a2b89c520488c0f}{test\+\_\+returns\+\_\+bundles\+\_\+sorted\+\_\+by\+\_\+creation\+\_\+date\+\_\+desc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_a520c5ebaba8a4267d0bf2da7e2926f6f}{test\+\_\+returns\+\_\+sorted\+\_\+list\+\_\+by\+\_\+creation\+\_\+date\+\_\+asc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_aa7000e7ec9369f2675f9a67a6a95883a}{verify\+\_\+bundle\+\_\+cart\+\_\+creation}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_af55543b5b7748e693a113fc1afd74773}{test\+\_\+bundle\+\_\+added\+\_\+successfully}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_af55543b5b7748e693a113fc1afd74773}\index{com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}!test\_bundle\_added\_successfully@{test\_bundle\_added\_successfully}}
+\index{test\_bundle\_added\_successfully@{test\_bundle\_added\_successfully}!com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_bundle\_added\_successfully()}{test\_bundle\_added\_successfully()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_af55543b5b7748e693a113fc1afd74773} 
+void com.\+example.\+JO2024.\+Service.\+Bundle\+Cart\+Service\+Test.\+test\+\_\+bundle\+\_\+added\+\_\+successfully (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that a bundle is successfully added to the cart.
+
+It creates a new Bundle and Cart entities. Then, it calls the add\+Bundle\+To\+Cart method of the service with the created Bundle and Cart. Finally, it verifies that the save method of the mocked repository is called with any Bundle\+Cart entity. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_ae94c9bba749fce03ce3fcd6cdd04cf46}\index{com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}!test\_deletes\_specified\_bundlecart@{test\_deletes\_specified\_bundlecart}}
+\index{test\_deletes\_specified\_bundlecart@{test\_deletes\_specified\_bundlecart}!com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_deletes\_specified\_bundlecart()}{test\_deletes\_specified\_bundlecart()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_ae94c9bba749fce03ce3fcd6cdd04cf46} 
+void com.\+example.\+JO2024.\+Service.\+Bundle\+Cart\+Service\+Test.\+test\+\_\+deletes\+\_\+specified\+\_\+bundlecart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that a specified Bundle\+Cart entity is deleted successfully.
+
+It creates a new Bundle\+Cart entity and calls the delete method of the service with this entity. Finally, it verifies that the delete method of the mocked repository is called with the specified Bundle\+Cart entity. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_a2213ad8040803ab30a2b89c520488c0f}\index{com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}!test\_returns\_bundles\_sorted\_by\_creation\_date\_desc@{test\_returns\_bundles\_sorted\_by\_creation\_date\_desc}}
+\index{test\_returns\_bundles\_sorted\_by\_creation\_date\_desc@{test\_returns\_bundles\_sorted\_by\_creation\_date\_desc}!com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_returns\_bundles\_sorted\_by\_creation\_date\_desc()}{test\_returns\_bundles\_sorted\_by\_creation\_date\_desc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_a2213ad8040803ab30a2b89c520488c0f} 
+void com.\+example.\+JO2024.\+Service.\+Bundle\+Cart\+Service\+Test.\+test\+\_\+returns\+\_\+bundles\+\_\+sorted\+\_\+by\+\_\+creation\+\_\+date\+\_\+desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that the method returns a list of Bundle\+Cart entities sorted by creation date in descending order.
+
+It sets up the necessary mocks for Cart and Bundle classes and creates a list of Bundle\+Cart entities with different creation dates. The behavior of the bundle\+Cart\+Repository is then mocked to return this list in descending order of creation date. The method under test, get\+Bundles\+By\+Created\+At\+Desc, is called. Finally, it asserts that the returned list is not null, has a size of 3, and the creation dates are in descending order. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_a520c5ebaba8a4267d0bf2da7e2926f6f}\index{com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}!test\_returns\_sorted\_list\_by\_creation\_date\_asc@{test\_returns\_sorted\_list\_by\_creation\_date\_asc}}
+\index{test\_returns\_sorted\_list\_by\_creation\_date\_asc@{test\_returns\_sorted\_list\_by\_creation\_date\_asc}!com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_returns\_sorted\_list\_by\_creation\_date\_asc()}{test\_returns\_sorted\_list\_by\_creation\_date\_asc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_a520c5ebaba8a4267d0bf2da7e2926f6f} 
+void com.\+example.\+JO2024.\+Service.\+Bundle\+Cart\+Service\+Test.\+test\+\_\+returns\+\_\+sorted\+\_\+list\+\_\+by\+\_\+creation\+\_\+date\+\_\+asc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that the method returns a list of Bundle\+Cart entities sorted by creation date in ascending order.
+
+It sets up the necessary mocks for Cart and Bundle classes and creates a list of Bundle\+Cart entities with the same creation date. The behavior of the bundle\+Cart\+Repository is then mocked to return this list in ascending order of creation date. The method under test, get\+Bundles\+By\+Created\+At\+Asc, is called. Finally, it asserts that the returned list matches the expected list and is sorted by creation date in ascending order. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_ad30c975c7b96a53798115c91636f63e4}\index{com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}!test\_valid\_bundle\_cart\_saved\_successfully@{test\_valid\_bundle\_cart\_saved\_successfully}}
+\index{test\_valid\_bundle\_cart\_saved\_successfully@{test\_valid\_bundle\_cart\_saved\_successfully}!com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_valid\_bundle\_cart\_saved\_successfully()}{test\_valid\_bundle\_cart\_saved\_successfully()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_ad30c975c7b96a53798115c91636f63e4} 
+void com.\+example.\+JO2024.\+Service.\+Bundle\+Cart\+Service\+Test.\+test\+\_\+valid\+\_\+bundle\+\_\+cart\+\_\+saved\+\_\+successfully (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that a valid Bundle\+Cart entity is saved successfully.
+
+It mocks the Bundle\+Cart\+Repository and sets it as a field in the Bundle\+Cart\+Service. Then, it creates a new Bundle\+Cart entity and calls the create method of the service. Finally, it verifies that the save method of the mocked repository is called with the created Bundle\+Cart entity. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_aa7000e7ec9369f2675f9a67a6a95883a}\index{com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}!verify\_bundle\_cart\_creation@{verify\_bundle\_cart\_creation}}
+\index{verify\_bundle\_cart\_creation@{verify\_bundle\_cart\_creation}!com.example.JO2024.Service.BundleCartServiceTest@{com.example.JO2024.Service.BundleCartServiceTest}}
+\doxysubsubsection{\texorpdfstring{verify\_bundle\_cart\_creation()}{verify\_bundle\_cart\_creation()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1BundleCartServiceTest_aa7000e7ec9369f2675f9a67a6a95883a} 
+void com.\+example.\+JO2024.\+Service.\+Bundle\+Cart\+Service\+Test.\+verify\+\_\+bundle\+\_\+cart\+\_\+creation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test to verify that a bundle is successfully added to the cart.
+
+It creates a new Bundle and Cart entities. Then, it calls the add\+Bundle\+To\+Cart method of the service with the created Bundle and Cart. Finally, it verifies that the save method of the mocked repository is called with any Bundle\+Cart entity. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/test/java/com/example/\+JO2024/\+Service/Bundle\+Cart\+Service\+Test.\+java\end{DoxyCompactItemize}

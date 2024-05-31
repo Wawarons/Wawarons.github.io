@@ -1,0 +1,85 @@
+\doxysection{com.\+example.\+JO2024.\+controllers.\+Admin\+Controller Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController}{}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController}\index{com.example.JO2024.controllers.AdminController@{com.example.JO2024.controllers.AdminController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_aa125525cef1489e5127f493b6299a9c6}{create\+Bundle}} (@Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1BundleDTO}{Bundle\+DTO}} bundle\+Dto)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_ae0a1b99a7dfc64ff473e16e2f4c43dba}{update\+Bundle}} (@Path\+Variable Long id, @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1BundleDTO}{Bundle\+DTO}} bundle\+Dto)
+\item 
+Response\+Entity$<$ Void $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_a91652d283a383362f10c41a8be838743}{delete\+Bundle}} (@Path\+Variable Long id)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_a068e3153fd744556b35599b21c8e4200}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_a068e3153fd744556b35599b21c8e4200} 
+Response\+Entity$<$?$>$ {\bfseries get\+Customers} ()
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_ab61b96cebbcff4ed8e457eb63c2a928b}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_ab61b96cebbcff4ed8e457eb63c2a928b} 
+Response\+Entity$<$?$>$ {\bfseries get\+Customer} (@Path\+Variable("{}id"{}) long id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_aa125525cef1489e5127f493b6299a9c6}\index{com.example.JO2024.controllers.AdminController@{com.example.JO2024.controllers.AdminController}!createBundle@{createBundle}}
+\index{createBundle@{createBundle}!com.example.JO2024.controllers.AdminController@{com.example.JO2024.controllers.AdminController}}
+\doxysubsubsection{\texorpdfstring{createBundle()}{createBundle()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_aa125525cef1489e5127f493b6299a9c6} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Admin\+Controller.\+create\+Bundle (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1BundleDTO}{Bundle\+DTO}}}]{bundle\+Dto}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new bundle based on the provided Bundle\+DTO. Retrieves the ticket using the ticket\+Id from the Bundle\+DTO. Constructs a new Bundle object with the details from the Bundle\+DTO and the retrieved ticket. Saves the created bundle using the bundle\+Service. Returns a Response\+Entity with a success message and HTTP status code.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle\+Dto} & The Bundle\+DTO containing the details of the new bundle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a success message and HTTP status code. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Element\+Exception} & if the ticket with the specified ID is not found. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_a91652d283a383362f10c41a8be838743}\index{com.example.JO2024.controllers.AdminController@{com.example.JO2024.controllers.AdminController}!deleteBundle@{deleteBundle}}
+\index{deleteBundle@{deleteBundle}!com.example.JO2024.controllers.AdminController@{com.example.JO2024.controllers.AdminController}}
+\doxysubsubsection{\texorpdfstring{deleteBundle()}{deleteBundle()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_a91652d283a383362f10c41a8be838743} 
+Response\+Entity$<$ Void $>$ com.\+example.\+JO2024.\+controllers.\+Admin\+Controller.\+delete\+Bundle (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deletes a bundle by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the bundle to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with no content and HTTP status code. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_ae0a1b99a7dfc64ff473e16e2f4c43dba}\index{com.example.JO2024.controllers.AdminController@{com.example.JO2024.controllers.AdminController}!updateBundle@{updateBundle}}
+\index{updateBundle@{updateBundle}!com.example.JO2024.controllers.AdminController@{com.example.JO2024.controllers.AdminController}}
+\doxysubsubsection{\texorpdfstring{updateBundle()}{updateBundle()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1AdminController_ae0a1b99a7dfc64ff473e16e2f4c43dba} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Admin\+Controller.\+update\+Bundle (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{, }\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1BundleDTO}{Bundle\+DTO}}}]{bundle\+Dto}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Updates an existing bundle with the provided details in the Bundle\+DTO. Retrieves the ticket using the ticket\+Id from the Bundle\+DTO. Constructs a new Bundle object with the details from the Bundle\+DTO and the retrieved ticket. Calls the bundle\+Service to update the bundle with the specified ID. Returns a Response\+Entity with a success message and HTTP status code.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the bundle to update. \\
+\hline
+{\em bundle\+Dto} & The Bundle\+DTO containing the updated details. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a success message and HTTP status code. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Username\+Not\+Found\+Exception} & if the ticket with the specified ID is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/controllers/Admin\+Controller.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,208 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Ticket\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a26fb064204604a92359d9ac2bc783ce9}{get\+Ticket\+By\+Id}} (long id)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_abb209b9d05e56641ea03988b7a5df068}{create}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} ticket)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a071ccd1b58b66e82421ec8a23bdf67ad}{delete}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} ticket)
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a16e134733797ed02e4bb69e9070c5dd1}{get\+All\+Tickets}} ()
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a301e91501cd2f6e67ef0cfbe9ac19235}{get\+All\+Tickets\+By\+Price\+Desc}} ()
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_ae2dece45275d82a781a28f3e5bd33183}{get\+All\+Tickets\+By\+Price\+Asc}} ()
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a48b1cb92b05b68c40c9b25b93a01092c}{get\+All\+Tickets\+By\+Start\+Date\+Desc}} ()
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a7a79ac765a18f0776e52ffb81da058f9}{get\+All\+Tickets\+By\+Start\+Date\+Asc}} ()
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_ac66ed147b0aa0a94b6177acad6faffec}{get\+All\+Tickets\+By\+Quantity\+Desc}} ()
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_aa9b48deedc03d3bf3d0850e5f7412465}{get\+All\+Tickets\+By\+Quantity\+Asc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a57ab77e7ce58fdc6efa6be84ec497e3d}{update}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} ticket)
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a49ecc2ad4b0be77b163f3b02567a3276}{update\+By\+Ticket\+DTO}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} ticket, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1TicketDTO}{Ticket\+DTO}} ticket\+DTO)
+\item 
+boolean \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a50500a883eb2acf8bd75abf6e5eaccf1}{is\+Ticket\+Available\+To\+Purchase}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} ticket)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service class for managing Ticket entities. Provides methods to create, delete, retrieve, and update Ticket records. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_abb209b9d05e56641ea03988b7a5df068}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!create@{create}}
+\index{create@{create}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_abb209b9d05e56641ea03988b7a5df068} 
+void com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}}}]{ticket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves a new Ticket entity to the repository.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticket} & the Ticket entity to be saved \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a071ccd1b58b66e82421ec8a23bdf67ad}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!delete@{delete}}
+\index{delete@{delete}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a071ccd1b58b66e82421ec8a23bdf67ad} 
+void com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}}}]{ticket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deletes a Ticket entity from the repository.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticket} & the Ticket entity to be deleted \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a16e134733797ed02e4bb69e9070c5dd1}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!getAllTickets@{getAllTickets}}
+\index{getAllTickets@{getAllTickets}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{getAllTickets()}{getAllTickets()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a16e134733797ed02e4bb69e9070c5dd1} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+get\+All\+Tickets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all Ticket entities from the repository.
+
+\begin{DoxyReturn}{Returns}
+a list of all Ticket entities 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_ae2dece45275d82a781a28f3e5bd33183}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!getAllTicketsByPriceAsc@{getAllTicketsByPriceAsc}}
+\index{getAllTicketsByPriceAsc@{getAllTicketsByPriceAsc}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{getAllTicketsByPriceAsc()}{getAllTicketsByPriceAsc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_ae2dece45275d82a781a28f3e5bd33183} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+get\+All\+Tickets\+By\+Price\+Asc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all Ticket entities ordered by price in ascending order.
+
+\begin{DoxyReturn}{Returns}
+a list of Ticket entities ordered by price ascending 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a301e91501cd2f6e67ef0cfbe9ac19235}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!getAllTicketsByPriceDesc@{getAllTicketsByPriceDesc}}
+\index{getAllTicketsByPriceDesc@{getAllTicketsByPriceDesc}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{getAllTicketsByPriceDesc()}{getAllTicketsByPriceDesc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a301e91501cd2f6e67ef0cfbe9ac19235} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+get\+All\+Tickets\+By\+Price\+Desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all Ticket entities ordered by price in descending order.
+
+\begin{DoxyReturn}{Returns}
+a list of Ticket entities ordered by price descending 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_aa9b48deedc03d3bf3d0850e5f7412465}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!getAllTicketsByQuantityAsc@{getAllTicketsByQuantityAsc}}
+\index{getAllTicketsByQuantityAsc@{getAllTicketsByQuantityAsc}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{getAllTicketsByQuantityAsc()}{getAllTicketsByQuantityAsc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_aa9b48deedc03d3bf3d0850e5f7412465} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+get\+All\+Tickets\+By\+Quantity\+Asc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all Ticket entities ordered by quantity in ascending order.
+
+\begin{DoxyReturn}{Returns}
+a list of Ticket entities ordered by quantity ascending 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_ac66ed147b0aa0a94b6177acad6faffec}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!getAllTicketsByQuantityDesc@{getAllTicketsByQuantityDesc}}
+\index{getAllTicketsByQuantityDesc@{getAllTicketsByQuantityDesc}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{getAllTicketsByQuantityDesc()}{getAllTicketsByQuantityDesc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_ac66ed147b0aa0a94b6177acad6faffec} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+get\+All\+Tickets\+By\+Quantity\+Desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all Ticket entities ordered by quantity in descending order.
+
+\begin{DoxyReturn}{Returns}
+a list of Ticket entities ordered by quantity descending 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a7a79ac765a18f0776e52ffb81da058f9}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!getAllTicketsByStartDateAsc@{getAllTicketsByStartDateAsc}}
+\index{getAllTicketsByStartDateAsc@{getAllTicketsByStartDateAsc}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{getAllTicketsByStartDateAsc()}{getAllTicketsByStartDateAsc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a7a79ac765a18f0776e52ffb81da058f9} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+get\+All\+Tickets\+By\+Start\+Date\+Asc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all Ticket entities ordered by start date in ascending order.
+
+\begin{DoxyReturn}{Returns}
+a list of Ticket entities ordered by start date ascending 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a48b1cb92b05b68c40c9b25b93a01092c}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!getAllTicketsByStartDateDesc@{getAllTicketsByStartDateDesc}}
+\index{getAllTicketsByStartDateDesc@{getAllTicketsByStartDateDesc}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{getAllTicketsByStartDateDesc()}{getAllTicketsByStartDateDesc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a48b1cb92b05b68c40c9b25b93a01092c} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+get\+All\+Tickets\+By\+Start\+Date\+Desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all Ticket entities ordered by start date in descending order.
+
+\begin{DoxyReturn}{Returns}
+a list of Ticket entities ordered by start date descending 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a26fb064204604a92359d9ac2bc783ce9}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!getTicketById@{getTicketById}}
+\index{getTicketById@{getTicketById}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{getTicketById()}{getTicketById()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a26fb064204604a92359d9ac2bc783ce9} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} $>$ com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+get\+Ticket\+By\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a Ticket by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the Ticket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Optional containing the Ticket if found, or an empty Optional if not found 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a50500a883eb2acf8bd75abf6e5eaccf1}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!isTicketAvailableToPurchase@{isTicketAvailableToPurchase}}
+\index{isTicketAvailableToPurchase@{isTicketAvailableToPurchase}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{isTicketAvailableToPurchase()}{isTicketAvailableToPurchase()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a50500a883eb2acf8bd75abf6e5eaccf1} 
+boolean com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+is\+Ticket\+Available\+To\+Purchase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}}}]{ticket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if a Ticket is available for purchase.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticket} & the Ticket entity to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the Ticket is available for purchase, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a57ab77e7ce58fdc6efa6be84ec497e3d}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!update@{update}}
+\index{update@{update}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a57ab77e7ce58fdc6efa6be84ec497e3d} 
+void com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}}}]{ticket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Updates an existing Ticket entity in the repository.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticket} & the Ticket entity to be updated \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a49ecc2ad4b0be77b163f3b02567a3276}\index{com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}!updateByTicketDTO@{updateByTicketDTO}}
+\index{updateByTicketDTO@{updateByTicketDTO}!com.example.JO2024.services.TicketService@{com.example.JO2024.services.TicketService}}
+\doxysubsubsection{\texorpdfstring{updateByTicketDTO()}{updateByTicketDTO()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketService_a49ecc2ad4b0be77b163f3b02567a3276} 
+\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}} com.\+example.\+JO2024.\+services.\+Ticket\+Service.\+update\+By\+Ticket\+DTO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Ticket}{Ticket}}}]{ticket}{, }\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1TicketDTO}{Ticket\+DTO}}}]{ticket\+DTO}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Updates a Ticket entity with values from a Ticket\+DTO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticket} & the Ticket entity to be updated \\
+\hline
+{\em ticket\+DTO} & the Ticket\+DTO containing new values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the updated Ticket entity 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Ticket\+Service.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,103 @@
+\doxysection{com.\+example.\+JO2024.\+controllers.\+Bundle\+Cart\+Controller Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController}{}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController}\index{com.example.JO2024.controllers.BundleCartController@{com.example.JO2024.controllers.BundleCartController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_aec4b3680b84675bd61b2f080e5be3b0e}{add\+Ticket\+In\+Cart}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1BundleInCartDTO}{Bundle\+In\+Cart\+DTO}} bundle\+In\+Cart\+DTO, Http\+Servlet\+Request request)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_ad05ed058e1828a25abad310fc88bb2e3}{update\+Ticket\+In\+Cart}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1BundleInCartDTO}{Bundle\+In\+Cart\+DTO}} bundle\+In\+Cart\+DTO, Http\+Servlet\+Request request)
+\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ResponseDTO}{Response\+DTO}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_ae886d51f1d437f7de8a7046f6ab33ffa}{clear\+Cart}} (Http\+Servlet\+Request request)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_a674c033f01042745e106bf0ac7b12436}{get\+Items}} (Http\+Servlet\+Request request)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller class for managing tickets in a user\textquotesingle{}s cart. Provides endpoints for adding, updating, clearing, and retrieving items in the cart. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_aec4b3680b84675bd61b2f080e5be3b0e}\index{com.example.JO2024.controllers.BundleCartController@{com.example.JO2024.controllers.BundleCartController}!addTicketInCart@{addTicketInCart}}
+\index{addTicketInCart@{addTicketInCart}!com.example.JO2024.controllers.BundleCartController@{com.example.JO2024.controllers.BundleCartController}}
+\doxysubsubsection{\texorpdfstring{addTicketInCart()}{addTicketInCart()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_aec4b3680b84675bd61b2f080e5be3b0e} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Bundle\+Cart\+Controller.\+add\+Ticket\+In\+Cart (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1BundleInCartDTO}{Bundle\+In\+Cart\+DTO}}}]{bundle\+In\+Cart\+DTO}{, }\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a ticket to the user\textquotesingle{}s cart based on the provided Bundle\+In\+Cart\+DTO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle\+In\+Cart\+DTO} & The Bundlen\+Cart\+DTO containing the bundle id, user id, and quantity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a message indicating if the bundle was successfully added to the cart. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_ae886d51f1d437f7de8a7046f6ab33ffa}\index{com.example.JO2024.controllers.BundleCartController@{com.example.JO2024.controllers.BundleCartController}!clearCart@{clearCart}}
+\index{clearCart@{clearCart}!com.example.JO2024.controllers.BundleCartController@{com.example.JO2024.controllers.BundleCartController}}
+\doxysubsubsection{\texorpdfstring{clearCart()}{clearCart()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_ae886d51f1d437f7de8a7046f6ab33ffa} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1ResponseDTO}{Response\+DTO}} $>$ com.\+example.\+JO2024.\+controllers.\+Bundle\+Cart\+Controller.\+clear\+Cart (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Clears the cart for the specified user by removing all items from the cart.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id\+DTO} & The User\+Id\+DTO containing the user id for whom the cart needs to be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a message indicating if the cart was cleared successfully. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Element\+Exception} & if the cart is not found for the provided user id. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_a674c033f01042745e106bf0ac7b12436}\index{com.example.JO2024.controllers.BundleCartController@{com.example.JO2024.controllers.BundleCartController}!getItems@{getItems}}
+\index{getItems@{getItems}!com.example.JO2024.controllers.BundleCartController@{com.example.JO2024.controllers.BundleCartController}}
+\doxysubsubsection{\texorpdfstring{getItems()}{getItems()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_a674c033f01042745e106bf0ac7b12436} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Bundle\+Cart\+Controller.\+get\+Items (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves the items in the cart for the specified user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id\+DTO} & The User\+Id\+DTO containing the user id for whom the items need to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity containing a list of Item\+Cart\+DTO representing the items in the cart. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Element\+Exception} & if the cart is not found for the provided user id. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_ad05ed058e1828a25abad310fc88bb2e3}\index{com.example.JO2024.controllers.BundleCartController@{com.example.JO2024.controllers.BundleCartController}!updateTicketInCart@{updateTicketInCart}}
+\index{updateTicketInCart@{updateTicketInCart}!com.example.JO2024.controllers.BundleCartController@{com.example.JO2024.controllers.BundleCartController}}
+\doxysubsubsection{\texorpdfstring{updateTicketInCart()}{updateTicketInCart()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleCartController_ad05ed058e1828a25abad310fc88bb2e3} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Bundle\+Cart\+Controller.\+update\+Ticket\+In\+Cart (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1BundleInCartDTO}{Bundle\+In\+Cart\+DTO}}}]{bundle\+In\+Cart\+DTO}{, }\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Updates the quantity of a bundle in the user\textquotesingle{}s cart based on the provided Bundle\+In\+Cart\+DTO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle\+In\+Cart\+DTO} & The Bundle\+In\+Cart\+DTO containing the bundle id, user id, and new quantity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity with a message indicating if the bundle quantity was successfully updated in the cart. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Element\+Exception} & if the cart, item cart, or bundle is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/controllers/Bundle\+Cart\+Controller.\+java\end{DoxyCompactItemize}

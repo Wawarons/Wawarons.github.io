@@ -1,0 +1,126 @@
+\doxysection{com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest}{}\label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a978be35fc6539a95fb8ffa013b8bbcd8}{test\+\_\+\+Ticket\+Service\+\_\+get\+\_\+ticket\+\_\+by\+\_\+id}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a5750ec1fc73692267dfda9b067c9e8f8}{test\+\_\+\+Ticket\+Service\+\_\+get\+\_\+all\+\_\+tickets}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a340451c3014ca6d3f8639220861003b1}{test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+price\+\_\+desc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a079b2fb2c1b8a3ce43faaf3f3a412220}{test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+price\+\_\+asc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_aef92e0a05d2ea0681a12feebe0ef38f1}{test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+startdate\+\_\+desc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a02c2e343432df6d283660dd507dcf86b}{test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+startdate\+\_\+asc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a33183e95918810028063deb5f81f84e7}{test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+quantity\+\_\+asc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a6ee553d098678fd2dee01964a7bc2a59}{test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+quantity\+\_\+desc}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_afcb5d603b56803459e463e6a1b0a9b8f}{test\+\_\+ticket\+\_\+is\+\_\+valid\+\_\+to\+\_\+purchase}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a9471a5fb5d2791053ba386717cf6c6b0}{test\+\_\+ticket\+\_\+is\+\_\+valid\+\_\+to\+\_\+purchase\+\_\+is\+Available\+\_\+false}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a2b9d388accf43ae1f3ac6ecf1e651eb8}{test\+\_\+ticket\+\_\+is\+\_\+valid\+\_\+to\+\_\+purchase\+\_\+no\+\_\+stock}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a70cfefc930a285c99fb8285467eb9d5b}{test\+\_\+ticket\+\_\+is\+\_\+valid\+\_\+to\+\_\+purchase\+\_\+expired}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class contains unit tests for the Ticket\+Service. It tests various functionalities such as fetching tickets by ID, sorting tickets by different criteria, and checking the validity of tickets for purchase. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_afcb5d603b56803459e463e6a1b0a9b8f}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_ticket\_is\_valid\_to\_purchase@{test\_ticket\_is\_valid\_to\_purchase}}
+\index{test\_ticket\_is\_valid\_to\_purchase@{test\_ticket\_is\_valid\_to\_purchase}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_ticket\_is\_valid\_to\_purchase()}{test\_ticket\_is\_valid\_to\_purchase()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_afcb5d603b56803459e463e6a1b0a9b8f} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+ticket\+\_\+is\+\_\+valid\+\_\+to\+\_\+purchase (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that a ticket is valid for purchase when it is available, has stock, and is not expired. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a70cfefc930a285c99fb8285467eb9d5b}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_ticket\_is\_valid\_to\_purchase\_expired@{test\_ticket\_is\_valid\_to\_purchase\_expired}}
+\index{test\_ticket\_is\_valid\_to\_purchase\_expired@{test\_ticket\_is\_valid\_to\_purchase\_expired}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_ticket\_is\_valid\_to\_purchase\_expired()}{test\_ticket\_is\_valid\_to\_purchase\_expired()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a70cfefc930a285c99fb8285467eb9d5b} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+ticket\+\_\+is\+\_\+valid\+\_\+to\+\_\+purchase\+\_\+expired (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that a ticket is not valid for purchase when it is expired. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a9471a5fb5d2791053ba386717cf6c6b0}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_ticket\_is\_valid\_to\_purchase\_isAvailable\_false@{test\_ticket\_is\_valid\_to\_purchase\_isAvailable\_false}}
+\index{test\_ticket\_is\_valid\_to\_purchase\_isAvailable\_false@{test\_ticket\_is\_valid\_to\_purchase\_isAvailable\_false}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_ticket\_is\_valid\_to\_purchase\_isAvailable\_false()}{test\_ticket\_is\_valid\_to\_purchase\_isAvailable\_false()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a9471a5fb5d2791053ba386717cf6c6b0} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+ticket\+\_\+is\+\_\+valid\+\_\+to\+\_\+purchase\+\_\+is\+Available\+\_\+false (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that a ticket is not valid for purchase when it is not available. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a2b9d388accf43ae1f3ac6ecf1e651eb8}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_ticket\_is\_valid\_to\_purchase\_no\_stock@{test\_ticket\_is\_valid\_to\_purchase\_no\_stock}}
+\index{test\_ticket\_is\_valid\_to\_purchase\_no\_stock@{test\_ticket\_is\_valid\_to\_purchase\_no\_stock}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_ticket\_is\_valid\_to\_purchase\_no\_stock()}{test\_ticket\_is\_valid\_to\_purchase\_no\_stock()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a2b9d388accf43ae1f3ac6ecf1e651eb8} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+ticket\+\_\+is\+\_\+valid\+\_\+to\+\_\+purchase\+\_\+no\+\_\+stock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that a ticket is not valid for purchase when it has no stock. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a079b2fb2c1b8a3ce43faaf3f3a412220}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_tickets\_sorted\_by\_price\_asc@{test\_tickets\_sorted\_by\_price\_asc}}
+\index{test\_tickets\_sorted\_by\_price\_asc@{test\_tickets\_sorted\_by\_price\_asc}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_tickets\_sorted\_by\_price\_asc()}{test\_tickets\_sorted\_by\_price\_asc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a079b2fb2c1b8a3ce43faaf3f3a412220} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+price\+\_\+asc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that tickets are sorted by price in ascending order. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a340451c3014ca6d3f8639220861003b1}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_tickets\_sorted\_by\_price\_desc@{test\_tickets\_sorted\_by\_price\_desc}}
+\index{test\_tickets\_sorted\_by\_price\_desc@{test\_tickets\_sorted\_by\_price\_desc}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_tickets\_sorted\_by\_price\_desc()}{test\_tickets\_sorted\_by\_price\_desc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a340451c3014ca6d3f8639220861003b1} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+price\+\_\+desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that tickets are sorted by price in descending order. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a33183e95918810028063deb5f81f84e7}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_tickets\_sorted\_by\_quantity\_asc@{test\_tickets\_sorted\_by\_quantity\_asc}}
+\index{test\_tickets\_sorted\_by\_quantity\_asc@{test\_tickets\_sorted\_by\_quantity\_asc}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_tickets\_sorted\_by\_quantity\_asc()}{test\_tickets\_sorted\_by\_quantity\_asc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a33183e95918810028063deb5f81f84e7} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+quantity\+\_\+asc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that tickets are sorted by quantity in ascending order. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a6ee553d098678fd2dee01964a7bc2a59}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_tickets\_sorted\_by\_quantity\_desc@{test\_tickets\_sorted\_by\_quantity\_desc}}
+\index{test\_tickets\_sorted\_by\_quantity\_desc@{test\_tickets\_sorted\_by\_quantity\_desc}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_tickets\_sorted\_by\_quantity\_desc()}{test\_tickets\_sorted\_by\_quantity\_desc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a6ee553d098678fd2dee01964a7bc2a59} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+quantity\+\_\+desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that tickets are sorted by quantity in descending order. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a02c2e343432df6d283660dd507dcf86b}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_tickets\_sorted\_by\_startdate\_asc@{test\_tickets\_sorted\_by\_startdate\_asc}}
+\index{test\_tickets\_sorted\_by\_startdate\_asc@{test\_tickets\_sorted\_by\_startdate\_asc}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_tickets\_sorted\_by\_startdate\_asc()}{test\_tickets\_sorted\_by\_startdate\_asc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a02c2e343432df6d283660dd507dcf86b} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+startdate\+\_\+asc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that tickets are sorted by start date in ascending order. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_aef92e0a05d2ea0681a12feebe0ef38f1}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_tickets\_sorted\_by\_startdate\_desc@{test\_tickets\_sorted\_by\_startdate\_desc}}
+\index{test\_tickets\_sorted\_by\_startdate\_desc@{test\_tickets\_sorted\_by\_startdate\_desc}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_tickets\_sorted\_by\_startdate\_desc()}{test\_tickets\_sorted\_by\_startdate\_desc()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_aef92e0a05d2ea0681a12feebe0ef38f1} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+tickets\+\_\+sorted\+\_\+by\+\_\+startdate\+\_\+desc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that tickets are sorted by start date in descending order. \Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a5750ec1fc73692267dfda9b067c9e8f8}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_TicketService\_get\_all\_tickets@{test\_TicketService\_get\_all\_tickets}}
+\index{test\_TicketService\_get\_all\_tickets@{test\_TicketService\_get\_all\_tickets}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_TicketService\_get\_all\_tickets()}{test\_TicketService\_get\_all\_tickets()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a5750ec1fc73692267dfda9b067c9e8f8} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+\+Ticket\+Service\+\_\+get\+\_\+all\+\_\+tickets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that all tickets can be fetched.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if an error occurs during the test \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a978be35fc6539a95fb8ffa013b8bbcd8}\index{com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}!test\_TicketService\_get\_ticket\_by\_id@{test\_TicketService\_get\_ticket\_by\_id}}
+\index{test\_TicketService\_get\_ticket\_by\_id@{test\_TicketService\_get\_ticket\_by\_id}!com.example.JO2024.Service.TicketServiceTest@{com.example.JO2024.Service.TicketServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_TicketService\_get\_ticket\_by\_id()}{test\_TicketService\_get\_ticket\_by\_id()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1TicketServiceTest_a978be35fc6539a95fb8ffa013b8bbcd8} 
+void com.\+example.\+JO2024.\+Service.\+Ticket\+Service\+Test.\+test\+\_\+\+Ticket\+Service\+\_\+get\+\_\+ticket\+\_\+by\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests that a ticket can be fetched by its ID.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & if an error occurs during the test \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/test/java/com/example/\+JO2024/\+Service/Ticket\+Service\+Test.\+java\end{DoxyCompactItemize}

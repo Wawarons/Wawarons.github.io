@@ -1,0 +1,49 @@
+\doxysection{com.\+example.\+JO2024.\+controllers.\+Bundle\+Controller Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleController}{}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleController}\index{com.example.JO2024.controllers.BundleController@{com.example.JO2024.controllers.BundleController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleController_ad461f6890a268857755378dbab8e7707}{get\+All\+Bundles}} ()
+\item 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleController_aa4948e777ece65f8b0f0d3a5a2f5fce0}{get\+Bundle\+By\+Id}} (@Path\+Variable Long id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleController_ad461f6890a268857755378dbab8e7707}\index{com.example.JO2024.controllers.BundleController@{com.example.JO2024.controllers.BundleController}!getAllBundles@{getAllBundles}}
+\index{getAllBundles@{getAllBundles}!com.example.JO2024.controllers.BundleController@{com.example.JO2024.controllers.BundleController}}
+\doxysubsubsection{\texorpdfstring{getAllBundles()}{getAllBundles()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleController_ad461f6890a268857755378dbab8e7707} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} $>$ com.\+example.\+JO2024.\+controllers.\+Bundle\+Controller.\+get\+All\+Bundles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves all bundles.
+
+\begin{DoxyReturn}{Returns}
+A list of all Bundle objects. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleController_aa4948e777ece65f8b0f0d3a5a2f5fce0}\index{com.example.JO2024.controllers.BundleController@{com.example.JO2024.controllers.BundleController}!getBundleById@{getBundleById}}
+\index{getBundleById@{getBundleById}!com.example.JO2024.controllers.BundleController@{com.example.JO2024.controllers.BundleController}}
+\doxysubsubsection{\texorpdfstring{getBundleById()}{getBundleById()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1BundleController_aa4948e777ece65f8b0f0d3a5a2f5fce0} 
+Response\+Entity$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} $>$ com.\+example.\+JO2024.\+controllers.\+Bundle\+Controller.\+get\+Bundle\+By\+Id (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves a bundle by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the bundle to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Response\+Entity containing the retrieved Bundle object. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Element\+Exception} & if the bundle with the specified ID is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/controllers/Bundle\+Controller.\+java\end{DoxyCompactItemize}

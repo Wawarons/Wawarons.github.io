@@ -1,0 +1,59 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Ticket\+Generator\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketGeneratorService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketGeneratorService}\index{com.example.JO2024.services.TicketGeneratorService@{com.example.JO2024.services.TicketGeneratorService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketGeneratorService_ac6509d0de51305e84278270c81138fd8}{generate\+Ticket}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Invoice}{Invoice}} invoice, int number\+Ticket)  throws Exception 
+\item 
+List$<$ Map.\+Entry$<$ String, byte\mbox{[}$\,$\mbox{]}$>$ $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1TicketGeneratorService_ac21c0a1498a35bab33bb87be33b8ae4d}{generate\+Qr\+Code}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Invoice}{Invoice}} invoice, int number\+Ticket)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketGeneratorService_ac21c0a1498a35bab33bb87be33b8ae4d}\index{com.example.JO2024.services.TicketGeneratorService@{com.example.JO2024.services.TicketGeneratorService}!generateQrCode@{generateQrCode}}
+\index{generateQrCode@{generateQrCode}!com.example.JO2024.services.TicketGeneratorService@{com.example.JO2024.services.TicketGeneratorService}}
+\doxysubsubsection{\texorpdfstring{generateQrCode()}{generateQrCode()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketGeneratorService_ac21c0a1498a35bab33bb87be33b8ae4d} 
+List$<$ Map.\+Entry$<$ String, byte\mbox{[}$\,$\mbox{]}$>$ $>$ com.\+example.\+JO2024.\+services.\+Ticket\+Generator\+Service.\+generate\+Qr\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{, }\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Invoice}{Invoice}}}]{invoice}{, }\item[{int}]{number\+Ticket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates QR codes for the tickets based on the customer and invoice information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The customer for whom the tickets are being generated. \\
+\hline
+{\em invoice} & The invoice related to the ticket purchase. \\
+\hline
+{\em number\+Ticket} & The number of tickets to generate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of map entries where each entry contains the ticket name and its corresponding QR code bytes. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1TicketGeneratorService_ac6509d0de51305e84278270c81138fd8}\index{com.example.JO2024.services.TicketGeneratorService@{com.example.JO2024.services.TicketGeneratorService}!generateTicket@{generateTicket}}
+\index{generateTicket@{generateTicket}!com.example.JO2024.services.TicketGeneratorService@{com.example.JO2024.services.TicketGeneratorService}}
+\doxysubsubsection{\texorpdfstring{generateTicket()}{generateTicket()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1TicketGeneratorService_ac6509d0de51305e84278270c81138fd8} 
+void com.\+example.\+JO2024.\+services.\+Ticket\+Generator\+Service.\+generate\+Ticket (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{, }\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Invoice}{Invoice}}}]{invoice}{, }\item[{int}]{number\+Ticket}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates and sends tickets to the customer for the Olympic Games.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The customer who purchased the tickets. \\
+\hline
+{\em invoice} & The invoice related to the ticket purchase. \\
+\hline
+{\em number\+Ticket} & The number of tickets to generate. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & If an error occurs during ticket generation or email sending. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Ticket\+Generator\+Service.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,125 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Auth\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService}\index{com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_aef1595cbfbd6b4045d62165d99c6776a}\label{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_aef1595cbfbd6b4045d62165d99c6776a} 
+{\bfseries Auth\+Service} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator}{Jwt\+Generator}} jwt\+Generator, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService}{Customer\+Service}} customer\+Service, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1EmailSenderService}{Email\+Sender\+Service}} email\+Sender\+Service, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1RoleService}{Role\+Service}} role\+Service, Password\+Encoder password\+Encoder, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1ResetPasswordTokenService}{Reset\+Password\+Token\+Service}} reset\+Password\+Token\+Service, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CartService}{Cart\+Service}} cart\+Service)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a6d9753d87e2bd1557d38ecfe72ac994a}{signup}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1SignupCustomerDTO}{Signup\+Customer\+DTO}} new\+Customer)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a11b26a7dfb5a26a759cdad89f44da871}{account\+Verified}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\item 
+String \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a2398bc2384421be045bd3b735b0e5d5a}{confirmation\+Login}} (Http\+Servlet\+Request request)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_afa1d2baac18c754d72a493abc835494a}{logout}} (Http\+Servlet\+Request request, Http\+Servlet\+Response response)
+\item 
+String \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a5d7ce5d14183d0fbaa18d2009283bd2b}{grant\+User\+Access}} (Http\+Servlet\+Request request)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a5bc64e5a984ca6c03897b03bda3a9419}{generate\+Cookie\+Token}} (Http\+Servlet\+Response response, Authentication authentication)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a852af7ac4ec54f6c6ce397eab6c2ee9c}{reset\+Password}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service that encapsulates authentication-\/related functionalities.
+
+This service provides methods for registering a new customer, confirming customer email, generating a new Customer\+Full\+DTO object, generating a cookie with an access token, adding a cookie to the client, deleting a specific cookie from the client, and logging out the user. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a11b26a7dfb5a26a759cdad89f44da871}\index{com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}!accountVerified@{accountVerified}}
+\index{accountVerified@{accountVerified}!com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}}
+\doxysubsubsection{\texorpdfstring{accountVerified()}{accountVerified()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a11b26a7dfb5a26a759cdad89f44da871} 
+void com.\+example.\+JO2024.\+services.\+Auth\+Service.\+account\+Verified (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the \textquotesingle{}is\+Verified\textquotesingle{} flag of the provided Customer object to true, sends a confirmation email to the customer, and updates the customer in the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The Customer object for which to confirm the email. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a2398bc2384421be045bd3b735b0e5d5a}\index{com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}!confirmationLogin@{confirmationLogin}}
+\index{confirmationLogin@{confirmationLogin}!com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}}
+\doxysubsubsection{\texorpdfstring{confirmationLogin()}{confirmationLogin()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a2398bc2384421be045bd3b735b0e5d5a} 
+String com.\+example.\+JO2024.\+services.\+Auth\+Service.\+confirmation\+Login (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates a cookie with an access token and adds it to the client\textquotesingle{}s Http\+Servlet\+Response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & The Http\+Servlet\+Response object to which the cookie will be added. Used to add the cookie to the client. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a5bc64e5a984ca6c03897b03bda3a9419}\index{com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}!generateCookieToken@{generateCookieToken}}
+\index{generateCookieToken@{generateCookieToken}!com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}}
+\doxysubsubsection{\texorpdfstring{generateCookieToken()}{generateCookieToken()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a5bc64e5a984ca6c03897b03bda3a9419} 
+void com.\+example.\+JO2024.\+services.\+Auth\+Service.\+generate\+Cookie\+Token (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Response}]{response}{, }\item[{Authentication}]{authentication}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates a cookie with an access token and adds it to the Http\+Servlet\+Response object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & The Http\+Servlet\+Response object to which the cookie will be added. Used to add the cookie to the client. \\
+\hline
+{\em authentication} & The Authentication object used to generate the access token. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a5d7ce5d14183d0fbaa18d2009283bd2b}\index{com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}!grantUserAccess@{grantUserAccess}}
+\index{grantUserAccess@{grantUserAccess}!com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}}
+\doxysubsubsection{\texorpdfstring{grantUserAccess()}{grantUserAccess()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a5d7ce5d14183d0fbaa18d2009283bd2b} 
+String com.\+example.\+JO2024.\+services.\+Auth\+Service.\+grant\+User\+Access (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Service that encapsulates authentication-\/related functionalities.
+
+This service provides methods for registering a new customer, confirming customer email, generating a new Customer\+Full\+DTO object, generating a cookie with an access token, adding a cookie to the client, deleting a specific cookie from the client, and logging out the user. \Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_afa1d2baac18c754d72a493abc835494a}\index{com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}!logout@{logout}}
+\index{logout@{logout}!com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_afa1d2baac18c754d72a493abc835494a} 
+void com.\+example.\+JO2024.\+services.\+Auth\+Service.\+logout (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{, }\item[{Http\+Servlet\+Response}]{response}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Logs out the user by invalidating the current authentication and deleting the "{}token"{} cookie.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The Http\+Servlet\+Request object that contains client request information. \\
+\hline
+{\em response} & The Http\+Servlet\+Response object to which we send the response. Used to delete the "{}token"{} cookie from the client. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a852af7ac4ec54f6c6ce397eab6c2ee9c}\index{com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}!resetPassword@{resetPassword}}
+\index{resetPassword@{resetPassword}!com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}}
+\doxysubsubsection{\texorpdfstring{resetPassword()}{resetPassword()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a852af7ac4ec54f6c6ce397eab6c2ee9c} 
+void com.\+example.\+JO2024.\+services.\+Auth\+Service.\+reset\+Password (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}}}]{customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates a reset password token for the provided customer, creates a new Reset\+Password\+Token object with the token and customer, sets the expiration time, and sends a reset password link to the customer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & The Customer object for which to generate the reset password token. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a6d9753d87e2bd1557d38ecfe72ac994a}\index{com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}!signup@{signup}}
+\index{signup@{signup}!com.example.JO2024.services.AuthService@{com.example.JO2024.services.AuthService}}
+\doxysubsubsection{\texorpdfstring{signup()}{signup()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1AuthService_a6d9753d87e2bd1557d38ecfe72ac994a} 
+void com.\+example.\+JO2024.\+services.\+Auth\+Service.\+signup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1SignupCustomerDTO}{Signup\+Customer\+DTO}}}]{new\+Customer}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Registers a new customer with the provided information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Customer} & The Signup\+Customer\+DTO object containing the new customer\textquotesingle{}s information. Must not be null. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Auth\+Service.\+java\end{DoxyCompactItemize}

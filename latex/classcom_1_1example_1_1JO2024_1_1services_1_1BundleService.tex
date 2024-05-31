@@ -1,0 +1,97 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Bundle\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService}\index{com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_ac7c6ec988f903a9d4a3b97b3e41d35d0}{get\+All\+Bundles}} ()
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_a4f2d409064f34d8271aeffb195db0be1}{get\+Bundle\+By\+Id}} (Long id)
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_a6535ce3ed5482af35e90d6913b04a36f}{create\+Bundle}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} bundle)
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_a2e8d14b09eda61ac7745b7460a5b39e4}{update\+Bundle}} (Long id, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} bundle\+Details)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_aadca44ed1fe216a58b4e5ddf681e8956}{delete\+Bundle}} (Long id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_a6535ce3ed5482af35e90d6913b04a36f}\index{com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}!createBundle@{createBundle}}
+\index{createBundle@{createBundle}!com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}}
+\doxysubsubsection{\texorpdfstring{createBundle()}{createBundle()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_a6535ce3ed5482af35e90d6913b04a36f} 
+\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} com.\+example.\+JO2024.\+services.\+Bundle\+Service.\+create\+Bundle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}}}]{bundle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a new bundle in the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bundle} & The bundle object to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The created bundle object. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_aadca44ed1fe216a58b4e5ddf681e8956}\index{com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}!deleteBundle@{deleteBundle}}
+\index{deleteBundle@{deleteBundle}!com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}}
+\doxysubsubsection{\texorpdfstring{deleteBundle()}{deleteBundle()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_aadca44ed1fe216a58b4e5ddf681e8956} 
+void com.\+example.\+JO2024.\+services.\+Bundle\+Service.\+delete\+Bundle (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Delete a specific bundle from the database by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the bundle to delete. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_ac7c6ec988f903a9d4a3b97b3e41d35d0}\index{com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}!getAllBundles@{getAllBundles}}
+\index{getAllBundles@{getAllBundles}!com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}}
+\doxysubsubsection{\texorpdfstring{getAllBundles()}{getAllBundles()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_ac7c6ec988f903a9d4a3b97b3e41d35d0} 
+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} $>$ com.\+example.\+JO2024.\+services.\+Bundle\+Service.\+get\+All\+Bundles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieve all bundles from the database.
+
+\begin{DoxyReturn}{Returns}
+A list of all bundles stored in the database. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_a4f2d409064f34d8271aeffb195db0be1}\index{com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}!getBundleById@{getBundleById}}
+\index{getBundleById@{getBundleById}!com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}}
+\doxysubsubsection{\texorpdfstring{getBundleById()}{getBundleById()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_a4f2d409064f34d8271aeffb195db0be1} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} $>$ com.\+example.\+JO2024.\+services.\+Bundle\+Service.\+get\+Bundle\+By\+Id (\begin{DoxyParamCaption}\item[{Long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieve a specific bundle from the database by its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the bundle to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Optional containing the bundle if found, empty otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_a2e8d14b09eda61ac7745b7460a5b39e4}\index{com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}!updateBundle@{updateBundle}}
+\index{updateBundle@{updateBundle}!com.example.JO2024.services.BundleService@{com.example.JO2024.services.BundleService}}
+\doxysubsubsection{\texorpdfstring{updateBundle()}{updateBundle()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1BundleService_a2e8d14b09eda61ac7745b7460a5b39e4} 
+\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}} com.\+example.\+JO2024.\+services.\+Bundle\+Service.\+update\+Bundle (\begin{DoxyParamCaption}\item[{Long}]{id}{, }\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Bundle}{Bundle}}}]{bundle\+Details}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Update a specific bundle in the database by its ID with the provided details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the bundle to update. \\
+\hline
+{\em bundle\+Details} & The updated details of the bundle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated bundle object if the update was successful, null otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Bundle\+Service.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,151 @@
+\doxysection{com.\+example.\+JO2024.\+security.\+Jwt\+Generator Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator}{}\label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator}\index{com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Secret\+Key \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_ae8967817f9a76e4fbc82537262db1643}{string\+To\+Secret\+Key}} (String key)
+\item 
+String \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_abb58fd83b3d37655ffc9db1252689330}{generate\+Token}} (Authentication authentication)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a8800c4cebf0662a8866c0d091c2cf096}\label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a8800c4cebf0662a8866c0d091c2cf096} 
+String {\bfseries generate\+Reset\+Password\+Token} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a31af290304ba6f2df43538d341edbcd7}\label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a31af290304ba6f2df43538d341edbcd7} 
+String {\bfseries generate\+Token\+User\+Data} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1Customer}{Customer}} customer)
+\item 
+String \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a5f59434eb165e2233ad4b05837aed6ff}{grant\+Token\+Access}} (String jwt)
+\item 
+String \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a6540868dc6a3136c489b5f8584f64492}{get\+Subject\+Jwt}} (String token)
+\item 
+boolean \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a7a856f7fe207d19e0d78bc2b7a62c4da}{is\+Valid}} (String token)
+\item 
+Claims \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a88e5090b5e6348ce149e2aea82f66a52}{get\+Claims}} (String token)
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a9698527f8e060b361a03a9fa97f1d0fc}\label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a9698527f8e060b361a03a9fa97f1d0fc} 
+boolean {\bfseries is\+Expired} (String token)
+\item 
+String \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a22d02e19d635662bbe1c691d8c9d527e}{get\+Token}} (Http\+Servlet\+Request request)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator}{Jwt\+Generator} class is responsible for generating and managing JSON Web Tokens (JWTs) for user authentication. It provides methods for generating a JWT, granting token access, creating refresh tokens, and validating JWTs. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_abb58fd83b3d37655ffc9db1252689330}\index{com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}!generateToken@{generateToken}}
+\index{generateToken@{generateToken}!com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}}
+\doxysubsubsection{\texorpdfstring{generateToken()}{generateToken()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_abb58fd83b3d37655ffc9db1252689330} 
+String com.\+example.\+JO2024.\+security.\+Jwt\+Generator.\+generate\+Token (\begin{DoxyParamCaption}\item[{Authentication}]{authentication}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates a JWT for user authentication.
+
+
+\begin{DoxyParams}{Parameters}
+{\em authentication} & The user\textquotesingle{}s authentication details. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An encrypted JWT. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a88e5090b5e6348ce149e2aea82f66a52}\index{com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}!getClaims@{getClaims}}
+\index{getClaims@{getClaims}!com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}}
+\doxysubsubsection{\texorpdfstring{getClaims()}{getClaims()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a88e5090b5e6348ce149e2aea82f66a52} 
+Claims com.\+example.\+JO2024.\+security.\+Jwt\+Generator.\+get\+Claims (\begin{DoxyParamCaption}\item[{String}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Extracts the claims from the JWT.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The JWT string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The claims from the JWT. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a6540868dc6a3136c489b5f8584f64492}\index{com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}!getSubjectJwt@{getSubjectJwt}}
+\index{getSubjectJwt@{getSubjectJwt}!com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}}
+\doxysubsubsection{\texorpdfstring{getSubjectJwt()}{getSubjectJwt()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a6540868dc6a3136c489b5f8584f64492} 
+String com.\+example.\+JO2024.\+security.\+Jwt\+Generator.\+get\+Subject\+Jwt (\begin{DoxyParamCaption}\item[{String}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Extracts the JWT\textquotesingle{}s subject.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The JWT string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The JWT\textquotesingle{}s subject 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a22d02e19d635662bbe1c691d8c9d527e}\index{com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}!getToken@{getToken}}
+\index{getToken@{getToken}!com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}}
+\doxysubsubsection{\texorpdfstring{getToken()}{getToken()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a22d02e19d635662bbe1c691d8c9d527e} 
+String com.\+example.\+JO2024.\+security.\+Jwt\+Generator.\+get\+Token (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves the token value from the provided {\ttfamily Http\+Servlet\+Request} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The {\ttfamily Http\+Servlet\+Request} object containing the cookies. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The token value if found in the cookies, otherwise null. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a5f59434eb165e2233ad4b05837aed6ff}\index{com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}!grantTokenAccess@{grantTokenAccess}}
+\index{grantTokenAccess@{grantTokenAccess}!com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}}
+\doxysubsubsection{\texorpdfstring{grantTokenAccess()}{grantTokenAccess()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a5f59434eb165e2233ad4b05837aed6ff} 
+String com.\+example.\+JO2024.\+security.\+Jwt\+Generator.\+grant\+Token\+Access (\begin{DoxyParamCaption}\item[{String}]{jwt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates a new JWT with updated expiration date and claims to grant token access.
+
+
+\begin{DoxyParams}{Parameters}
+{\em jwt} & The original JWT string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The refreshed JWT with updated expiration date and claims. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a7a856f7fe207d19e0d78bc2b7a62c4da}\index{com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}!isValid@{isValid}}
+\index{isValid@{isValid}!com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_a7a856f7fe207d19e0d78bc2b7a62c4da} 
+boolean com.\+example.\+JO2024.\+security.\+Jwt\+Generator.\+is\+Valid (\begin{DoxyParamCaption}\item[{String}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if a JWT is valid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The JWT string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the JWT is valid, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_ae8967817f9a76e4fbc82537262db1643}\index{com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}!stringToSecretKey@{stringToSecretKey}}
+\index{stringToSecretKey@{stringToSecretKey}!com.example.JO2024.security.JwtGenerator@{com.example.JO2024.security.JwtGenerator}}
+\doxysubsubsection{\texorpdfstring{stringToSecretKey()}{stringToSecretKey()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator_ae8967817f9a76e4fbc82537262db1643} 
+Secret\+Key com.\+example.\+JO2024.\+security.\+Jwt\+Generator.\+string\+To\+Secret\+Key (\begin{DoxyParamCaption}\item[{String}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Converts the secret key string to a {\ttfamily Secret\+Key} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The secret key string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The secret key as a {\ttfamily Secret\+Key} object. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/security/Jwt\+Generator.\+java\end{DoxyCompactItemize}

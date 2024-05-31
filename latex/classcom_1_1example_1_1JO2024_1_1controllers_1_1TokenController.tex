@@ -1,0 +1,55 @@
+\doxysection{com.\+example.\+JO2024.\+controllers.\+Token\+Controller Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController}{}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController}\index{com.example.JO2024.controllers.TokenController@{com.example.JO2024.controllers.TokenController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController_ad85543154c2db19cbd6ee5cb67875df1}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController_ad85543154c2db19cbd6ee5cb67875df1} 
+{\bfseries Token\+Controller} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtGenerator}{Jwt\+Generator}} jwt\+Generator, \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1CustomerService}{Customer\+Service}} customer\+Service)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController_a0fd44c0c1775bcbd031fbf11d914ce86}{get\+Token\+User\+Info}} (Http\+Servlet\+Request request)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController_a4389d27e7415d2c664f3e67a32ca41b1}{validate\+User\+Token}} (@Request\+Param(name="{}token"{}) String token)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller class that handles token-\/related operations. Includes methods to retrieve user information token based on Http\+Servlet\+Request object or provided token string. Provides endpoints for claiming user token and validating user token. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController_a0fd44c0c1775bcbd031fbf11d914ce86}\index{com.example.JO2024.controllers.TokenController@{com.example.JO2024.controllers.TokenController}!getTokenUserInfo@{getTokenUserInfo}}
+\index{getTokenUserInfo@{getTokenUserInfo}!com.example.JO2024.controllers.TokenController@{com.example.JO2024.controllers.TokenController}}
+\doxysubsubsection{\texorpdfstring{getTokenUserInfo()}{getTokenUserInfo()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController_a0fd44c0c1775bcbd031fbf11d914ce86} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Token\+Controller.\+get\+Token\+User\+Info (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves the user information token based on the Http\+Servlet\+Request object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & the Http\+Servlet\+Request object containing the cookies \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with the user information token if the access token cookie is found, otherwise returns an Error\+Response with "{}\+Access denied"{} message and UNAUTHORIZED status 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController_a4389d27e7415d2c664f3e67a32ca41b1}\index{com.example.JO2024.controllers.TokenController@{com.example.JO2024.controllers.TokenController}!validateUserToken@{validateUserToken}}
+\index{validateUserToken@{validateUserToken}!com.example.JO2024.controllers.TokenController@{com.example.JO2024.controllers.TokenController}}
+\doxysubsubsection{\texorpdfstring{validateUserToken()}{validateUserToken()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1TokenController_a4389d27e7415d2c664f3e67a32ca41b1} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Token\+Controller.\+validate\+User\+Token (\begin{DoxyParamCaption}\item[{@Request\+Param(name="{}token"{}) String}]{token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves the user information token based on the provided token string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & the token string to validate and retrieve user information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity with Http\+Status.\+OK if the token is valid, otherwise returns an Error\+Response with "{}\+Invalid token"{} message and UNAUTHORIZED status 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/controllers/Token\+Controller.\+java\end{DoxyCompactItemize}

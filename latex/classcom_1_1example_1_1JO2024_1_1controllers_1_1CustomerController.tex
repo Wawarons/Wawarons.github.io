@@ -1,0 +1,56 @@
+\doxysection{com.\+example.\+JO2024.\+controllers.\+Customer\+Controller Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1CustomerController}{}\label{classcom_1_1example_1_1JO2024_1_1controllers_1_1CustomerController}\index{com.example.JO2024.controllers.CustomerController@{com.example.JO2024.controllers.CustomerController}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1CustomerController_ab3aea7e6be46cb3a4e9e8f5257cc562b}{reset\+Password}} (@Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1PasswordDTO}{Password\+DTO}} password\+DTO, Http\+Servlet\+Request request)  throws \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidTokenException}{Invalid\+Token\+Exception}} 
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1controllers_1_1CustomerController_a9e4f4688959be45e66d9f280fd40de14}{delete\+Customer}} (Http\+Servlet\+Request request)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1CustomerController_a9e4f4688959be45e66d9f280fd40de14}\index{com.example.JO2024.controllers.CustomerController@{com.example.JO2024.controllers.CustomerController}!deleteCustomer@{deleteCustomer}}
+\index{deleteCustomer@{deleteCustomer}!com.example.JO2024.controllers.CustomerController@{com.example.JO2024.controllers.CustomerController}}
+\doxysubsubsection{\texorpdfstring{deleteCustomer()}{deleteCustomer()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1CustomerController_a9e4f4688959be45e66d9f280fd40de14} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Customer\+Controller.\+delete\+Customer (\begin{DoxyParamCaption}\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Deletes a customer account based on the provided HTTP request. Retrieves the authorization token from the request, validates its authenticity, fetches the user ID from the token, retrieves the customer by ID, and deletes the customer account from the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & HTTP request containing the authorization token. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity representing the HTTP status response for the deletion operation. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1controllers_1_1CustomerController_ab3aea7e6be46cb3a4e9e8f5257cc562b}\index{com.example.JO2024.controllers.CustomerController@{com.example.JO2024.controllers.CustomerController}!resetPassword@{resetPassword}}
+\index{resetPassword@{resetPassword}!com.example.JO2024.controllers.CustomerController@{com.example.JO2024.controllers.CustomerController}}
+\doxysubsubsection{\texorpdfstring{resetPassword()}{resetPassword()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1controllers_1_1CustomerController_ab3aea7e6be46cb3a4e9e8f5257cc562b} 
+Response\+Entity$<$?$>$ com.\+example.\+JO2024.\+controllers.\+Customer\+Controller.\+reset\+Password (\begin{DoxyParamCaption}\item[{@Request\+Body \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1dto_1_1PasswordDTO}{Password\+DTO}}}]{password\+DTO}{, }\item[{Http\+Servlet\+Request}]{request}{}\end{DoxyParamCaption}) throws \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1errors_1_1InvalidTokenException}{Invalid\+Token\+Exception}}\hspace{0.3cm}{\ttfamily [inline]}}
+
+Handles the process of resetting a user\textquotesingle{}s password. It validates the authorization token, checks token validity and usage, fetches the user by ID, and updates the user\textquotesingle{}s password in the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em password\+DTO} & Data Transfer Object containing the new password. \\
+\hline
+{\em request} & HTTP request containing the authorization token in the header. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response\+Entity representing the HTTP status response. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Token\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/controllers/Customer\+Controller.\+java\end{DoxyCompactItemize}

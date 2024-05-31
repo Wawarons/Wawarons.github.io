@@ -1,0 +1,40 @@
+\doxysection{com.\+example.\+JO2024.\+Service.\+Email\+Sender\+Service\+Test Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1EmailSenderServiceTest}{}\label{classcom_1_1example_1_1JO2024_1_1Service_1_1EmailSenderServiceTest}\index{com.example.JO2024.Service.EmailSenderServiceTest@{com.example.JO2024.Service.EmailSenderServiceTest}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1EmailSenderServiceTest_acc05c225f05be5731904a34e6d7d8cb1}{test\+\_\+null\+\_\+customer}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1Service_1_1EmailSenderServiceTest_ac8e831df38827957addac0cc6e2da375}{test\+\_\+correct\+\_\+recipient\+\_\+address}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1EmailSenderServiceTest_ac8e831df38827957addac0cc6e2da375}\index{com.example.JO2024.Service.EmailSenderServiceTest@{com.example.JO2024.Service.EmailSenderServiceTest}!test\_correct\_recipient\_address@{test\_correct\_recipient\_address}}
+\index{test\_correct\_recipient\_address@{test\_correct\_recipient\_address}!com.example.JO2024.Service.EmailSenderServiceTest@{com.example.JO2024.Service.EmailSenderServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_correct\_recipient\_address()}{test\_correct\_recipient\_address()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1EmailSenderServiceTest_ac8e831df38827957addac0cc6e2da375} 
+void com.\+example.\+JO2024.\+Service.\+Email\+Sender\+Service\+Test.\+test\+\_\+correct\+\_\+recipient\+\_\+address (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test case to verify that sending a reset password link confirmation with a correct recipient address.
+
+Verifies that the email is sent to the correct recipient address specified in the Customer object.
+
+Steps\+:
+\begin{DoxyEnumerate}
+\item Mock the Java\+Mail\+Sender and set it in the Email\+Sender\+Service.
+\item Create a new Customer object with email "{}customer@example.\+com"{} and firstname "{}\+John"{}.
+\item Call the send\+Reset\+Password\+Link\+Confirmation method of the Email\+Sender\+Service with the Customer object.
+\item Capture the Simple\+Mail\+Message sent using Argument\+Captor.
+\item Verify that the email was sent to the correct recipient address "{}customer@example.\+com"{}. 
+\end{DoxyEnumerate}\Hypertarget{classcom_1_1example_1_1JO2024_1_1Service_1_1EmailSenderServiceTest_acc05c225f05be5731904a34e6d7d8cb1}\index{com.example.JO2024.Service.EmailSenderServiceTest@{com.example.JO2024.Service.EmailSenderServiceTest}!test\_null\_customer@{test\_null\_customer}}
+\index{test\_null\_customer@{test\_null\_customer}!com.example.JO2024.Service.EmailSenderServiceTest@{com.example.JO2024.Service.EmailSenderServiceTest}}
+\doxysubsubsection{\texorpdfstring{test\_null\_customer()}{test\_null\_customer()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1Service_1_1EmailSenderServiceTest_acc05c225f05be5731904a34e6d7d8cb1} 
+void com.\+example.\+JO2024.\+Service.\+Email\+Sender\+Service\+Test.\+test\+\_\+null\+\_\+customer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test case to verify that sending a reset password link confirmation with a null customer should throw a Null\+Pointer\+Exception. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/test/java/com/example/\+JO2024/\+Service/Email\+Sender\+Service\+Test.\+java\end{DoxyCompactItemize}

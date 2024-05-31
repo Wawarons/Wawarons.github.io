@@ -1,0 +1,83 @@
+\doxysection{com.\+example.\+JO2024.\+security.\+Security\+Config Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig}{}\label{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig}\index{com.example.JO2024.security.SecurityConfig@{com.example.JO2024.security.SecurityConfig}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Security\+Filter\+Chain \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig_a0fbf6e0e04a5f2a684fda29ff2d8f9c4}{filter\+Chain}} (Http\+Security http)  throws Exception 
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}{Jwt\+Authentication\+Filter}} \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig_a4256dfa6aaae96338e7b308a7369bd2e}{jwt\+Authentication\+Filter}} ()
+\item 
+Authentication\+Manager \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig_ad5f78aa369802adbd3c706c90b1a9959}{authentication\+Manager}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1CustomUserDetailsService}{Custom\+User\+Details\+Service}} custom\+User\+Details\+Service, Password\+Encoder password\+Encoder)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig}{Security\+Config} class is responsible for configuring access filtering for the application. It provides methods for configuring the security filter chain, creating instances of Password\+Encoder, \doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}{Jwt\+Authentication\+Filter}, and Authentication\+Manager.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1CustomUserDetailsService}{Custom\+User\+Details\+Service} 
+
+Password\+Encoder 
+
+\doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}{Jwt\+Authentication\+Filter} 
+
+Authentication\+Manager 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig_ad5f78aa369802adbd3c706c90b1a9959}\index{com.example.JO2024.security.SecurityConfig@{com.example.JO2024.security.SecurityConfig}!authenticationManager@{authenticationManager}}
+\index{authenticationManager@{authenticationManager}!com.example.JO2024.security.SecurityConfig@{com.example.JO2024.security.SecurityConfig}}
+\doxysubsubsection{\texorpdfstring{authenticationManager()}{authenticationManager()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig_ad5f78aa369802adbd3c706c90b1a9959} 
+Authentication\+Manager com.\+example.\+JO2024.\+security.\+Security\+Config.\+authentication\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1CustomUserDetailsService}{Custom\+User\+Details\+Service}}}]{custom\+User\+Details\+Service}{, }\item[{Password\+Encoder}]{password\+Encoder}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates and returns an instance of Authentication\+Manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Details\+Service} & The \doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1CustomUserDetailsService}{Custom\+User\+Details\+Service} used for user authentication. \\
+\hline
+{\em password\+Encoder} & The Password\+Encoder used for encoding passwords. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Authentication\+Manager instance. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig_a0fbf6e0e04a5f2a684fda29ff2d8f9c4}\index{com.example.JO2024.security.SecurityConfig@{com.example.JO2024.security.SecurityConfig}!filterChain@{filterChain}}
+\index{filterChain@{filterChain}!com.example.JO2024.security.SecurityConfig@{com.example.JO2024.security.SecurityConfig}}
+\doxysubsubsection{\texorpdfstring{filterChain()}{filterChain()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig_a0fbf6e0e04a5f2a684fda29ff2d8f9c4} 
+Security\+Filter\+Chain com.\+example.\+JO2024.\+security.\+Security\+Config.\+filter\+Chain (\begin{DoxyParamCaption}\item[{Http\+Security}]{http}{}\end{DoxyParamCaption}) throws Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+Configures access filtering for the application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em http} & The HTTP security configuration object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The configured security filter chain. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig_a4256dfa6aaae96338e7b308a7369bd2e}\index{com.example.JO2024.security.SecurityConfig@{com.example.JO2024.security.SecurityConfig}!jwtAuthenticationFilter@{jwtAuthenticationFilter}}
+\index{jwtAuthenticationFilter@{jwtAuthenticationFilter}!com.example.JO2024.security.SecurityConfig@{com.example.JO2024.security.SecurityConfig}}
+\doxysubsubsection{\texorpdfstring{jwtAuthenticationFilter()}{jwtAuthenticationFilter()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1security_1_1SecurityConfig_a4256dfa6aaae96338e7b308a7369bd2e} 
+\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}{Jwt\+Authentication\+Filter}} com.\+example.\+JO2024.\+security.\+Security\+Config.\+jwt\+Authentication\+Filter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates and returns a new instance of \doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}{Jwt\+Authentication\+Filter}.
+
+\begin{DoxyReturn}{Returns}
+The \doxylink{classcom_1_1example_1_1JO2024_1_1security_1_1JwtAuthenticationFilter}{Jwt\+Authentication\+Filter} instance. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/security/Security\+Config.\+java\end{DoxyCompactItemize}

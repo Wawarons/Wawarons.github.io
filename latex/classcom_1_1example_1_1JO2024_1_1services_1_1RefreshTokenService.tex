@@ -1,0 +1,82 @@
+\doxysection{com.\+example.\+JO2024.\+services.\+Refresh\+Token\+Service Class Reference}
+\hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService}{}\label{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService}\index{com.example.JO2024.services.RefreshTokenService@{com.example.JO2024.services.RefreshTokenService}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1RefreshToken}{Refresh\+Token}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_aedb596b75798ea4921f177d59e174ff8}{get\+Refresh\+Token\+By\+Id}} (long id)
+\item 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1RefreshToken}{Refresh\+Token}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_a5175eae9e12b1d7852b54065a2c5635f}{get\+Refresh\+Token\+By\+Customer\+Id}} (long id)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_aceccce06bfb871ff901b7b91c662dee1}{add\+Refresh\+Token}} (\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1RefreshToken}{Refresh\+Token}} refresh\+Token)
+\item 
+boolean \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_aeb20c79e76cafe1264786ffb4e7a2bbb}{has\+Refresh\+Token\+By\+Customer\+Id}} (long id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_aceccce06bfb871ff901b7b91c662dee1}\index{com.example.JO2024.services.RefreshTokenService@{com.example.JO2024.services.RefreshTokenService}!addRefreshToken@{addRefreshToken}}
+\index{addRefreshToken@{addRefreshToken}!com.example.JO2024.services.RefreshTokenService@{com.example.JO2024.services.RefreshTokenService}}
+\doxysubsubsection{\texorpdfstring{addRefreshToken()}{addRefreshToken()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_aceccce06bfb871ff901b7b91c662dee1} 
+void com.\+example.\+JO2024.\+services.\+Refresh\+Token\+Service.\+add\+Refresh\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1RefreshToken}{Refresh\+Token}}}]{refresh\+Token}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a refresh token to the repository.
+
+
+\begin{DoxyParams}{Parameters}
+{\em refresh\+Token} & the refresh token to add \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_a5175eae9e12b1d7852b54065a2c5635f}\index{com.example.JO2024.services.RefreshTokenService@{com.example.JO2024.services.RefreshTokenService}!getRefreshTokenByCustomerId@{getRefreshTokenByCustomerId}}
+\index{getRefreshTokenByCustomerId@{getRefreshTokenByCustomerId}!com.example.JO2024.services.RefreshTokenService@{com.example.JO2024.services.RefreshTokenService}}
+\doxysubsubsection{\texorpdfstring{getRefreshTokenByCustomerId()}{getRefreshTokenByCustomerId()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_a5175eae9e12b1d7852b54065a2c5635f} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1RefreshToken}{Refresh\+Token}} $>$ com.\+example.\+JO2024.\+services.\+Refresh\+Token\+Service.\+get\+Refresh\+Token\+By\+Customer\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves the refresh token with the specified customer ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the customer ID of the refresh token to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Optional containing the refresh token, or an empty Optional if no refresh token is found 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_aedb596b75798ea4921f177d59e174ff8}\index{com.example.JO2024.services.RefreshTokenService@{com.example.JO2024.services.RefreshTokenService}!getRefreshTokenById@{getRefreshTokenById}}
+\index{getRefreshTokenById@{getRefreshTokenById}!com.example.JO2024.services.RefreshTokenService@{com.example.JO2024.services.RefreshTokenService}}
+\doxysubsubsection{\texorpdfstring{getRefreshTokenById()}{getRefreshTokenById()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_aedb596b75798ea4921f177d59e174ff8} 
+Optional$<$ \mbox{\hyperlink{classcom_1_1example_1_1JO2024_1_1models_1_1RefreshToken}{Refresh\+Token}} $>$ com.\+example.\+JO2024.\+services.\+Refresh\+Token\+Service.\+get\+Refresh\+Token\+By\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves the refresh token with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the ID of the refresh token to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an Optional containing the refresh token, or an empty Optional if no refresh token is found 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_aeb20c79e76cafe1264786ffb4e7a2bbb}\index{com.example.JO2024.services.RefreshTokenService@{com.example.JO2024.services.RefreshTokenService}!hasRefreshTokenByCustomerId@{hasRefreshTokenByCustomerId}}
+\index{hasRefreshTokenByCustomerId@{hasRefreshTokenByCustomerId}!com.example.JO2024.services.RefreshTokenService@{com.example.JO2024.services.RefreshTokenService}}
+\doxysubsubsection{\texorpdfstring{hasRefreshTokenByCustomerId()}{hasRefreshTokenByCustomerId()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1JO2024_1_1services_1_1RefreshTokenService_aeb20c79e76cafe1264786ffb4e7a2bbb} 
+boolean com.\+example.\+JO2024.\+services.\+Refresh\+Token\+Service.\+has\+Refresh\+Token\+By\+Customer\+Id (\begin{DoxyParamCaption}\item[{long}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if a refresh token exists for the specified customer ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the customer ID to check for a refresh token \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a refresh token exists for the customer ID, false otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/\+JO2024/services/Refresh\+Token\+Service.\+java\end{DoxyCompactItemize}
