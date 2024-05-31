@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GlobalExceptionHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.errors</a> &gt; <span class="el_source">GlobalExceptionHandler.java</span></div><h1>GlobalExceptionHandler.java</h1><pre class="source lang-java linenums">package com.example.JO2024.errors;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import jakarta.validation.ConstraintViolationException;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * The GlobalExceptionHandler class handles global exceptions in the
+ * application.
+ * It ensures that appropriate error responses are returned to the client in a
+ * consistent format.
+ */
+@ControllerAdvice
+<span class="fc" id="L25">@Slf4j</span>
+<span class="fc" id="L26">public class GlobalExceptionHandler {</span>
+        /**
+         * Handles the AuthenticationException and returns an appropriate error
+         * response.
+         * 
+         * @param e The AuthenticationException that occurred
+         * @return A ResponseEntity with a JSON body containing the error response
+         */
+        @ExceptionHandler(AuthenticationException.class)
+        public ResponseEntity&lt;?&gt; handleAuthenticationException(AuthenticationException e) {
+<span class="fc" id="L36">                log.error(&quot;AuthenticationException {}&quot;, e.getMessage(), e);</span>
+<span class="fc" id="L37">                return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L38">                                .body(new ErrorResponse(&quot;Authentication Failure&quot;, List.of(e.getMessage()),</span>
+<span class="fc" id="L39">                                                HttpStatus.BAD_REQUEST.value()));</span>
+        }
+
+        /**
+         * Handles the NoSuchElementException and returns an appropriate error response.
+         * 
+         * @param e The NoSuchElementException that occurred
+         * @return A ResponseEntity with a JSON body containing the error response
+         */
+        @ExceptionHandler(NoSuchElementException.class)
+        public ResponseEntity&lt;?&gt; handleNoSuchElementException(NoSuchElementException e) {
+<span class="fc" id="L50">                log.error(&quot;NoSuchElementException {}&quot;, e.getMessage(), e);</span>
+<span class="fc" id="L51">                return ResponseEntity.status(HttpStatus.NOT_FOUND).contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L52">                                .body(new ErrorResponse(e.getMessage(),</span>
+<span class="fc" id="L53">                                                HttpStatus.NOT_FOUND.value()));</span>
+        }
+
+        /**
+         * Handles the HttpMessageNotReadableException and returns an appropriate error
+         * response.
+         * 
+         * @param e The HttpMessageNotReadableException that occurred
+         * @return A ResponseEntity with a JSON body containing the error response
+         */
+        @ExceptionHandler(HttpMessageNotReadableException.class)
+        public ResponseEntity&lt;?&gt; handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
+<span class="nc" id="L65">                log.error(&quot;HttpMessageNotReadableException: {}&quot;, e.getMessage(), e);</span>
+<span class="nc" id="L66">                return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_JSON)</span>
+<span class="nc" id="L67">                                .body(new ErrorResponse(&quot;Malformed JSON request&quot;,</span>
+<span class="nc" id="L68">                                                HttpStatus.BAD_REQUEST.value()));</span>
+        }
+
+        /**
+         * Handles the ConstraintViolationException and returns an appropriate error
+         * response.
+         * 
+         * @param e The ConstraintViolationException that occurred
+         * @return A ResponseEntity with a JSON body containing the error response
+         */
+        @ExceptionHandler(ConstraintViolationException.class)
+        public ResponseEntity&lt;?&gt; handleConstraintViolationException(ConstraintViolationException e) {
+<span class="fc" id="L80">                log.error(&quot;ConstraintViolationException: {}&quot;, e.getMessage(), e);</span>
+<span class="fc" id="L81">                List&lt;String&gt; violations = e.getConstraintViolations()</span>
+<span class="fc" id="L82">                                .stream()</span>
+<span class="fc" id="L83">                                .map((error) -&gt; error.getMessage())</span>
+<span class="fc" id="L84">                                .toList();</span>
+<span class="fc" id="L85">                return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L86">                                .body(new ErrorResponse(&quot;Constraint Violation&quot;, violations,</span>
+<span class="fc" id="L87">                                                HttpStatus.BAD_REQUEST.value()));</span>
+        }
+
+        /**
+         * Handles the MethodArgumentNotValidException and returns an appropriate error
+         * response.
+         * 
+         * @param e The MethodArgumentNotValidException that occurred
+         * @return A ResponseEntity with a JSON body containing the error response
+         */
+        @ExceptionHandler(MethodArgumentNotValidException.class)
+        public ResponseEntity&lt;?&gt; handleMethodArgumentNotValidExcepton(MethodArgumentNotValidException e) {
+<span class="fc" id="L99">                log.error(&quot;MethodArgumentViolationException: {}&quot;, e.getMessage(), e);</span>
+<span class="fc" id="L100">                List&lt;String&gt; violations = e.getFieldErrors()</span>
+<span class="fc" id="L101">                                .stream()</span>
+<span class="fc" id="L102">                                .map((error) -&gt; error.getField() + &quot;: &quot; + error.getDefaultMessage())</span>
+<span class="fc" id="L103">                                .toList();</span>
+<span class="fc" id="L104">                return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L105">                                .body(new ErrorResponse(&quot;Not valid argument&quot;, violations,</span>
+<span class="fc" id="L106">                                                HttpStatus.BAD_REQUEST.value()));</span>
+        }
+
+        /**
+         * Handles the InvalidTokenException and returns an appropriate error response.
+         * 
+         * @param e The InvalidTokenException that occurred
+         * @return A ResponseEntity with a JSON body containing the error response
+         */
+        @ExceptionHandler(InvalidTokenException.class)
+        public ResponseEntity&lt;?&gt; handleInvalidTokenException(InvalidTokenException e) {
+<span class="fc" id="L117">                log.error(&quot;InvalidTokenException: {}&quot;, e.getMessage(), e);</span>
+<span class="fc" id="L118">                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L119">                                .body(new ErrorResponse(&quot;Invalid token&quot;,</span>
+<span class="fc" id="L120">                                                HttpStatus.UNAUTHORIZED.value()));</span>
+        }
+
+        /**
+         * Handles general exceptions and returns an appropriate error response.
+         * 
+         * @param e The Exception that occurred
+         * @return A ResponseEntity with a JSON body containing the error response
+         */
+        @ExceptionHandler(Exception.class)
+        public ResponseEntity&lt;?&gt; handleGeneralException(Exception e) {
+<span class="nc" id="L131">                log.error(&quot;Exception: {}&quot;, e.getMessage(), e);</span>
+<span class="nc" id="L132">                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).contentType(MediaType.APPLICATION_JSON)</span>
+<span class="nc" id="L133">                                .body(new ErrorResponse(&quot;Internal server error&quot;,</span>
+<span class="nc" id="L134">                                                HttpStatus.INTERNAL_SERVER_ERROR.value()));</span>
+        }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

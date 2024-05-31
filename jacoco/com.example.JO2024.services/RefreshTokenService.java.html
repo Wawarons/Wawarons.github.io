@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RefreshTokenService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.services</a> &gt; <span class="el_source">RefreshTokenService.java</span></div><h1>RefreshTokenService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.JO2024.models.RefreshToken;
+import com.example.JO2024.repositories.RefreshTokenRepository;
+
+@Service
+<span class="fc" id="L12">public class RefreshTokenService {</span>
+
+    @Autowired
+    private RefreshTokenRepository refreshTokenRepository;
+
+    /**
+     * Retrieves the refresh token with the specified ID.
+     *
+     * @param id the ID of the refresh token to retrieve
+     * @return an Optional containing the refresh token, or an empty Optional if no
+     *         refresh token is found
+     */
+    public Optional&lt;RefreshToken&gt; getRefreshTokenById(long id) {
+<span class="fc" id="L25">        return refreshTokenRepository.findById(id);</span>
+    }
+
+    /**
+     * Retrieves the refresh token with the specified customer ID.
+     *
+     * @param id the customer ID of the refresh token to retrieve
+     * @return an Optional containing the refresh token, or an empty Optional if no
+     *         refresh token is found
+     */
+    public Optional&lt;RefreshToken&gt; getRefreshTokenByCustomerId(long id) {
+<span class="fc" id="L36">        return refreshTokenRepository.findRefreshTokenByCustomerId(id);</span>
+    }
+
+    /**
+     * Adds a refresh token to the repository.
+     *
+     * @param refreshToken the refresh token to add
+     */
+    public void addRefreshToken(RefreshToken refreshToken) {
+<span class="fc" id="L45">        refreshTokenRepository.save(refreshToken);</span>
+<span class="fc" id="L46">    }</span>
+
+    /**
+     * Checks if a refresh token exists for the specified customer ID.
+     *
+     * @param id the customer ID to check for a refresh token
+     * @return true if a refresh token exists for the customer ID, false otherwise
+     */
+    public boolean hasRefreshTokenByCustomerId(long id) {
+<span class="fc" id="L55">        return refreshTokenRepository.findRefreshTokenByCustomerId(id).isPresent();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

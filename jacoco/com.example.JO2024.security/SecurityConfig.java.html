@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SecurityConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.security</a> &gt; <span class="el_source">SecurityConfig.java</span></div><h1>SecurityConfig.java</h1><pre class="source lang-java linenums">package com.example.JO2024.security;
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import com.example.JO2024.NoPopupBasicAuthenticationEntryPoint;
+
+/**
+ * The SecurityConfig class is responsible for configuring access filtering for
+ * the application.
+ * It provides methods for configuring the security filter chain, creating
+ * instances of PasswordEncoder,
+ * JwtAuthenticationFilter, and AuthenticationManager.
+ *
+ * @see CustomUserDetailsService
+ * @see PasswordEncoder
+ * @see JwtAuthenticationFilter
+ * @see AuthenticationManager
+ */
+@Configuration
+@EnableWebSecurity
+<span class="fc" id="L39">public class SecurityConfig {</span>
+
+  @Value(&quot;${allowed.origins}&quot;)
+  private String allowedOrigins;
+
+  /**
+   * Configures access filtering for the application.
+   * 
+   * @param http The HTTP security configuration object.
+   * @return The configured security filter chain.
+   * @throws Exception
+   */
+  @Bean
+  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+<span class="fc" id="L53">    http.csrf((csrf) -&gt; csrf.disable())</span>
+<span class="fc" id="L54">        .cors((cors) -&gt; cors.configurationSource(corsConfigurationSource()))</span>
+<span class="fc" id="L55">        .sessionManagement((session) -&gt; {</span>
+<span class="fc" id="L56">          session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);</span>
+<span class="fc" id="L57">        })</span>
+<span class="fc" id="L58">        .exceptionHandling(</span>
+<span class="fc" id="L59">            (exception) -&gt; exception.authenticationEntryPoint(new NoPopupBasicAuthenticationEntryPoint()))</span>
+<span class="fc" id="L60">        .authorizeHttpRequests((authorize) -&gt; {</span>
+<span class="fc" id="L61">          authorize.requestMatchers(&quot;/auth/**&quot;).permitAll();</span>
+<span class="fc" id="L62">          authorize.requestMatchers(&quot;/token/user/validate&quot;).permitAll();</span>
+<span class="fc" id="L63">          authorize.requestMatchers(&quot;/user/reset-password&quot;).permitAll();</span>
+<span class="fc" id="L64">          authorize.requestMatchers(&quot;/bundles&quot;).permitAll();</span>
+<span class="fc" id="L65">          authorize.requestMatchers(&quot;/bundle&quot;).permitAll();</span>
+<span class="fc" id="L66">          authorize.requestMatchers(&quot;/docs/**&quot;).permitAll();</span>
+<span class="fc" id="L67">          authorize.requestMatchers(&quot;/admin/**&quot;).hasRole(&quot;ADMIN&quot;);</span>
+<span class="fc" id="L68">          authorize.anyRequest().authenticated();</span>
+<span class="fc" id="L69">        });</span>
+<span class="fc" id="L70">    http.httpBasic(Customizer.withDefaults());</span>
+<span class="fc" id="L71">    http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);</span>
+<span class="fc" id="L72">    return http.build();</span>
+  }
+
+  /**
+   * Returns a new instance of PasswordEncoder.
+   * 
+   * @return The PasswordEncoder instance.
+   */
+  @Bean
+  PasswordEncoder passwordEncoder() {
+<span class="fc" id="L82">    return new BCryptPasswordEncoder(10);</span>
+  }
+
+  /**
+   * Creates and returns a new instance of JwtAuthenticationFilter.
+   * 
+   * @return The JwtAuthenticationFilter instance.
+   */
+  @Bean
+  public JwtAuthenticationFilter jwtAuthenticationFilter() {
+<span class="fc" id="L92">    return new JwtAuthenticationFilter();</span>
+  }
+
+  /**
+   * Creates and returns an instance of AuthenticationManager.
+   * 
+   * @param userDetailsService The CustomUserDetailsService used for user
+   *                           authentication.
+   * @param passwordEncoder    The PasswordEncoder used for encoding passwords.
+   * @return The AuthenticationManager instance.
+   */
+  @Bean
+  public AuthenticationManager authenticationManager(
+      CustomUserDetailsService customUserDetailsService,
+      PasswordEncoder passwordEncoder) {
+<span class="fc" id="L107">    DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();</span>
+<span class="fc" id="L108">    authenticationProvider.setUserDetailsService(customUserDetailsService);</span>
+<span class="fc" id="L109">    authenticationProvider.setPasswordEncoder(passwordEncoder);</span>
+
+<span class="fc" id="L111">    return new ProviderManager(authenticationProvider);</span>
+  }
+
+  @Bean
+  CorsConfigurationSource corsConfigurationSource() {
+<span class="fc" id="L116">    CorsConfiguration configuration = new CorsConfiguration();</span>
+<span class="fc" id="L117">    configuration.setAllowedOrigins(Arrays.asList(&quot;https://jeux-olympiques.vercel.app&quot;));</span>
+<span class="fc" id="L118">    configuration.setAllowedHeaders(Arrays.asList(&quot;Content-Type&quot;, &quot;Authorization&quot;));</span>
+<span class="fc" id="L119">    configuration.setExposedHeaders(Arrays.asList(&quot;Authorization&quot;));</span>
+<span class="fc" id="L120">    configuration.setAllowCredentials(true);</span>
+<span class="fc" id="L121">    configuration.setAllowedMethods(Arrays.asList(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;));</span>
+<span class="fc" id="L122">    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();</span>
+<span class="fc" id="L123">    source.registerCorsConfiguration(&quot;/**&quot;, configuration);</span>
+<span class="fc" id="L124">    return source;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

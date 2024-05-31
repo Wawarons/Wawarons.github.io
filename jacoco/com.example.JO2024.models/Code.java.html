@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Code.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.models</a> &gt; <span class="el_source">Code.java</span></div><h1>Code.java</h1><pre class="source lang-java linenums">package com.example.JO2024.models;
+
+import java.time.Instant;
+import java.util.Random;
+
+import com.example.JO2024.errors.ErrorMessages;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * Represents a validation code.
+ * 
+ * @author Adrien Podsiadly
+ * @version 1.0
+ */
+@Entity
+<span class="fc" id="L26">@Getter</span>
+<span class="pc" id="L27">@Setter</span>
+public class Code {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @NotNull
+    @Pattern(regexp = &quot;[0-9]{6}&quot;, message = ErrorMessages.CODE_WRONG_SIZE)
+    private String code;
+
+    @NotNull
+<span class="fc" id="L39">    Boolean isUsed = false;</span>
+
+    @NotNull
+    private Instant expiration;
+
+    @NotNull
+    private Instant createdAt;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = &quot;customer_id&quot;, referencedColumnName = &quot;id&quot;)
+    private Customer customer;
+
+<span class="fc" id="L52">    public Code() {</span>
+<span class="fc" id="L53">        this.code = generateCode();</span>
+<span class="fc" id="L54">        this.createdAt = Instant.now();</span>
+<span class="fc" id="L55">        this.expiration = Instant.now().plusSeconds(5 * 60);</span>
+<span class="fc" id="L56">    }</span>
+
+    /**
+     * Generates a random 6-digit code.
+     * 
+     * @return The generated code as a string.
+     */
+    public String generateCode() {
+<span class="fc" id="L64">        int randomCode = new Random().nextInt(900000) + 100000;</span>
+<span class="fc" id="L65">        return String.format(&quot;%06d&quot;, randomCode);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketGeneratorService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.services</a> &gt; <span class="el_source">TicketGeneratorService.java</span></div><h1>TicketGeneratorService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.services;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.JO2024.QrCodeGenerator;
+import com.example.JO2024.models.Customer;
+import com.example.JO2024.models.Invoice;
+
+import jakarta.mail.MessagingException;
+
+@Service
+<span class="fc" id="L17">public class TicketGeneratorService {</span>
+
+    @Autowired
+    private EmailSenderService emailSenderService;
+
+    /**
+     * Generates and sends tickets to the customer for the Olympic Games.
+     * 
+     * @param customer     The customer who purchased the tickets.
+     * @param invoice      The invoice related to the ticket purchase.
+     * @param numberTicket The number of tickets to generate.
+     * @throws Exception If an error occurs during ticket generation or email
+     *                   sending.
+     */
+    public void generateTicket(Customer customer, Invoice invoice, int numberTicket) throws Exception {
+<span class="fc" id="L32">        String message = &quot;Subject: Thank You for Purchasing Olympic Games Tickets!\n\n&quot; +</span>
+<span class="fc" id="L33">                &quot;Dear &quot; + customer.getFirstname() + &quot;,\n\n&quot; +</span>
+                &quot;Thank you for purchasing tickets to the Olympic Games! We are excited to have you join us.\n\n&quot; +
+
+                &quot;We recommend arriving early to enjoy the atmosphere and facilities.\n\n&quot; +
+                &quot;If you have any questions, please feel free to contact us.\n\n&quot; +
+                &quot;Thank you again for your support. We look forward to seeing you at the Olympic Games!\n\n&quot; +
+                &quot;Best regards,\n\n&quot; +
+                &quot;Olympic Games Team&quot;;
+
+<span class="fc" id="L42">        List&lt;Map.Entry&lt;String, byte[]&gt;&gt; ticketAttachments = generateQrCode(customer, invoice, numberTicket);</span>
+
+        try {
+<span class="fc" id="L45">            emailSenderService.sendEmailWithAttachments(customer.getEmail(), &quot;Your Olympic Games Tickets&quot;, message,</span>
+<span class="fc" id="L46">                    ticketAttachments);</span>
+<span class="pc" id="L47">        } catch (MessagingException e) {</span>
+<span class="nc" id="L48">            e.printStackTrace();</span>
+        }
+<span class="fc" id="L50">    }</span>
+
+    /**
+     * Generates QR codes for the tickets based on the customer and invoice
+     * information.
+     * 
+     * @param customer     The customer for whom the tickets are being generated.
+     * @param invoice      The invoice related to the ticket purchase.
+     * @param numberTicket The number of tickets to generate.
+     * @return A list of map entries where each entry contains the ticket name and
+     *         its corresponding QR code bytes.
+     */
+    public List&lt;Map.Entry&lt;String, byte[]&gt;&gt; generateQrCode(Customer customer, Invoice invoice, int numberTicket) {
+<span class="fc" id="L63">        String key = customer.getCustomerKey() + &quot;&quot; + invoice.getUuid();</span>
+<span class="fc" id="L64">        List&lt;Map.Entry&lt;String, byte[]&gt;&gt; ticketAttachments = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        for (int i = 0; i &lt; numberTicket; i++) {</span>
+            try {
+<span class="fc" id="L68">                byte[] qrCodeBytes = QrCodeGenerator.toByteArray(QrCodeGenerator.generateQRCodeImage(key), &quot;png&quot;);</span>
+<span class="fc" id="L69">                ticketAttachments.add(Map.entry(&quot;Ticket-&quot; + i + &quot;.png&quot;, qrCodeBytes));</span>
+<span class="pc" id="L70">            } catch (Exception e) {</span>
+<span class="nc" id="L71">                e.printStackTrace();</span>
+            }
+        }
+
+<span class="fc" id="L75">        return ticketAttachments;</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.services</a> &gt; <span class="el_source">AuthService.java</span></div><h1>AuthService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.services;
+
+import java.time.Instant;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.example.JO2024.Enum.RoleEnum;
+import com.example.JO2024.dto.SignupCustomerDTO;
+import com.example.JO2024.models.Customer;
+import com.example.JO2024.models.ResetPasswordToken;
+import com.example.JO2024.models.Role;
+import com.example.JO2024.security.JwtGenerator;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+/**
+ * Service that encapsulates authentication-related functionalities.
+ * 
+ * This service provides methods for registering a new customer, confirming
+ * customer email, generating a new CustomerFullDTO object,
+ * generating a cookie with an access token, adding a cookie to the client,
+ * deleting a specific cookie from the client, and logging out the user.
+ */
+@Service
+public class AuthService {
+
+  private final JwtGenerator jwtGenerator;
+  private final CustomerService customerService;
+  private final RoleService roleService;
+  private final EmailSenderService emailSenderService;
+  private final PasswordEncoder passwordEncoder;
+  private final ResetPasswordTokenService resetPasswordTokenService;
+  private final CartService cartService;
+
+  @Value(&quot;${jwt.expirationResetPasswordTokenExpiration}&quot;)
+  private long expirationResetPasswordToken;
+
+<span class="fc" id="L45">  public AuthService(JwtGenerator jwtGenerator,</span>
+      CustomerService customerService, EmailSenderService emailSenderService, RoleService roleService,
+      PasswordEncoder passwordEncoder, ResetPasswordTokenService resetPasswordTokenService, CartService cartService) {
+
+<span class="fc" id="L49">    this.jwtGenerator = jwtGenerator;</span>
+<span class="fc" id="L50">    this.customerService = customerService;</span>
+<span class="fc" id="L51">    this.emailSenderService = emailSenderService;</span>
+<span class="fc" id="L52">    this.roleService = roleService;</span>
+<span class="fc" id="L53">    this.passwordEncoder = passwordEncoder;</span>
+<span class="fc" id="L54">    this.resetPasswordTokenService = resetPasswordTokenService;</span>
+<span class="fc" id="L55">    this.cartService = cartService;</span>
+<span class="fc" id="L56">  }</span>
+
+  /**
+   * Registers a new customer with the provided information.
+   *
+   * @param newCustomer The SignupCustomerDTO object containing the new customer's
+   *                    information.
+   *                    Must not be null.
+   */
+  public void signup(SignupCustomerDTO newCustomer) {
+<span class="fc" id="L66">    Role role = roleService.getRoleByRole(RoleEnum.USER).orElse(new Role(RoleEnum.USER));</span>
+<span class="fc" id="L67">    Customer customer = Customer.builder()</span>
+<span class="fc" id="L68">        .email(newCustomer.getEmail())</span>
+<span class="fc" id="L69">        .password(passwordEncoder.encode(newCustomer.getPassword()))</span>
+<span class="fc" id="L70">        .firstname(newCustomer.getFirstname())</span>
+<span class="fc" id="L71">        .name(newCustomer.getName())</span>
+<span class="fc" id="L72">        .customerKey(UUID.randomUUID().toString()).build();</span>
+<span class="fc" id="L73">    customer.addNewRole(role);</span>
+<span class="fc" id="L74">    customerService.create(customer);</span>
+<span class="fc" id="L75">    cartService.createCartForCustomer(customer);</span>
+<span class="fc" id="L76">  }</span>
+
+  /**
+   * Sets the 'isVerified' flag of the provided Customer object to true, sends a
+   * confirmation email to the customer,
+   * and updates the customer in the database.
+   *
+   * @param customer The Customer object for which to confirm the email.
+   */
+  public void accountVerified(Customer customer) {
+<span class="fc" id="L86">    customer.setVerified(true);</span>
+<span class="fc" id="L87">    emailSenderService.sendConfirmationEmail(customer);</span>
+<span class="fc" id="L88">    customerService.update(customer);</span>
+<span class="fc" id="L89">  }</span>
+
+  /**
+   * Generates a cookie with an access token and adds it to the client's
+   * HttpServletResponse.
+   * 
+   * @param response The HttpServletResponse object to which the cookie will be
+   *                 added.
+   *                 Used to add the cookie to the client.
+   */
+  public String confirmationLogin(HttpServletRequest request) {
+<span class="fc" id="L100">    String token = jwtGenerator.getToken(request);</span>
+<span class="fc" id="L101">    return jwtGenerator.grantTokenAccess(token);</span>
+  }
+
+  /**
+   * Logs out the user by invalidating the current authentication and deleting the
+   * &quot;token&quot; cookie.
+   * 
+   * @param request  The HttpServletRequest object that contains client request
+   *                 information.
+   * @param response The HttpServletResponse object to which we send the response.
+   *                 Used to delete the &quot;token&quot; cookie from the client.
+   */
+  public void logout(HttpServletRequest request, HttpServletResponse response) {
+
+<span class="fc" id="L115">    String[] cookiesToClear = { &quot;token&quot; };</span>
+
+<span class="fc bfc" id="L117" title="All 2 branches covered.">    for (String cookie : cookiesToClear) {</span>
+<span class="fc" id="L118">      Cookie cookieToDelete = new Cookie(cookie, null);</span>
+<span class="fc" id="L119">      cookieToDelete.setPath(&quot;/&quot;);</span>
+<span class="fc" id="L120">      cookieToDelete.setMaxAge(0);</span>
+<span class="fc" id="L121">      cookieToDelete.setHttpOnly(true);</span>
+<span class="fc" id="L122">      response.addCookie(cookieToDelete);</span>
+    }
+
+<span class="pc bpc" id="L125" title="1 of 2 branches missed.">    if (SecurityContextHolder.getContext().getAuthentication() != null) {</span>
+<span class="fc" id="L126">      SecurityContextHolder.getContext().setAuthentication(null);</span>
+    }
+<span class="fc" id="L128">  }</span>
+
+  /**
+   * Service that encapsulates authentication-related functionalities.
+   * 
+   * This service provides methods for registering a new customer, confirming
+   * customer email, generating a new CustomerFullDTO object,
+   * generating a cookie with an access token, adding a cookie to the client,
+   * deleting a specific cookie from the client, and logging out the user.
+   */
+  public String grantUserAccess(HttpServletRequest request) {
+<span class="fc" id="L139">    String token = confirmationLogin(request);</span>
+<span class="fc" id="L140">    return jwtGenerator.grantTokenAccess(token);</span>
+  }
+
+  /**
+   * Generates a cookie with an access token and adds it to the
+   * HttpServletResponse object.
+   * 
+   * @param response       The HttpServletResponse object to which the cookie will
+   *                       be added.
+   *                       Used to add the cookie to the client.
+   * @param authentication The Authentication object used to generate the access
+   *                       token.
+   */
+  public void generateCookieToken(HttpServletResponse response, Authentication authentication) {
+<span class="fc" id="L154">    String token = jwtGenerator.generateToken(authentication);</span>
+<span class="fc" id="L155">    Cookie cookie = new Cookie(&quot;token&quot;, token);</span>
+<span class="fc" id="L156">    cookie.setPath(&quot;/&quot;);</span>
+<span class="fc" id="L157">    cookie.setSecure(true);</span>
+<span class="fc" id="L158">    cookie.setMaxAge(-1);</span>
+<span class="fc" id="L159">    cookie.setHttpOnly(true);</span>
+
+<span class="fc" id="L161">    response.addCookie(cookie);</span>
+<span class="fc" id="L162">  }</span>
+
+  /**
+   * Generates a reset password token for the provided customer, creates a new
+   * ResetPasswordToken object with the token and customer, sets the expiration
+   * time, and sends a reset password link to the customer.
+   * 
+   * @param customer The Customer object for which to generate the reset password
+   *                 token.
+   */
+  public void resetPassword(Customer customer) {
+<span class="fc" id="L173">    String token = jwtGenerator.generateResetPasswordToken(customer);</span>
+<span class="fc" id="L174">    ResetPasswordToken resetPasswordToken = ResetPasswordToken.builder().token(token).customer(customer)</span>
+<span class="fc" id="L175">        .expiration(Instant.now().plusMillis(expirationResetPasswordToken)).build();</span>
+<span class="fc" id="L176">    resetPasswordTokenService.createResetTokenPassword(resetPasswordToken);</span>
+<span class="fc" id="L177">    customerService.resetPasswordSendLink(customer, token);</span>
+<span class="fc" id="L178">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

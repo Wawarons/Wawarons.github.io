@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomUserDetailsService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.security</a> &gt; <span class="el_source">CustomUserDetailsService.java</span></div><h1>CustomUserDetailsService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.security;
+
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import com.example.JO2024.models.Role;
+import com.example.JO2024.errors.ErrorMessages;
+import com.example.JO2024.models.Customer;
+import com.example.JO2024.repositories.CustomerRepository;
+
+import lombok.AllArgsConstructor;
+
+/**
+ * This class implements the UserDetailsService interface to retrieve user
+ * details from a custom service
+ * and uses these details to create a UserDetails object based on a Customer
+ * object from a customer repository.
+ */
+@Service
+<span class="fc" id="L27">@AllArgsConstructor</span>
+public class CustomUserDetailsService implements UserDetailsService {
+
+  private CustomerRepository customerRepository;
+
+  /**
+   * Convert the a Set of role of type {@code Set&lt;Role&gt;} into a String array of
+   * type {@code String[]}
+   * 
+   * @param roles a Set of roles
+   * @return an String array of that contain each role name of the parameter
+   *         roles.
+   */
+  private String[] mapRoleToString(Set&lt;Role&gt; roles) {
+<span class="fc" id="L41">    List&lt;Role&gt; roleList = new ArrayList&lt;&gt;(roles);</span>
+
+<span class="fc" id="L43">    String[] rolesString = new String[roleList.size()];</span>
+<span class="fc" id="L44">    IntStream.range(0, roleList.size())</span>
+<span class="fc" id="L45">        .forEach(index -&gt; rolesString[index] = roleList.get(index).getRoleName());</span>
+
+<span class="fc" id="L47">    return rolesString;</span>
+  }
+
+  public Customer loadByUserId(String id) {
+
+<span class="fc" id="L52">    long userId = Long.parseLong(id);</span>
+
+<span class="fc" id="L54">    Customer customer = customerRepository.findById(userId)</span>
+<span class="pc" id="L55">        .orElseThrow(() -&gt; new UsernameNotFoundException(ErrorMessages.USER_NOT_FOUND));</span>
+
+<span class="fc" id="L57">    return customer;</span>
+  }
+
+  public Customer loadByUserEmail(String email) {
+
+<span class="fc" id="L62">    Customer customer = customerRepository.findByEmail(email)</span>
+<span class="pc" id="L63">        .orElseThrow(() -&gt; new UsernameNotFoundException(ErrorMessages.USER_NOT_FOUND));</span>
+
+<span class="fc" id="L65">    return customer;</span>
+  }
+
+  @Override
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+<span class="fc" id="L71">    Customer customer = null;</span>
+
+<span class="fc bfc" id="L73" title="All 2 branches covered.">    if (username.matches(&quot;\\d+&quot;)) {</span>
+<span class="fc" id="L74">      customer = loadByUserId(username);</span>
+<span class="fc" id="L75">    } else {</span>
+<span class="fc" id="L76">      customer = loadByUserEmail(username);</span>
+    }
+
+<span class="fc" id="L79">    return User.builder()</span>
+<span class="fc" id="L80">        .username(customer.getEmail())</span>
+<span class="fc" id="L81">        .password(customer.getPassword())</span>
+<span class="fc" id="L82">        .disabled(customer.isBlock())</span>
+<span class="fc" id="L83">        .roles(mapRoleToString(customer.getRoles()))</span>
+<span class="fc" id="L84">        .build();</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

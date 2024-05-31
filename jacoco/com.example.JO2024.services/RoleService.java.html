@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RoleService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.services</a> &gt; <span class="el_source">RoleService.java</span></div><h1>RoleService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.JO2024.repositories.RoleRepository;
+import com.example.JO2024.Enum.RoleEnum;
+import com.example.JO2024.models.Role;
+import java.util.List;
+import java.util.Optional;
+
+/**
+ * The RoleService class is responsible for managing roles in the application.
+ * It provides methods to create a new role, retrieve all roles, and retrieve a
+ * role by its ID or role enum.
+ */
+@Service
+<span class="fc" id="L18">public class RoleService {</span>
+
+  @Autowired
+  private RoleRepository roleRepository;
+
+  /**
+   * Creates a new role.
+   *
+   * @param role The role to create.
+   * @throws IllegalArgumentException if role is null.
+   */
+  public void create(Role role) {
+    try {
+<span class="fc" id="L31">      roleRepository.save(role);</span>
+<span class="pc" id="L32">    } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L33">      throw new IllegalArgumentException(&quot;Role is null.&quot;);</span>
+    }
+<span class="fc" id="L35">  }</span>
+
+  /**
+   * Retrieves all roles.
+   *
+   * @return The list of all roles.
+   */
+  public List&lt;Role&gt; getRoles() {
+<span class="fc" id="L43">    return roleRepository.findAll();</span>
+  }
+
+  /**
+   * Retrieves a role by its ID.
+   *
+   * @param id The ID of the role to retrieve.
+   * @return The role corresponding to the specified ID, if it exists.
+   */
+  public Optional&lt;Role&gt; getRoleById(long id) {
+<span class="fc" id="L53">    return roleRepository.findById(id);</span>
+  }
+
+  /**
+   * Retrieves a role by its role enum.
+   *
+   * @param role The role enum to retrieve the role.
+   * @return The role corresponding to the specified role enum, if it exists.
+   */
+  public Optional&lt;Role&gt; getRoleByRole(RoleEnum role) {
+<span class="fc" id="L63">    return roleRepository.findByRole(role);</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.services</a> &gt; <span class="el_source">TicketService.java</span></div><h1>TicketService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.services;
+
+import java.time.Instant;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.JO2024.dto.TicketDTO;
+import com.example.JO2024.models.Ticket;
+import com.example.JO2024.repositories.TicketRepository;
+
+/**
+ * Service class for managing Ticket entities.
+ * Provides methods to create, delete, retrieve, and update Ticket records.
+ */
+@Service
+<span class="fc" id="L19">public class TicketService {</span>
+
+    @Autowired
+    private TicketRepository ticketRepository;
+
+    /**
+     * Retrieves a Ticket by its ID.
+     * 
+     * @param id the ID of the Ticket
+     * @return an Optional containing the Ticket if found, or an empty Optional if
+     *         not found
+     */
+    public Optional&lt;Ticket&gt; getTicketById(long id) {
+<span class="fc" id="L32">        return ticketRepository.findById(id);</span>
+    }
+
+    /**
+     * Saves a new Ticket entity to the repository.
+     * 
+     * @param ticket the Ticket entity to be saved
+     */
+    public void create(Ticket ticket) {
+<span class="fc" id="L41">        ticketRepository.save(ticket);</span>
+<span class="fc" id="L42">    }</span>
+
+    /**
+     * Deletes a Ticket entity from the repository.
+     * 
+     * @param ticket the Ticket entity to be deleted
+     */
+    public void delete(Ticket ticket) {
+<span class="nc" id="L50">        ticketRepository.delete(ticket);</span>
+<span class="nc" id="L51">    }</span>
+
+    /**
+     * Retrieves all Ticket entities from the repository.
+     * 
+     * @return a list of all Ticket entities
+     */
+    public List&lt;Ticket&gt; getAllTickets() {
+<span class="fc" id="L59">        return ticketRepository.findAll();</span>
+    }
+
+    /**
+     * Retrieves all Ticket entities ordered by price in descending order.
+     * 
+     * @return a list of Ticket entities ordered by price descending
+     */
+    public List&lt;Ticket&gt; getAllTicketsByPriceDesc() {
+<span class="fc" id="L68">        return ticketRepository.findAllByOrderByPriceDesc();</span>
+    }
+
+    /**
+     * Retrieves all Ticket entities ordered by price in ascending order.
+     * 
+     * @return a list of Ticket entities ordered by price ascending
+     */
+    public List&lt;Ticket&gt; getAllTicketsByPriceAsc() {
+<span class="fc" id="L77">        return ticketRepository.findAllByOrderByPriceAsc();</span>
+    }
+
+    /**
+     * Retrieves all Ticket entities ordered by start date in descending order.
+     * 
+     * @return a list of Ticket entities ordered by start date descending
+     */
+    public List&lt;Ticket&gt; getAllTicketsByStartDateDesc() {
+<span class="fc" id="L86">        return ticketRepository.findAllByOrderByStartDateDesc();</span>
+    }
+
+    /**
+     * Retrieves all Ticket entities ordered by start date in ascending order.
+     * 
+     * @return a list of Ticket entities ordered by start date ascending
+     */
+    public List&lt;Ticket&gt; getAllTicketsByStartDateAsc() {
+<span class="fc" id="L95">        return ticketRepository.findAllByOrderByStartDateAsc();</span>
+    }
+
+    /**
+     * Retrieves all Ticket entities ordered by quantity in descending order.
+     * 
+     * @return a list of Ticket entities ordered by quantity descending
+     */
+    public List&lt;Ticket&gt; getAllTicketsByQuantityDesc() {
+<span class="fc" id="L104">        return ticketRepository.findAllByOrderByQuantityDesc();</span>
+    }
+
+    /**
+     * Retrieves all Ticket entities ordered by quantity in ascending order.
+     * 
+     * @return a list of Ticket entities ordered by quantity ascending
+     */
+    public List&lt;Ticket&gt; getAllTicketsByQuantityAsc() {
+<span class="fc" id="L113">        return ticketRepository.findAllByOrderByQuantityAsc();</span>
+    }
+
+    /**
+     * Updates an existing Ticket entity in the repository.
+     * 
+     * @param ticket the Ticket entity to be updated
+     */
+    public void update(Ticket ticket) {
+<span class="fc" id="L122">        ticketRepository.save(ticket);</span>
+<span class="fc" id="L123">    }</span>
+
+    /**
+     * Updates a Ticket entity with values from a TicketDTO.
+     * 
+     * @param ticket    the Ticket entity to be updated
+     * @param ticketDTO the TicketDTO containing new values
+     * @return the updated Ticket entity
+     */
+    public Ticket updateByTicketDTO(Ticket ticket, TicketDTO ticketDTO) {
+<span class="fc" id="L133">        ticket.setAvailable(ticketDTO.isAvailable());</span>
+<span class="fc" id="L134">        ticket.setDescription(ticketDTO.getDescription());</span>
+<span class="fc" id="L135">        ticket.setTitle(ticketDTO.getTitle());</span>
+<span class="fc" id="L136">        ticket.setStartDate(ticketDTO.getStartDate());</span>
+<span class="fc" id="L137">        ticket.setEndDate(ticketDTO.getEndDate());</span>
+<span class="fc" id="L138">        ticket.setPrice(ticketDTO.getPrice());</span>
+<span class="fc" id="L139">        ticket.setQuantity(ticketDTO.getQuantity());</span>
+
+<span class="fc" id="L141">        return ticket;</span>
+    }
+
+    /**
+     * Checks if a Ticket is available for purchase.
+     * 
+     * @param ticket the Ticket entity to be checked
+     * @return true if the Ticket is available for purchase, false otherwise
+     */
+    public boolean isTicketAvailableToPurchase(Ticket ticket) {
+<span class="fc bfc" id="L151" title="All 4 branches covered.">        return ticket.isAvailable() &amp;&amp; ticket.getQuantity() &gt; 0</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">                &amp;&amp; ticket.getEndDate().isAfter(Instant.now());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

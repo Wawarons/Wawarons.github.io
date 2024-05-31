@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BundleCartService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.services</a> &gt; <span class="el_source">BundleCartService.java</span></div><h1>BundleCartService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.JO2024.dto.ItemCartDTO;
+import com.example.JO2024.models.Cart;
+import com.example.JO2024.models.Bundle;
+import com.example.JO2024.models.BundleCart;
+import com.example.JO2024.repositories.BundleCartRepository;
+
+import jakarta.transaction.Transactional;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+/**
+ * Service class for managing BundleCart entities.
+ * Provides methods to create, delete, retrieve, and update BundleCart records.
+ */
+@Service
+<span class="fc" id="L25">public class BundleCartService {</span>
+
+  @Autowired
+  private BundleCartRepository bundleCartRepository;
+
+  @Autowired
+  private CartService cartService;
+
+  /**
+   * Saves a new BundleCart entity to the repository.
+   * 
+   * @param bundleCart the BundleCart entity to be saved
+   */
+  public void create(BundleCart bundleCart) {
+<span class="fc" id="L39">    bundleCartRepository.save(bundleCart);</span>
+<span class="fc" id="L40">  }</span>
+
+  /**
+   * Retrieves a BundleCart entity by its ID.
+   * 
+   * @param id the ID of the BundleCart entity to retrieve
+   * @return an Optional containing the BundleCart entity, if found
+   */
+  public Optional&lt;BundleCart&gt; getBundleCartById(long id) {
+<span class="fc" id="L49">    return bundleCartRepository.findById(id);</span>
+  }
+
+  /**
+   * Deletes a BundleCart entity from the repository.
+   * 
+   * @param bundleCart the BundleCart entity to be deleted
+   */
+  public void delete(BundleCart bundleCart) {
+<span class="fc" id="L58">    bundleCartRepository.delete(bundleCart);</span>
+<span class="fc" id="L59">  }</span>
+
+  /**
+   * Retrieves a list of ItemCartDTO objects by the specified cart ID.
+   * 
+   * @param id the ID of the cart
+   * @return a list of ItemCartDTO objects
+   */
+  public List&lt;ItemCartDTO&gt; getBundlesByCartId(long id) {
+<span class="fc" id="L68">    List&lt;ItemCartDTO&gt; bundles = bundleCartRepository.findAllByCartId(id).stream()</span>
+<span class="fc" id="L69">        .map(bundleCart -&gt;</span>
+
+        {
+<span class="fc" id="L72">          BigDecimal price = bundleCart.getBundle().getTicket().getPrice().multiply(</span>
+<span class="fc" id="L73">              new BigDecimal(bundleCart.getBundle().getQuantity()));</span>
+<span class="fc" id="L74">          return new ItemCartDTO(</span>
+<span class="fc" id="L75">              bundleCart.getBundle().getId(),</span>
+<span class="fc" id="L76">              bundleCart.getBundle().getTitle(),</span>
+<span class="fc" id="L77">              bundleCart.getBundle().getDescription(),</span>
+<span class="fc" id="L78">              price.subtract(price.multiply(new BigDecimal(bundleCart.getBundle().getDiscount()))),</span>
+<span class="fc" id="L79">              bundleCart.getQuantity());</span>
+        })
+<span class="fc" id="L81">        .collect(Collectors.toList());</span>
+<span class="fc" id="L82">    return bundles;</span>
+  }
+
+  /**
+   * Retrieves a list of BundleCart entities ordered by creation date in
+   * descending order.
+   * 
+   * @return a list of BundleCart entities
+   */
+  public List&lt;BundleCart&gt; getBundlesByCreatedAtDesc() {
+<span class="fc" id="L92">    return bundleCartRepository.findAllByOrderByCreatedAtDesc();</span>
+  }
+
+  /**
+   * Retrieves a list of BundleCart entities ordered by creation date in
+   * ascending
+   * order.
+   * 
+   * @return a list of BundleCart entities
+   */
+  public List&lt;BundleCart&gt; getBundlesByCreatedAtAsc() {
+<span class="fc" id="L103">    return bundleCartRepository.findAllByOrderByCreatedAtAsc();</span>
+  }
+
+  /**
+   * Adds a bundle to the specified cart.
+   * 
+   * @param bundle the bundle to be added
+   * @param cart   the cart to which the bundle will be added
+   */
+  public void addBundleToCart(Bundle bundle, Cart cart, int quantity) {
+<span class="fc" id="L113">    BundleCart bundleCart = new BundleCart();</span>
+<span class="fc" id="L114">    bundleCart.setCart(cart);</span>
+<span class="fc" id="L115">    bundleCart.setBundle(bundle);</span>
+<span class="fc" id="L116">    bundleCart.setQuantity(quantity);</span>
+<span class="fc" id="L117">    bundleCartRepository.save(bundleCart);</span>
+<span class="fc" id="L118">  }</span>
+
+  /**
+   * Adds a bundle to the cart with the specified ID.
+   * 
+   * @param bundle the bundle to be added
+   * @param id     the ID of the cart to which the bundle will be added
+   */
+  public void addBundleToCart(Bundle bundle, long id, int quantity) {
+<span class="fc" id="L127">    BundleCart bundleCart = new BundleCart();</span>
+<span class="pc" id="L128">    Cart cart = cartService.getCartById(id).orElseThrow(() -&gt; new NoSuchElementException(&quot;No cart found.&quot;));</span>
+<span class="fc" id="L129">    bundleCart.setCart(cart);</span>
+<span class="fc" id="L130">    bundleCart.setBundle(bundle);</span>
+<span class="fc" id="L131">    bundleCart.setQuantity(quantity);</span>
+<span class="fc" id="L132">    bundleCartRepository.save(bundleCart);</span>
+<span class="fc" id="L133">  }</span>
+
+  /**
+   * Removes a bundle from the cart with the specified ID.
+   * 
+   * @param bundle the bundle to be removed
+   * @param cartId the ID of the cart from which the bundle will be removed
+   */
+  public void removeBundleToCart(Bundle bundle, long cartId) {
+<span class="nc" id="L142">    BundleCart bundleCart = bundleCartRepository.findByBundleAndCartId(bundle, cartId)</span>
+<span class="nc" id="L143">        .orElseThrow(() -&gt; new NoSuchElementException(&quot;Bundle not found in the cart.&quot;));</span>
+
+<span class="nc" id="L145">    bundleCartRepository.delete(bundleCart);</span>
+<span class="nc" id="L146">  }</span>
+
+  /**
+   * Removes all bundles from the cart with the specified ID.
+   * 
+   * @param cartId the ID of the cart from which all bundles will be removed
+   */
+  @Transactional
+  public void removeAllBundleToCartId(long cartId) {
+<span class="fc" id="L155">    bundleCartRepository.deleteAllByCartId(cartId);</span>
+<span class="fc" id="L156">  }</span>
+
+  /**
+   * Retrieves a BundleCart entity by bundle ID and cart ID.
+   * 
+   * @param bundleId the ID of the bundle
+   * @param cartId   the ID of the cart
+   * @return an Optional containing the BundleCart entity, if found
+   */
+  public Optional&lt;BundleCart&gt; getBundleCartByBundleIdCartId(long bundleId, long cartId) {
+<span class="fc" id="L166">    Optional&lt;BundleCart&gt; bundle = bundleCartRepository.findByBundleIdAndCartId(bundleId, cartId);</span>
+<span class="fc" id="L167">    return bundle;</span>
+  }
+
+  /**
+   * Updates an existing BundleCart entity in the repository.
+   * 
+   * @param bundleCart the BundleCart entity to be updated
+   */
+  public void update(BundleCart bundleCart) {
+<span class="fc" id="L176">    bundleCartRepository.save(bundleCart);</span>
+<span class="fc" id="L177">  }</span>
+
+  public void deleteAll(List&lt;BundleCart&gt; bundlesCart) {
+<span class="nc" id="L180">    bundleCartRepository.deleteAll(bundlesCart);</span>
+<span class="nc" id="L181">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

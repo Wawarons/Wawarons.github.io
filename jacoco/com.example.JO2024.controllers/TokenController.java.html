@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TokenController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.controllers</a> &gt; <span class="el_source">TokenController.java</span></div><h1>TokenController.java</h1><pre class="source lang-java linenums">package com.example.JO2024.controllers;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.JO2024.dto.ResponseDTO;
+import com.example.JO2024.dto.TokenDTO;
+import com.example.JO2024.errors.ErrorMessages;
+import com.example.JO2024.errors.ErrorResponse;
+import com.example.JO2024.models.Customer;
+import com.example.JO2024.security.JwtGenerator;
+import com.example.JO2024.services.CustomerService;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+
+/**
+ * Controller class that handles token-related operations.
+ * Includes methods to retrieve user information token based on
+ * HttpServletRequest object or provided token string.
+ * Provides endpoints for claiming user token and validating user token.
+ */
+@RestController
+@RequestMapping(path = &quot;/token&quot;)
+public class TokenController {
+
+  private final JwtGenerator jwtGenerator;
+
+  private final CustomerService customerService;
+
+<span class="fc" id="L36">  public TokenController(JwtGenerator jwtGenerator, CustomerService customerService) {</span>
+<span class="fc" id="L37">    this.jwtGenerator = jwtGenerator;</span>
+<span class="fc" id="L38">    this.customerService = customerService;</span>
+<span class="fc" id="L39">  }</span>
+
+  /**
+   * Retrieves the user information token based on the HttpServletRequest object.
+   * 
+   * @param request the HttpServletRequest object containing the cookies
+   * @return ResponseEntity with the user information token if the access token
+   *         cookie is found,
+   *         otherwise returns an ErrorResponse with &quot;Access denied&quot; message and
+   *         UNAUTHORIZED status
+   */
+  @GetMapping(&quot;/user/claim&quot;)
+  public ResponseEntity&lt;?&gt; getTokenUserInfo(HttpServletRequest request) {
+<span class="fc" id="L52">    Cookie[] cookies = request.getCookies();</span>
+<span class="fc" id="L53">    String token = null;</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">    for (Cookie cookie : cookies) {</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">      if (cookie.getName().equals(&quot;token&quot;)) {</span>
+<span class="fc" id="L56">        token = cookie.getValue();</span>
+<span class="fc" id="L57">        break;</span>
+      }
+    }
+
+<span class="pc bpc" id="L61" title="2 of 4 branches missed.">    if (token != null &amp;&amp; jwtGenerator.isValid(token)) {</span>
+<span class="fc" id="L62">      String userId = jwtGenerator.getSubjectJwt(token);</span>
+<span class="fc" id="L63">      Customer customer = customerService.getCustomerById(Long.parseLong(userId))</span>
+<span class="fc" id="L64">          .orElseThrow(() -&gt; new UsernameNotFoundException(ErrorMessages.USER_NOT_FOUND));</span>
+<span class="fc" id="L65">      String newToken = jwtGenerator.generateTokenUserData(customer);</span>
+<span class="fc" id="L66">      return new ResponseEntity&lt;&gt;(new TokenDTO(newToken), HttpStatus.OK);</span>
+    }
+
+<span class="nc" id="L69">    return new ResponseEntity&lt;&gt;(new ErrorResponse(&quot;Access denied&quot;, HttpStatus.UNAUTHORIZED.value()),</span>
+<span class="nc" id="L70">        HttpStatus.UNAUTHORIZED);</span>
+
+  }
+
+  /**
+   * Retrieves the user information token based on the provided token string.
+   * 
+   * @param token the token string to validate and retrieve user information
+   * @return ResponseEntity with HttpStatus.OK if the token is valid,
+   *         otherwise returns an ErrorResponse with &quot;Invalid token&quot; message and
+   *         UNAUTHORIZED status
+   */
+  @GetMapping(&quot;/user/validate&quot;)
+  public ResponseEntity&lt;?&gt; validateUserToken(@RequestParam(name = &quot;token&quot;) String token) {
+<span class="fc bfc" id="L84" title="All 2 branches covered.">    if (jwtGenerator.isValid(token)) {</span>
+<span class="fc" id="L85">      return new ResponseEntity&lt;&gt;(new ResponseDTO(&quot;Valid token&quot;, HttpStatus.OK.value()), HttpStatus.OK);</span>
+    }
+
+<span class="fc" id="L88">    return new ResponseEntity&lt;&gt;(new ErrorResponse(&quot;Invalid token&quot;, HttpStatus.UNAUTHORIZED.value()),</span>
+<span class="fc" id="L89">        HttpStatus.UNAUTHORIZED);</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

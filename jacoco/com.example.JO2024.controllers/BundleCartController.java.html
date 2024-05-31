@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BundleCartController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.controllers</a> &gt; <span class="el_source">BundleCartController.java</span></div><h1>BundleCartController.java</h1><pre class="source lang-java linenums">package com.example.JO2024.controllers;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.JO2024.dto.ItemCartDTO;
+import com.example.JO2024.dto.ResponseDTO;
+import com.example.JO2024.dto.BundleInCartDTO;
+import com.example.JO2024.models.Cart;
+import com.example.JO2024.models.Bundle;
+import com.example.JO2024.models.BundleCart;
+import com.example.JO2024.security.JwtGenerator;
+import com.example.JO2024.services.CartService;
+import com.example.JO2024.services.BundleCartService;
+import com.example.JO2024.services.BundleService;
+import com.example.JO2024.services.TicketService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * Controller class for managing tickets in a user's cart.
+ * Provides endpoints for adding, updating, clearing, and retrieving items in
+ * the cart.
+ */
+@RestController
+@RequestMapping(&quot;/cart/bundle&quot;)
+<span class="fc" id="L39">@Slf4j</span>
+<span class="fc" id="L40">public class BundleCartController {</span>
+
+        @Autowired
+        private BundleService bundleService;
+
+        @Autowired
+        private BundleCartService bundleCartService;
+
+        @Autowired
+        private TicketService ticketService;
+
+        @Autowired
+        private JwtGenerator jwtGenerator;
+
+        @Autowired
+        private CartService cartService;
+
+        /**
+         * Adds a ticket to the user's cart based on the provided BundleInCartDTO.
+         * 
+         * @param bundleInCartDTO The BundlenCartDTO containing the bundle id, user
+         *                        id,
+         *                        and quantity.
+         * @return A ResponseEntity with a message indicating if the bundle was
+         *         successfully added to the cart.
+         */
+        @PostMapping(&quot;/add_item&quot;)
+        public ResponseEntity&lt;?&gt; addTicketInCart(@Valid @RequestBody BundleInCartDTO bundleInCartDTO,
+                        HttpServletRequest request) {
+<span class="fc" id="L69">                log.info(&quot;Attempting to add bundle to cart: {}&quot;, bundleInCartDTO);</span>
+<span class="fc" id="L70">                Bundle bundle = bundleService.getBundleById(bundleInCartDTO.getBundleId())</span>
+<span class="fc" id="L71">                                .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L72">                                        log.error(&quot;Bundle not found: id={}&quot;, bundleInCartDTO.getBundleId());</span>
+<span class="fc" id="L73">                                        return new NoSuchElementException(&quot;Bundle not found.&quot;);</span>
+                                });
+<span class="fc" id="L75">                log.info(&quot;Found bundle: id={} title={}&quot;, bundle.getId(), bundle.getTitle());</span>
+
+<span class="fc bfc" id="L77" title="All 2 branches covered.">                if (!ticketService.isTicketAvailableToPurchase(bundle.getTicket())) {</span>
+<span class="fc" id="L78">                        log.error(&quot;Ticket {} is not available or requested quantity exceeds stock&quot;,</span>
+<span class="fc" id="L79">                                        bundle.getTicket().getTitle());</span>
+<span class="fc" id="L80">                        return new ResponseEntity&lt;&gt;(ResponseDTO.builder()</span>
+<span class="fc" id="L81">                                        .message(&quot;Bundle not available&quot;)</span>
+<span class="fc" id="L82">                                        .code(HttpStatus.NOT_FOUND.value())</span>
+<span class="fc" id="L83">                                        .build(), HttpStatus.NOT_FOUND);</span>
+                }
+
+<span class="fc" id="L86">                String token = jwtGenerator.getToken(request);</span>
+<span class="fc" id="L87">                long userId = Long.parseLong(jwtGenerator.getSubjectJwt(token));</span>
+
+<span class="fc" id="L89">                Cart cart = cartService.getCartByCustomerId(userId).get();</span>
+
+<span class="fc" id="L91">                log.info(&quot;Found cart: id={} for customer key={}&quot;, cart.getId(), cart.getCustomer().getCustomerKey());</span>
+
+<span class="fc" id="L93">                BundleCart bundleCart = bundleCartService</span>
+<span class="fc" id="L94">                                .getBundleCartByBundleIdCartId(bundleInCartDTO.getBundleId(), cart.getId())</span>
+<span class="fc" id="L95">                                .orElse(null);</span>
+
+<span class="fc" id="L97">                int newQuantity = 0;</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">                if (bundleCart != null) {</span>
+<span class="fc" id="L99">                        newQuantity = ((bundleInCartDTO.getQuantity() + bundleCart.getQuantity())</span>
+<span class="fc" id="L100">                                        * bundle.getQuantity());</span>
+
+<span class="fc" id="L102">                } else {</span>
+<span class="fc" id="L103">                        newQuantity = (bundleInCartDTO.getQuantity() * bundle.getQuantity());</span>
+                }
+<span class="fc" id="L105">                log.info(&quot;New quantity {}&quot;, newQuantity);</span>
+<span class="pc bpc" id="L106" title="1 of 4 branches missed.">                if (newQuantity &gt; bundle.getTicket().getQuantity() || bundleInCartDTO.getQuantity() &lt; 0) {</span>
+<span class="fc" id="L107">                        log.error(&quot;Requested quantity for ticket {} exceeds available stock&quot;,</span>
+<span class="fc" id="L108">                                        bundle.getTitle());</span>
+<span class="fc" id="L109">                        return new ResponseEntity&lt;&gt;(ResponseDTO.builder()</span>
+<span class="fc" id="L110">                                        .message(&quot;Bundle not available&quot;)</span>
+<span class="fc" id="L111">                                        .code(HttpStatus.NOT_FOUND.value())</span>
+<span class="fc" id="L112">                                        .build(), HttpStatus.NOT_FOUND);</span>
+                }
+
+<span class="fc bfc" id="L115" title="All 2 branches covered.">                if (bundleCart != null) {</span>
+<span class="fc" id="L116">                        bundleCart.setQuantity(bundleCart.getQuantity() + bundleInCartDTO.getQuantity());</span>
+<span class="fc" id="L117">                        bundleCartService.update(bundleCart);</span>
+<span class="fc" id="L118">                        log.info(&quot;Updated quantity of ticket {} in cart&quot;, bundleCart.getBundle().getTitle());</span>
+<span class="fc" id="L119">                } else {</span>
+<span class="fc" id="L120">                        BundleCart newBundleCart = new BundleCart();</span>
+<span class="fc" id="L121">                        newBundleCart.setCart(cart);</span>
+<span class="fc" id="L122">                        newBundleCart.setBundle(bundle);</span>
+<span class="fc" id="L123">                        newBundleCart.setQuantity(bundleInCartDTO.getQuantity());</span>
+<span class="fc" id="L124">                        bundleCartService.create(newBundleCart);</span>
+<span class="fc" id="L125">                        log.info(&quot;Added ticket {} to cart {} for customer {}&quot;, bundle.getTitle(), cart.getId(),</span>
+<span class="fc" id="L126">                                        cart.getCustomer().getCustomerKey());</span>
+                }
+
+<span class="fc" id="L129">                return new ResponseEntity&lt;&gt;(ResponseDTO.builder()</span>
+<span class="fc" id="L130">                                .message(&quot;Ticket successfully added to your cart&quot;)</span>
+<span class="fc" id="L131">                                .code(HttpStatus.OK.value())</span>
+<span class="fc" id="L132">                                .build(), HttpStatus.OK);</span>
+        }
+
+        /**
+         * Updates the quantity of a bundle in the user's cart based on the provided
+         * BundleInCartDTO.
+         * 
+         * @param bundleInCartDTO The BundleInCartDTO containing the bundle id, user
+         *                        id,
+         *                        and new quantity.
+         * @return A ResponseEntity with a message indicating if the bundle quantity
+         *         was
+         *         successfully updated in the cart.
+         * @throws NoSuchElementException if the cart, item cart, or bundle is not
+         *                                found.
+         */
+        @PostMapping(&quot;/update_item&quot;)
+        public ResponseEntity&lt;?&gt; updateTicketInCart(@Valid @RequestBody BundleInCartDTO bundleInCartDTO,
+                        HttpServletRequest request) {
+<span class="fc" id="L151">                log.info(&quot;Attempting to update bundle in cart: {}&quot;, bundleInCartDTO);</span>
+
+<span class="fc" id="L153">                String token = jwtGenerator.getToken(request);</span>
+<span class="fc" id="L154">                long userId = Long.parseLong(jwtGenerator.getSubjectJwt(token));</span>
+
+<span class="fc" id="L156">                Cart cart = cartService.getCartByCustomerId(userId).get();</span>
+<span class="fc" id="L157">                log.info(&quot;Found cart: id={} for customer key={}&quot;, cart.getId(), cart.getCustomer().getCustomerKey());</span>
+
+<span class="fc" id="L159">                Bundle bundle = bundleService.getBundleById(bundleInCartDTO.getBundleId())</span>
+<span class="fc" id="L160">                                .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L161">                                        log.error(&quot;Bundle not found: id={}&quot;, bundleInCartDTO.getBundleId());</span>
+<span class="fc" id="L162">                                        return new NoSuchElementException(&quot;Bundle not found&quot;);</span>
+                                });
+<span class="fc" id="L164">                log.info(&quot;Found bundle: id={} title={}&quot;, bundle.getId(), bundle.getTitle());</span>
+
+<span class="fc" id="L166">                BundleCart bundleCart = bundleCartService</span>
+<span class="fc" id="L167">                                .getBundleCartByBundleIdCartId(bundle.getId(), cart.getId())</span>
+<span class="fc" id="L168">                                .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L169">                                        log.error(&quot;Item cart not found for ticket id: {}&quot;,</span>
+<span class="fc" id="L170">                                                        bundleInCartDTO.getBundleId());</span>
+<span class="fc" id="L171">                                        return new NoSuchElementException(&quot;Item cart not found.&quot;);</span>
+                                });
+<span class="fc" id="L173">                log.info(&quot;Found BundleCart: id={} for customer key={}&quot;, bundleCart.getId(),</span>
+<span class="fc" id="L174">                                cart.getCustomer().getCustomerKey());</span>
+
+<span class="fc bfc" id="L176" title="All 2 branches covered.">                if (bundleInCartDTO.getQuantity() &lt; 0) {</span>
+<span class="fc" id="L177">                        bundleCartService.delete(bundleCart);</span>
+<span class="fc" id="L178">                        log.info(&quot;Removed BundleCart id: {}&quot;, bundleCart.getId());</span>
+<span class="fc" id="L179">                        return new ResponseEntity&lt;&gt;(ResponseDTO.builder()</span>
+<span class="fc" id="L180">                                        .message(&quot;Item removed successfully&quot;)</span>
+<span class="fc" id="L181">                                        .code(HttpStatus.OK.value())</span>
+<span class="fc" id="L182">                                        .build(), HttpStatus.OK);</span>
+                }
+
+<span class="fc bfc" id="L185" title="All 2 branches covered.">                if (bundleInCartDTO.getQuantity() &gt; bundle.getTicket().getQuantity()) {</span>
+<span class="fc" id="L186">                        log.error(&quot;Requested quantity for bundle {} exceeds available stock&quot;, bundle.getTitle());</span>
+<span class="fc" id="L187">                        return new ResponseEntity&lt;&gt;(ResponseDTO.builder()</span>
+<span class="fc" id="L188">                                        .message(&quot;Item not available for this quantity.&quot;)</span>
+<span class="fc" id="L189">                                        .code(HttpStatus.NOT_FOUND.value())</span>
+<span class="fc" id="L190">                                        .build(), HttpStatus.NOT_FOUND);</span>
+                }
+
+<span class="fc" id="L193">                bundleCart.setQuantity(bundleInCartDTO.getQuantity());</span>
+<span class="fc" id="L194">                bundleCartService.update(bundleCart);</span>
+<span class="fc" id="L195">                log.info(&quot;Updated quantity of ticket {} in cart {}&quot;, bundle.getTitle(), cart.getId());</span>
+
+<span class="fc" id="L197">                return new ResponseEntity&lt;&gt;(ResponseDTO.builder()</span>
+<span class="fc" id="L198">                                .message(&quot;Ticket quantity successfully updated in your cart&quot;)</span>
+<span class="fc" id="L199">                                .code(HttpStatus.OK.value())</span>
+<span class="fc" id="L200">                                .build(), HttpStatus.OK);</span>
+        }
+
+        /**
+         * Clears the cart for the specified user by removing all items from the cart.
+         * 
+         * @param userIdDTO The UserIdDTO containing the user id for whom the cart needs
+         *                  to be cleared.
+         * @return A ResponseEntity with a message indicating if the cart was cleared
+         *         successfully.
+         * @throws NoSuchElementException if the cart is not found for the provided user
+         *                                id.
+         */
+        @DeleteMapping(&quot;/clear&quot;)
+        public ResponseEntity&lt;ResponseDTO&gt; clearCart(HttpServletRequest request) {
+
+<span class="fc" id="L216">                String token = jwtGenerator.getToken(request);</span>
+<span class="fc" id="L217">                long userId = Long.parseLong(jwtGenerator.getSubjectJwt(token));</span>
+
+<span class="fc" id="L219">                log.info(&quot;Attempting to clear cart for user id: {}&quot;, userId);</span>
+
+<span class="fc" id="L221">                Cart cart = cartService.getCartByCustomerId(userId).get();</span>
+<span class="fc" id="L222">                bundleCartService.removeAllBundleToCartId(cart.getId());</span>
+<span class="fc" id="L223">                log.info(&quot;Removed all items from cart id={} for customer key={}&quot;, cart.getId(),</span>
+<span class="fc" id="L224">                                cart.getCustomer().getCustomerKey());</span>
+
+<span class="fc" id="L226">                ResponseDTO response = ResponseDTO.builder()</span>
+<span class="fc" id="L227">                                .message(&quot;Cart cleared successfully&quot;)</span>
+<span class="fc" id="L228">                                .code(HttpStatus.OK.value())</span>
+<span class="fc" id="L229">                                .build();</span>
+<span class="fc" id="L230">                return new ResponseEntity&lt;&gt;(response, HttpStatus.OK);</span>
+        }
+
+        /**
+         * Retrieves the items in the cart for the specified user.
+         * 
+         * @param userIdDTO The UserIdDTO containing the user id for whom the items need
+         *                  to be retrieved.
+         * @return A ResponseEntity containing a list of ItemCartDTO representing the
+         *         items in the cart.
+         * @throws NoSuchElementException if the cart is not found for the provided user
+         *                                id.
+         */
+        @GetMapping(&quot;/items&quot;)
+        public ResponseEntity&lt;?&gt; getItems(HttpServletRequest request) {
+
+<span class="fc" id="L246">                String token = jwtGenerator.getToken(request);</span>
+<span class="fc" id="L247">                long userId = Long.parseLong(jwtGenerator.getSubjectJwt(token));</span>
+
+<span class="fc" id="L249">                log.info(&quot;Attempting to get items for user id: {}&quot;, userId);</span>
+
+<span class="fc" id="L251">                Cart cart = cartService.getCartByCustomerId(userId).get();</span>
+<span class="fc" id="L252">                List&lt;ItemCartDTO&gt; bundles = bundleCartService.getBundlesByCartId(cart.getId());</span>
+<span class="fc" id="L253">                log.info(&quot;Found {} items in cart id={} for customer key={}&quot;, bundles.size(), cart.getId(),</span>
+<span class="fc" id="L254">                                cart.getCustomer().getCustomerKey());</span>
+
+<span class="fc" id="L256">                return new ResponseEntity&lt;&gt;(bundles, HttpStatus.OK);</span>
+        }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

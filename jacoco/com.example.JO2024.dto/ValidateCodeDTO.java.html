@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ValidateCodeDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.dto</a> &gt; <span class="el_source">ValidateCodeDTO.java</span></div><h1>ValidateCodeDTO.java</h1><pre class="source lang-java linenums">package com.example.JO2024.dto;
+
+import com.example.JO2024.errors.ErrorMessages;
+
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * The ValidateCodeDTO class represents a data transfer object for validating a
+ * code.
+ * It contains the following properties:
+ * - userId: a long value representing the user ID (must be not null and
+ * positive)
+ * - code: a string representing the code (must be not null and have a length of
+ * 6 digits)
+ * 
+ * This class is used for validating codes in the JO2024 application.
+ */
+<span class="fc" id="L25">@AllArgsConstructor</span>
+<span class="fc" id="L26">@NoArgsConstructor</span>
+<span class="pc" id="L27">@Builder</span>
+<span class="fc" id="L28">@Getter</span>
+<span class="fc" id="L29">@Setter</span>
+public class ValidateCodeDTO {
+
+    @NotNull
+    @Positive
+    private long userId;
+
+    @NotNull
+    @Pattern(regexp = &quot;[0-9]{6}&quot;, message = ErrorMessages.CODE_WRONG_SIZE)
+    private String code;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

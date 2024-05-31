@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JwtAuthenticationFilter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.security</a> &gt; <span class="el_source">JwtAuthenticationFilter.java</span></div><h1>JwtAuthenticationFilter.java</h1><pre class="source lang-java linenums">package com.example.JO2024.security;
+
+import java.io.IOException;
+import java.time.Instant;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.example.JO2024.models.RefreshToken;
+import com.example.JO2024.services.RefreshTokenService;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.JwtException;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+/**
+ * JwtAuthenticationFilter is a class that extends OncePerRequestFilter and is
+ * responsible for filtering and authenticating requests based on JWT tokens.
+ * It retrieves the JWT token from a cookie and validates it using the
+ * JwtGenerator.
+ * If the token is valid, it retrieves the user details from the
+ * CustomUserDetailsService and sets the authentication in the
+ * SecurityContextHolder.
+ * If the token is not valid or not present, it allows the request to proceed
+ * without authentication.
+ */
+<span class="fc" id="L38">public class JwtAuthenticationFilter extends OncePerRequestFilter {</span>
+
+  @Autowired
+  private JwtGenerator jwtGenerator;
+
+  @Autowired
+  private CustomUserDetailsService customUserDetailsService;
+
+  @Autowired
+  private RefreshTokenService refreshTokenService;
+
+<span class="fc" id="L49">  private final String[] pathsToFilter = { &quot;/auth/&quot;, &quot;/user/reset-password&quot; };</span>
+
+  @Override
+  protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,
+      @NonNull FilterChain filterChain) throws ServletException, IOException {
+<span class="fc" id="L54">    String token = jwtGenerator.getToken(request);</span>
+
+<span class="fc bfc" id="L56" title="All 2 branches covered.">    if (token == null) {</span>
+<span class="fc" id="L57">      filterChain.doFilter(request, response);</span>
+<span class="fc" id="L58">      return;</span>
+    }
+
+    try {
+<span class="fc" id="L62">      Claims claims = jwtGenerator.getClaims(token);</span>
+      Authentication authentication;
+
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">      if (jwtGenerator.isExpired(token)) {</span>
+<span class="nc" id="L66">        handleExpiredToken(claims, response);</span>
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">      } else if (claims.get(&quot;isAuthenticated&quot;).equals(true)) {</span>
+<span class="fc" id="L68">        authentication = handleAuthentication(claims.getSubject());</span>
+<span class="fc" id="L69">        SecurityContextHolder.getContext().setAuthentication(authentication);</span>
+<span class="fc" id="L70">      } else {</span>
+<span class="nc" id="L71">        filterChain.doFilter(request, response);</span>
+<span class="nc" id="L72">        return;</span>
+      }
+<span class="nc" id="L74">    } catch (ExpiredJwtException e) {</span>
+<span class="nc" id="L75">      handleExpiredToken(e.getClaims(), response);</span>
+<span class="nc" id="L76">    } catch (MalformedJwtException e) {</span>
+<span class="nc" id="L77">      throw new MalformedJwtException(&quot;Invalid JWT: &quot; + e.getMessage());</span>
+<span class="nc" id="L78">    } catch (JwtException e) {</span>
+
+<span class="nc" id="L80">      throw e;</span>
+    }
+
+<span class="fc" id="L83">    filterChain.doFilter(request, response);</span>
+<span class="fc" id="L84">  }</span>
+
+  public void handleExpiredToken(Claims claims, HttpServletResponse response) throws IOException {
+<span class="fc" id="L87">    RefreshToken refreshToken = refreshTokenService.getRefreshTokenByCustomerId(Long.parseLong(claims.getSubject()))</span>
+<span class="fc" id="L88">        .orElse(null);</span>
+
+<span class="pc bpc" id="L90" title="3 of 6 branches missed.">    if (refreshToken == null || refreshToken.getExpiration().isBefore(Instant.now()) || refreshToken.isBlock()) {</span>
+<span class="nc" id="L91">      return;</span>
+    }
+
+<span class="fc" id="L94">    Authentication authentication = handleAuthentication(claims.getSubject());</span>
+<span class="fc" id="L95">    SecurityContextHolder.getContext().setAuthentication(authentication);</span>
+
+<span class="fc" id="L97">    String newToken = jwtGenerator.generateToken(authentication);</span>
+<span class="fc" id="L98">    Cookie cookie = new Cookie(&quot;token&quot;, newToken);</span>
+<span class="fc" id="L99">    cookie.setHttpOnly(true);</span>
+<span class="fc" id="L100">    cookie.setPath(&quot;/&quot;);</span>
+<span class="fc" id="L101">    cookie.setMaxAge(-1);</span>
+<span class="fc" id="L102">    response.addCookie(cookie);</span>
+<span class="fc" id="L103">  }</span>
+
+  private Authentication handleAuthentication(String id) {
+<span class="fc" id="L106">    UserDetails userDetails = customUserDetailsService.loadUserByUsername(id);</span>
+
+<span class="fc" id="L108">    return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());</span>
+  }
+
+  @Override
+  protected boolean shouldNotFilter(@NonNull HttpServletRequest request) throws ServletException {
+<span class="fc" id="L113">    String path = request.getRequestURI();</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">    for (String pathToNotFilter : pathsToFilter) {</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">      if (path.contains(pathToNotFilter)) {</span>
+<span class="fc" id="L116">        return true;</span>
+      }
+    }
+<span class="fc" id="L119">    return false;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ResponseDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.dto</a> &gt; <span class="el_source">ResponseDTO.java</span></div><h1>ResponseDTO.java</h1><pre class="source lang-java linenums">package com.example.JO2024.dto;
+
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * This class represents a Data Transfer Object (DTO) for a response message and
+ * code.
+ * It contains fields for the message and code, with appropriate annotations for
+ * validation.
+ * The class includes a no-args constructor, all-args constructor, getters,
+ * setters, and a builder for easy object creation.
+ */
+<span class="fc" id="L19">@NoArgsConstructor</span>
+<span class="fc" id="L20">@AllArgsConstructor</span>
+<span class="fc" id="L21">@Getter</span>
+<span class="fc" id="L22">@Setter</span>
+<span class="pc" id="L23">@Builder</span>
+public class ResponseDTO {
+
+    @NotNull
+    private String message;
+
+    @NotNull
+    @Positive
+    private int code;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

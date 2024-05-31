@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.dto</a> &gt; <span class="el_source">LoginDTO.java</span></div><h1>LoginDTO.java</h1><pre class="source lang-java linenums">package com.example.JO2024.dto;
+
+import com.example.JO2024.errors.ErrorMessages;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+
+/**
+ * The LoginDTO class represents a data transfer object for login information.
+ * It contains the email address and password provided by the customer for
+ * authentication.
+ */
+<span class="fc" id="L15">@AllArgsConstructor</span>
+public class LoginDTO {
+
+  @NotNull
+  @Email
+  private String email;
+
+  @NotNull
+  @Pattern(regexp = &quot;(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[.*$_!\\-+@;:/\\\\|']+)[A-Za-z0-9.*$_!\\-+@;:/\\\\|']+&quot;, message = ErrorMessages.PASSWORD_WRONG_FORMAT)
+  private String password;
+
+  /**
+   * Get email address send by the customer for the authentification.
+   * 
+   * @return Email address send by the customer for the authentification.
+   */
+  public String getEmail() {
+<span class="fc" id="L32">    return email;</span>
+  }
+
+  /**
+   * Get the password send by the customer for the authentification.
+   * 
+   * @return Password send by the customer for the authentification.
+   */
+  public String getPassword() {
+<span class="fc" id="L41">    return password;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

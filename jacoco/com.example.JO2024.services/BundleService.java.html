@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BundleService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.services</a> &gt; <span class="el_source">BundleService.java</span></div><h1>BundleService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.services;
+
+import com.example.JO2024.models.Bundle;
+import com.example.JO2024.repositories.BundleRepository;
+
+import jakarta.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+<span class="fc" id="L15">public class BundleService {</span>
+
+    @Autowired
+    private BundleRepository bundleRepository;
+
+    /**
+     * Retrieve all bundles from the database.
+     *
+     * @return A list of all bundles stored in the database.
+     */
+    public List&lt;Bundle&gt; getAllBundles() {
+<span class="fc" id="L26">        return bundleRepository.findAll();</span>
+    }
+
+    /**
+     * Retrieve a specific bundle from the database by its ID.
+     *
+     * @param id The ID of the bundle to retrieve.
+     * @return An Optional containing the bundle if found, empty otherwise.
+     */
+    public Optional&lt;Bundle&gt; getBundleById(Long id) {
+<span class="fc" id="L36">        return bundleRepository.findById(id);</span>
+    }
+
+    /**
+     * Create a new bundle in the database.
+     *
+     * @param bundle The bundle object to be created.
+     * @return The created bundle object.
+     */
+    public Bundle createBundle(Bundle bundle) {
+<span class="fc" id="L46">        return bundleRepository.save(bundle);</span>
+    }
+
+    /**
+     * Update a specific bundle in the database by its ID with the provided details.
+     *
+     * @param id            The ID of the bundle to update.
+     * @param bundleDetails The updated details of the bundle.
+     * @return The updated bundle object if the update was successful, null
+     *         otherwise.
+     */
+    public Bundle updateBundle(Long id, Bundle bundleDetails) {
+<span class="fc" id="L58">        Bundle bundle = bundleRepository.findById(id).orElse(null);</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">        if (bundle != null) {</span>
+<span class="fc" id="L60">            bundle.setTitle(bundleDetails.getTitle());</span>
+<span class="fc" id="L61">            bundle.setDescription(bundleDetails.getDescription());</span>
+<span class="fc" id="L62">            bundle.setQuantity(bundleDetails.getQuantity());</span>
+<span class="fc" id="L63">            bundle.setTicket(bundleDetails.getTicket());</span>
+<span class="fc" id="L64">            bundle.setDiscount(bundleDetails.getDiscount());</span>
+<span class="fc" id="L65">            return bundleRepository.save(bundle);</span>
+        }
+<span class="nc" id="L67">        return null;</span>
+    }
+
+    @Transactional
+    /**
+     * Delete a specific bundle from the database by its ID.
+     *
+     * @param id The ID of the bundle to delete.
+     */
+    public void deleteBundle(Long id) {
+<span class="fc" id="L77">        bundleRepository.deleteById(id);</span>
+<span class="fc" id="L78">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

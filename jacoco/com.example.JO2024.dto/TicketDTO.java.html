@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.dto</a> &gt; <span class="el_source">TicketDTO.java</span></div><h1>TicketDTO.java</h1><pre class="source lang-java linenums">package com.example.JO2024.dto;
+
+import java.math.BigDecimal;
+import java.time.Instant;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * Represents a Data Transfer Object (DTO) for a ticket.
+ * This DTO includes information such as the ticket ID, title, description,
+ * quantity, price,
+ * availability status, start date, and end date.
+ * The class provides constructors to create a TicketDTO object with different
+ * combinations of parameters.
+ * It also includes getter and setter methods for each field, as well as a
+ * builder for easy object creation.
+ */
+<span class="fc" id="L28">@NoArgsConstructor</span>
+<span class="fc" id="L29">@AllArgsConstructor</span>
+<span class="fc" id="L30">@Getter</span>
+<span class="fc" id="L31">@Setter</span>
+<span class="pc" id="L32">@Builder</span>
+public class TicketDTO {
+
+    private long id;
+
+    @NotEmpty
+    @NotNull
+    @Size(min = 3, max = 25)
+    private String title;
+
+    @Size(min = 5, max = 250)
+    private String description;
+
+    @NotNull
+    @Positive
+    private int quantity;
+
+    @NotNull
+    @Positive
+    private BigDecimal price;
+
+    @NotNull
+    @JsonProperty(&quot;isAvailable&quot;)
+    private boolean isAvailable;
+
+    @NotNull
+    private Instant startDate;
+
+    @NotNull
+    private Instant endDate;
+
+<span class="fc" id="L63">    public TicketDTO(@NotEmpty @NotNull @Size(min = 3, max = 25) String title,</span>
+            @Size(min = 5, max = 250) String description, @NotNull @Positive int quantity,
+            @NotNull @Positive BigDecimal price, @NotNull boolean isAvailable, @NotNull Instant startDate,
+            @NotNull Instant endDate) {
+<span class="fc" id="L67">        this.title = title;</span>
+<span class="fc" id="L68">        this.description = description;</span>
+<span class="fc" id="L69">        this.quantity = quantity;</span>
+<span class="fc" id="L70">        this.price = price;</span>
+<span class="fc" id="L71">        this.isAvailable = isAvailable;</span>
+<span class="fc" id="L72">        this.startDate = startDate;</span>
+<span class="fc" id="L73">        this.endDate = endDate;</span>
+<span class="fc" id="L74">    }</span>
+
+<span class="fc" id="L76">    public TicketDTO(@NotEmpty @NotNull @Size(min = 3, max = 25) String title,</span>
+            @Size(min = 5, max = 250) String description,
+            @NotNull @Positive BigDecimal price, @NotNull Instant startDate,
+            @NotNull Instant endDate) {
+<span class="fc" id="L80">        this.title = title;</span>
+<span class="fc" id="L81">        this.description = description;</span>
+<span class="fc" id="L82">        this.price = price;</span>
+<span class="fc" id="L83">        this.startDate = startDate;</span>
+<span class="fc" id="L84">        this.endDate = endDate;</span>
+<span class="fc" id="L85">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

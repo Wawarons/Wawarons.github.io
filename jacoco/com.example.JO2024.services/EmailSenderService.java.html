@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmailSenderService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.services</a> &gt; <span class="el_source">EmailSenderService.java</span></div><h1>EmailSenderService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.services;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
+
+import com.example.JO2024.QrCodeGenerator;
+import com.example.JO2024.models.Code;
+import com.example.JO2024.models.Customer;
+import com.google.zxing.WriterException;
+
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+
+/**
+ * This class is responsible for sending emails to customers.
+ * It utilizes the JavaMailSender to send emails using the configured email
+ * username.
+ * The class provides methods to generate a random six-digit code, send an email
+ * with a specified subject and body,
+ * send a validation code to a customer via email, and send a confirmation email
+ * to a customer upon successful registration.
+ */
+@Service
+<span class="fc" id="L34">public class EmailSenderService {</span>
+
+  @Autowired
+  private JavaMailSender mailSender;
+
+  @Value(&quot;${email.username}&quot;)
+  private String emailUsername;
+
+  @Value(&quot;${resetPassword.link}&quot;)
+  private String resetPasswordLink;
+
+  /**
+   * Sends an email to the specified address with the given subject and body.
+   *
+   * @param email   The recipient's email address.
+   * @param subject The subject of the email.
+   * @param body    The body of the email.
+   */
+  public void sendEmail(String email, String subject, String body) {
+
+<span class="fc" id="L54">    SimpleMailMessage message = new SimpleMailMessage();</span>
+<span class="fc" id="L55">    message.setFrom(emailUsername);</span>
+<span class="fc" id="L56">    message.setTo(email);</span>
+<span class="fc" id="L57">    message.setText(body);</span>
+<span class="fc" id="L58">    message.setSubject(subject);</span>
+
+<span class="fc" id="L60">    mailSender.send(message);</span>
+<span class="fc" id="L61">  }</span>
+
+  /**
+   * Sends a validation code to a customer via email.
+   * 
+   * @param customer The customer to whom the validation code will be sent.
+   */
+  public void sendValidationCode(Customer customer, Code code) {
+<span class="fc" id="L69">    code.setCustomer(customer);</span>
+<span class="fc" id="L70">    sendEmail(customer.getEmail(), &quot;Validation Code&quot;,</span>
+<span class="fc" id="L71">        &quot;Your validation code is: &quot; + code.getCode());</span>
+<span class="fc" id="L72">  }</span>
+
+  /**
+   * Sends a confirmation email to a customer upon successful registration.
+   * 
+   * @param customer The customer who has successfully registered.
+   */
+  public void sendConfirmationEmail(Customer customer) {
+<span class="fc" id="L80">    sendEmail(customer.getEmail(), &quot;Registration Confirmation&quot;,</span>
+<span class="fc" id="L81">        &quot;Hello &quot; + customer.getFirstname() + &quot;, thank you for registering with the Olympic Games.&quot;);</span>
+<span class="fc" id="L82">  }</span>
+
+  public void sendResetPasswordLink(Customer customer, String token) {
+<span class="fc" id="L85">    String message = generateResetPasswordEmail(customer.getFirstname(), resetPasswordLink, token);</span>
+<span class="fc" id="L86">    sendEmail(customer.getEmail(), &quot;Reset Password&quot;,</span>
+<span class="fc" id="L87">        message);</span>
+<span class="fc" id="L88">  }</span>
+
+  /**
+   * Sends a reset password confirmation email to the specified customer.
+   * 
+   * @param customer The customer who requested the password reset.
+   */
+  public void sendResetPasswordLinkConfirmation(Customer customer) {
+<span class="fc" id="L96">    String message = generateConfirmationResetPasswordEmail(customer.getFirstname());</span>
+<span class="fc" id="L97">    sendEmail(customer.getEmail(), &quot;Reset password confirmation&quot;,</span>
+<span class="fc" id="L98">        message);</span>
+<span class="fc" id="L99">  }</span>
+
+  /**
+   * Generates an email message for resetting a user's password.
+   *
+   * @param userName          The name of the user requesting the password reset.
+   * @param resetPasswordLink The link to reset the password.
+   * @param token             The token for resetting the password.
+   * @return A formatted email message containing instructions and a link to reset
+   *         the password.
+   */
+  public static String generateResetPasswordEmail(String userName, String resetPasswordLink, String token) {
+<span class="fc" id="L111">    String companyName = &quot;Olympics games 2024&quot;;</span>
+
+<span class="fc" id="L113">    return &quot;Dear &quot; + userName + &quot;,\n\n&quot;</span>
+        + &quot;We received a request to reset your password for your account. To reset your password, please click the link below:\n\n&quot;
+<span class="fc" id="L115">        + resetPasswordLink + &quot;?token=&quot; + token + &quot;\n\n&quot;</span>
+        + &quot;For security reasons, this link will expire in 24 hours. If you did not request a password reset, please ignore this email.\n\n&quot;
+        + &quot;Best regards,\n\n&quot;
+<span class="fc" id="L118">        + companyName + &quot; Support Team&quot;;</span>
+  }
+
+  /**
+   * Generates a confirmation email for a password reset.
+   *
+   * @param userName The name of the user whose password has been reset.
+   * @return A formatted confirmation email message containing the user's name,
+   *         information about the password reset,
+   *         and instructions on how to proceed if the reset was not requested.
+   */
+  public static String generateConfirmationResetPasswordEmail(String userName) {
+<span class="fc" id="L130">    String companyName = &quot;Olympics games 2024&quot;;</span>
+
+<span class="fc" id="L132">    return &quot;Dear &quot; + userName + &quot;,\n&quot;</span>
+        + &quot;We're writing to inform you that your password has been successfully reset for your account. You can now access your account using your new password.\n&quot;
+        + &quot;If you initiated this action, you can disregard this message.\n&quot;
+        + &quot;If you didn't request this password reset, please contact our support team immediately to take necessary actions to secure your account.\n\n&quot;
+        + &quot;Thank you for your trust.\n&quot;
+        + &quot;Best regards,\n&quot;
+<span class="fc" id="L138">        + companyName + &quot; Support Team&quot;;</span>
+  }
+
+  public void sendEmailWithAttachment(String toEmail, String subject, String body, byte[] attachmentBytes,
+      String attachmentName) throws MessagingException {
+<span class="nc" id="L143">    MimeMessage message = mailSender.createMimeMessage();</span>
+<span class="nc" id="L144">    MimeMessageHelper helper = new MimeMessageHelper(message, true);</span>
+
+<span class="nc" id="L146">    helper.setFrom(emailUsername);</span>
+<span class="nc" id="L147">    helper.setTo(toEmail);</span>
+<span class="nc" id="L148">    helper.setSubject(subject);</span>
+<span class="nc" id="L149">    helper.setText(body);</span>
+
+<span class="nc" id="L151">    helper.addAttachment(attachmentName, new ByteArrayResource(attachmentBytes));</span>
+
+<span class="nc" id="L153">    mailSender.send(message);</span>
+<span class="nc" id="L154">  }</span>
+
+  public void sendEmailWithAttachments(String toEmail, String subject, String body, List&lt;Map.Entry&lt;String, byte[]&gt;&gt; attachments) throws MessagingException {
+<span class="fc" id="L157">    MimeMessage message = mailSender.createMimeMessage();</span>
+<span class="fc" id="L158">    MimeMessageHelper helper = new MimeMessageHelper(message, true);</span>
+
+<span class="fc" id="L160">    helper.setFrom(emailUsername);</span>
+<span class="fc" id="L161">    helper.setTo(toEmail);</span>
+<span class="fc" id="L162">    helper.setSubject(subject);</span>
+<span class="fc" id="L163">    helper.setText(body);</span>
+
+<span class="fc bfc" id="L165" title="All 2 branches covered.">    for (Map.Entry&lt;String, byte[]&gt; attachment : attachments) {</span>
+<span class="fc" id="L166">        helper.addAttachment(attachment.getKey(), new ByteArrayResource(attachment.getValue()));</span>
+    }
+
+<span class="fc" id="L169">    mailSender.send(message);</span>
+<span class="fc" id="L170">}</span>
+
+  public void sendEmailTicket(Customer customer, String content, String subject, String body) throws Exception {
+    try {
+<span class="nc" id="L174">      BufferedImage qrCodeImageBytes = QrCodeGenerator.generateQRCodeImage(content);</span>
+<span class="nc" id="L175">      byte[] qrCodeImage = QrCodeGenerator.toByteArray(qrCodeImageBytes, &quot;png&quot;);</span>
+<span class="nc" id="L176">      sendEmailWithAttachment(customer.getEmail(), subject, body, qrCodeImage, &quot;qrcode.png&quot;);</span>
+<span class="nc" id="L177">    } catch (WriterException | IOException | MessagingException e) {</span>
+<span class="nc" id="L178">      e.printStackTrace();</span>
+    }
+<span class="nc" id="L180">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

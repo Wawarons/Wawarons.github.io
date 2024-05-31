@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CodeService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.services</a> &gt; <span class="el_source">CodeService.java</span></div><h1>CodeService.java</h1><pre class="source lang-java linenums">package com.example.JO2024.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.JO2024.repositories.CodeRepository;
+
+import com.example.JO2024.models.Code;
+import com.example.JO2024.models.Customer;
+
+/**
+ * The CodeService class is responsible for managing validation codes.
+ * It provides methods for creating, deleting, updating, and retrieving
+ * validation codes.
+ * Additionally, it allows sending new validation codes to customers.
+ */
+@Service
+<span class="fc" id="L21">public class CodeService {</span>
+
+    @Autowired
+    private EmailSenderService emailSenderService;
+
+    @Autowired
+    private CodeRepository codeRepository;
+
+    /**
+     * Creates a validation code.
+     * 
+     * @param code The validation code to create.
+     */
+    public void create(Code code) {
+<span class="fc" id="L35">        codeRepository.save(code);</span>
+<span class="fc" id="L36">    }</span>
+
+    /**
+     * Deletes a validation code.
+     * 
+     * @param code The validation code to delete.
+     */
+    public void delete(Code code) {
+<span class="fc" id="L44">        codeRepository.delete(code);</span>
+<span class="fc" id="L45">    }</span>
+
+    public void update(Code code) {
+<span class="fc" id="L48">        codeRepository.save(code);</span>
+<span class="fc" id="L49">    }</span>
+
+    /**
+     * Retrieves a validation code associated with a customer.
+     * 
+     * @param id The ID of the customer.
+     * @return The validation code associated with the customer.
+     */
+    public Optional&lt;List&lt;Code&gt;&gt; getAllByCustomerId(long id) {
+<span class="fc" id="L58">        return codeRepository.findAllByCustomerId(id);</span>
+    }
+
+    /**
+     * Retrieves the last validation code associated with a customer.
+     * 
+     * @param id The ID of the customer.
+     * @return The last validation code associated with the customer.
+     */
+    public Optional&lt;Code&gt; getLastCodeByCustomerId(long id) {
+<span class="fc" id="L68">        return codeRepository.findFirstByCustomerIdOrderByCreatedAtDesc(id);</span>
+    }
+
+    /**
+     * Sends a new validation code to the specified customer.
+     * 
+     * @param customer The customer to send the validation code to.
+     */
+    public void sendNewCode(Customer customer) {
+<span class="fc" id="L77">        Code code = new Code();</span>
+<span class="fc" id="L78">        code.setCustomer(customer);</span>
+<span class="fc" id="L79">        create(code);</span>
+<span class="fc" id="L80">        emailSenderService.sendValidationCode(customer, code);</span>
+<span class="fc" id="L81">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

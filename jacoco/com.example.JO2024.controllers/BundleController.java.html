@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BundleController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.controllers</a> &gt; <span class="el_source">BundleController.java</span></div><h1>BundleController.java</h1><pre class="source lang-java linenums">package com.example.JO2024.controllers;
+
+import com.example.JO2024.models.Bundle;
+import com.example.JO2024.services.BundleService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+@RestController
+<span class="fc" id="L14">public class BundleController {</span>
+
+    @Autowired
+    private BundleService bundleService;
+
+    /**
+     * Retrieves all bundles.
+     *
+     * @return A list of all Bundle objects.
+     */
+    @GetMapping(&quot;/bundles&quot;)
+    public List&lt;Bundle&gt; getAllBundles() {
+<span class="fc" id="L26">        return bundleService.getAllBundles();</span>
+    }
+
+    /**
+     * Retrieves a bundle by its ID.
+     * 
+     * @param id The ID of the bundle to retrieve.
+     * @return A ResponseEntity containing the retrieved Bundle object.
+     * @throws NoSuchElementException if the bundle with the specified ID is not
+     *                                found.
+     */
+    @GetMapping(&quot;/bundle/{id}&quot;)
+    public ResponseEntity&lt;Bundle&gt; getBundleById(@PathVariable Long id) {
+<span class="fc" id="L39">        Bundle bundle = bundleService.getBundleById(id)</span>
+<span class="pc" id="L40">                .orElseThrow(() -&gt; new NoSuchElementException(&quot;Bundle not found&quot;));</span>
+<span class="fc" id="L41">        return ResponseEntity.ok(bundle);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

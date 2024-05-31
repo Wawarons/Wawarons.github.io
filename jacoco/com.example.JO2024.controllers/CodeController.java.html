@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CodeController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.controllers</a> &gt; <span class="el_source">CodeController.java</span></div><h1>CodeController.java</h1><pre class="source lang-java linenums">package com.example.JO2024.controllers;
+
+import java.time.Instant;
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.JO2024.dto.ClaimCodeDTO;
+import com.example.JO2024.dto.ValidateCodeDTO;
+import com.example.JO2024.errors.ErrorMessages;
+import com.example.JO2024.errors.ErrorResponse;
+import com.example.JO2024.models.Code;
+import com.example.JO2024.models.Customer;
+import com.example.JO2024.services.AuthService;
+import com.example.JO2024.services.CodeService;
+import com.example.JO2024.services.CustomerService;
+import com.example.JO2024.services.EmailSenderService;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
+
+/**
+ * Class for handle the endpoint API related to de the validation code.
+ * 
+ * @author Adrien Podsiadly
+ * @version 1.0
+ */
+@RestController
+@RequestMapping(&quot;/auth/code/&quot;)
+public class CodeController {
+
+  private final CodeService codeService;
+  private final CustomerService customerService;
+  private final AuthService authService;
+
+<span class="fc" id="L45">  public CodeController(CodeService codeService, CustomerService customerService, EmailSenderService emailSenderService,</span>
+      AuthService authService) {
+<span class="fc" id="L47">    this.codeService = codeService;</span>
+<span class="fc" id="L48">    this.customerService = customerService;</span>
+<span class="fc" id="L49">    this.authService = authService;</span>
+<span class="fc" id="L50">  }</span>
+
+  /**
+   * Get the validation send by the user and check his validity.
+   * If the code is valid change the state of the user to verified.
+   * 
+   * @param validateCodeDTO Data Transfer Object that represant a code validation.
+   * @return ResponseEntity return HTTP statut OK if the code is valid else HTTP
+   *         status UNAUTHORIZED.
+   */
+  @PostMapping(path = &quot;validate&quot;)
+  public ResponseEntity&lt;?&gt; validateEmail(@Valid @RequestBody ValidateCodeDTO validateCodeDTO,
+      HttpServletRequest request, HttpServletResponse response) {
+
+<span class="fc" id="L64">    Code code = codeService.getLastCodeByCustomerId(validateCodeDTO.getUserId())</span>
+<span class="fc" id="L65">        .orElseThrow(() -&gt; new NoSuchElementException());</span>
+
+<span class="pc bpc" id="L67" title="1 of 4 branches missed.">    if (code.getIsUsed() || code.getExpiration().isBefore(Instant.now())</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        || !code.getCode().equals(validateCodeDTO.getCode()))</span>
+<span class="fc" id="L69">      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(</span>
+<span class="fc" id="L70">          new ErrorResponse(&quot;Code validation faillure&quot;, List.of(ErrorMessages.CODE_INVALID),</span>
+<span class="fc" id="L71">              HttpStatus.BAD_REQUEST.value()));</span>
+
+<span class="fc" id="L73">    Customer customer = customerService.getCustomerById(validateCodeDTO.getUserId())</span>
+<span class="pc" id="L74">        .orElseThrow(() -&gt; new UsernameNotFoundException(ErrorMessages.USER_NOT_FOUND));</span>
+
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">    if (!customer.isVerified())</span>
+<span class="fc" id="L77">      authService.accountVerified(customer);</span>
+
+<span class="fc" id="L79">    String token = authService.grantUserAccess(request);</span>
+<span class="fc" id="L80">    Cookie cookie = new Cookie(&quot;token&quot;, token);</span>
+<span class="fc" id="L81">    cookie.setPath(&quot;/&quot;);</span>
+<span class="fc" id="L82">    cookie.setHttpOnly(true);</span>
+<span class="fc" id="L83">    response.addCookie(cookie);</span>
+<span class="fc" id="L84">    code.setIsUsed(true);</span>
+<span class="fc" id="L85">    codeService.update(code);</span>
+<span class="fc" id="L86">    return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+  }
+
+  /**
+   * Claims a new code for the given customer.
+   * 
+   * @param claimCodeDTO The ClaimCodeDTO object containing the email of the
+   *                     customer.
+   * @return A ResponseEntity with HTTP status OK if the code is claimed
+   *         successfully.
+   * @throws UsernameNotFoundException If the customer with the given email is not
+   *                                   found.
+   */
+  @PostMapping(&quot;claim&quot;)
+  public ResponseEntity&lt;?&gt; claimNewCode(@Valid @RequestBody ClaimCodeDTO claimCodeDTO) {
+<span class="fc" id="L101">    Customer customer = customerService.getCustomerByEmail(claimCodeDTO.getEmail())</span>
+<span class="fc" id="L102">        .orElseThrow(() -&gt; new UsernameNotFoundException(ErrorMessages.USER_NOT_FOUND));</span>
+<span class="fc" id="L103">    codeService.sendNewCode(customer);</span>
+<span class="fc" id="L104">    return ResponseEntity.ok().build();</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

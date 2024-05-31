@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JO2024</a> &gt; <a href="index.source.html" class="el_package">com.example.JO2024.controllers</a> &gt; <span class="el_source">TicketController.java</span></div><h1>TicketController.java</h1><pre class="source lang-java linenums">package com.example.JO2024.controllers;
+
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.JO2024.InstantTypeAdapter;
+import com.example.JO2024.dto.ResponseDTO;
+import com.example.JO2024.dto.TicketDTO;
+import com.example.JO2024.models.Ticket;
+import com.example.JO2024.services.TicketService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
+
+import java.time.Instant;
+import java.util.List;
+
+/**
+ * This class represents a controller for handling ticket-related operations.
+ * It includes methods for retrieving all tickets, getting a ticket by its ID,
+ * creating a new ticket, updating an existing ticket, and deleting a ticket.
+ * The controller interacts with the TicketService to perform these operations.
+ */
+@RestController
+<span class="fc" id="L37">@Slf4j</span>
+<span class="fc" id="L38">public class TicketController {</span>
+
+        @Autowired
+        private TicketService ticketService;
+
+        /**
+         * Retrieves all tickets from the system.
+         * 
+         * @return ResponseEntity containing a JSON representation of the list of
+         *         TicketDTO objects
+         * @throws Exception 
+         */
+        @GetMapping(path = &quot;/tickets&quot;)
+        public ResponseEntity&lt;?&gt; getTickets() throws Exception {
+<span class="fc" id="L52">                log.info(&quot;Fetching all tickets&quot;);</span>
+<span class="fc" id="L53">                Gson gson = new GsonBuilder()</span>
+<span class="fc" id="L54">                                .registerTypeAdapter(Instant.class, new InstantTypeAdapter())</span>
+<span class="fc" id="L55">                                .create();</span>
+
+<span class="fc" id="L57">                List&lt;TicketDTO&gt; tickets = ticketService.getAllTickets().stream()</span>
+<span class="fc" id="L58">                                .map((ticket) -&gt; new TicketDTO(ticket.getId(), ticket.getTitle(),</span>
+<span class="fc" id="L59">                                                ticket.getDescription(),</span>
+<span class="fc" id="L60">                                                ticket.getQuantity(), ticket.getPrice(),</span>
+<span class="fc" id="L61">                                                ticket.isAvailable(), ticket.getStartDate(), ticket.getEndDate()))</span>
+<span class="fc" id="L62">                                .collect(Collectors.toList());</span>
+
+<span class="fc" id="L64">                log.info(&quot;Fetched {} tickets&quot;, tickets.size());</span>
+<span class="fc" id="L65">                return new ResponseEntity&lt;&gt;(gson.toJson(tickets), HttpStatus.OK);</span>
+        }
+
+        /**
+         * Retrieves a ticket by its ID.
+         * 
+         * @param id The ID of the ticket to retrieve
+         * @return ResponseEntity containing a JSON representation of the Ticket object
+         * @throws NoSuchElementException if the ticket with the given ID is not found
+         */
+        @GetMapping(path = &quot;/ticket/{id}&quot;)
+        public ResponseEntity&lt;?&gt; getTicketById(@PathVariable(&quot;id&quot;) long id) {
+<span class="fc" id="L77">                log.info(&quot;Fetching ticket with id: {}&quot;, id);</span>
+<span class="fc" id="L78">                Gson gson = new GsonBuilder()</span>
+<span class="fc" id="L79">                                .registerTypeAdapter(Instant.class, new InstantTypeAdapter())</span>
+<span class="fc" id="L80">                                .create();</span>
+
+<span class="fc" id="L82">                Ticket ticket = ticketService.getTicketById(id)</span>
+<span class="fc" id="L83">                                .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L84">                                        log.error(&quot;Ticket not found with id: {}&quot;, id);</span>
+<span class="fc" id="L85">                                        return new NoSuchElementException(&quot;Ticket not found&quot;);</span>
+                                });
+<span class="fc" id="L87">                TicketDTO ticketDTO = TicketDTO.builder().id(ticket.getId()).title(ticket.getTitle())</span>
+<span class="fc" id="L88">                                .description(ticket.getDescription()).quantity(ticket.getQuantity()).price(ticket.getPrice())</span>
+<span class="fc" id="L89">                                .isAvailable(ticket.isAvailable()).startDate(ticket.getStartDate()).endDate(ticket.getEndDate()).build();</span>
+
+<span class="fc" id="L91">                log.info(&quot;Fetched ticket with id: {}&quot;, id);</span>
+<span class="fc" id="L92">                return new ResponseEntity&lt;&gt;(gson.toJson(ticketDTO), HttpStatus.OK);</span>
+        }
+
+        /**
+         * Creates a new ticket based on the provided TicketDTO.
+         * 
+         * @param ticketDTO The TicketDTO object containing the details of the new
+         *                  ticket
+         * @return ResponseEntity containing a ResponseDTO with the HTTP status code and
+         *         message
+         */
+        @PostMapping(path = &quot;admin/ticket/create&quot;)
+        public ResponseEntity&lt;?&gt; createNewTicket(@Valid @RequestBody TicketDTO ticketDTO) {
+<span class="fc" id="L105">                log.info(&quot;Creating new ticket with title: {}&quot;, ticketDTO.getTitle());</span>
+
+<span class="fc" id="L107">                Ticket ticket = Ticket.builder()</span>
+<span class="fc" id="L108">                                .title(ticketDTO.getTitle())</span>
+<span class="fc" id="L109">                                .description(ticketDTO.getDescription())</span>
+<span class="fc" id="L110">                                .price(ticketDTO.getPrice())</span>
+<span class="fc" id="L111">                                .isAvailable(ticketDTO.isAvailable())</span>
+<span class="fc" id="L112">                                .quantity(ticketDTO.getQuantity())</span>
+<span class="fc" id="L113">                                .startDate(ticketDTO.getStartDate())</span>
+<span class="fc" id="L114">                                .endDate(ticketDTO.getEndDate())</span>
+<span class="fc" id="L115">                                .build();</span>
+<span class="fc" id="L116">                ticketService.create(ticket);</span>
+
+<span class="fc" id="L118">                log.info(&quot;Created new ticket with id: {}&quot;, ticket.getId());</span>
+<span class="fc" id="L119">                return new ResponseEntity&lt;&gt;(</span>
+<span class="fc" id="L120">                                ResponseDTO.builder().code(HttpStatus.CREATED.value())</span>
+<span class="fc" id="L121">                                                .message(&quot;Ticket created successfully&quot;).build(),</span>
+<span class="fc" id="L122">                                HttpStatus.CREATED);</span>
+        }
+
+        /**
+         * Updates an existing ticket with the provided ID using the details from the
+         * given TicketDTO object.
+         * 
+         * @param id        The ID of the ticket to update
+         * @param ticketDTO The TicketDTO object containing the updated details
+         * @return ResponseEntity containing a ResponseDTO with the HTTP status code and
+         *         message
+         * @throws NoSuchElementException if the ticket with the given ID is not found
+         */
+        @PostMapping(path = &quot;admin/ticket/{id}/update&quot;)
+        public ResponseEntity&lt;?&gt; updateTicket(@PathVariable(&quot;id&quot;) long id, @Valid @RequestBody TicketDTO ticketDTO) {
+<span class="fc" id="L137">                log.info(&quot;Updating ticket with id: {}&quot;, id);</span>
+
+<span class="fc" id="L139">                Ticket ticket = ticketService.getTicketById(id)</span>
+<span class="fc" id="L140">                                .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L141">                                        log.error(&quot;Ticket not found with id: {}&quot;, id);</span>
+<span class="fc" id="L142">                                        return new NoSuchElementException(&quot;Ticket not found&quot;);</span>
+                                });
+<span class="fc" id="L144">                ticket = ticketService.updateByTicketDTO(ticket, ticketDTO);</span>
+<span class="fc" id="L145">                ticketService.update(ticket);</span>
+
+<span class="fc" id="L147">                log.info(&quot;Updated ticket with id: {}&quot;, id);</span>
+<span class="fc" id="L148">                return new ResponseEntity&lt;&gt;(</span>
+<span class="fc" id="L149">                                ResponseDTO.builder().code(HttpStatus.OK.value())</span>
+<span class="fc" id="L150">                                                .message(&quot;Ticket updated successfully&quot;).build(),</span>
+<span class="fc" id="L151">                                HttpStatus.OK);</span>
+        }
+
+        /**
+         * Deletes a ticket with the specified ID.
+         * 
+         * @param id The ID of the ticket to be deleted
+         * @return ResponseEntity containing a ResponseDTO with the HTTP status code and
+         *         message
+         * @throws NoSuchElementException if the ticket with the given ID is not found
+         */
+        @DeleteMapping(path = &quot;admin/ticket/{id}/delete&quot;)
+        public ResponseEntity&lt;?&gt; deleteTicket(@PathVariable(&quot;id&quot;) long id) {
+<span class="fc" id="L164">                log.info(&quot;Deleting ticket with id: {}&quot;, id);</span>
+
+<span class="pc" id="L166">                Ticket ticket = ticketService.getTicketById(id)</span>
+<span class="nc" id="L167">                                .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L168">                                        log.error(&quot;Ticket not found with id: {}&quot;, id);</span>
+<span class="fc" id="L169">                                        return new NoSuchElementException(&quot;Ticket not found&quot;);</span>
+                                });
+<span class="nc" id="L171">                ticketService.delete(ticket);</span>
+
+<span class="nc" id="L173">                log.info(&quot;Deleted ticket with id: {}&quot;, id);</span>
+<span class="nc" id="L174">                return new ResponseEntity&lt;&gt;(</span>
+<span class="nc" id="L175">                                ResponseDTO.builder().code(HttpStatus.OK.value())</span>
+<span class="nc" id="L176">                                                .message(&quot;Ticket deleted successfully&quot;).build(),</span>
+<span class="nc" id="L177">                                HttpStatus.OK);</span>
+        }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
